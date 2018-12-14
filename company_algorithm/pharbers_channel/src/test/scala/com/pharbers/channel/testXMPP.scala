@@ -1,19 +1,52 @@
 package com.pharbers.channel
 
 import akka.actor.ActorSystem
-import com.pharbers.channel.driver.xmpp.xmppClient
 import com.pharbers.channel.consumer.callJobXmppConsumer
-import com.pharbers.channel.progress.sendXmppSingleProgress
-
-import scala.language.postfixOps
+import com.pharbers.channel.detail.PhMaxJob
+import com.pharbers.channel.driver.xmpp.xmppClient
+import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
 object testXMPP extends App {
-    val system = ActorSystem("maxActor")
-    val acter_location = xmppClient.startLocalClient(system, new callJobXmppConsumer(system))
+    implicit val system = ActorSystem("maxActor")
+    implicit val xmppconfig: XmppConfigType = Map(
+        "xmpp_host" -> "192.168.100.172",
+        "xmpp_port" -> "5222",
+        "xmpp_user" -> "cui",
+        "xmpp_pwd" -> "cui",
+        "xmpp_listens" -> "alfred@localhost#lu@localhost",
+        "xmpp_report" -> "lu@localhost#admin@localhost",
+        "xmpp_pool_num" -> "1"
+    )
+    val acter_location = xmppClient.startLocalClient(new callJobXmppConsumer)
+    val xmppconfig2: XmppConfigType = Map(
+        "xmpp_host" -> "192.168.100.172",
+        "xmpp_port" -> "5222",
+        "xmpp_user" -> "alfred",
+        "xmpp_pwd" -> "alfred",
+        "xmpp_listens" -> "alfred@localhost#lu@localhost",
+        "xmpp_report" -> "lu@localhost#admin@localhost",
+        "xmpp_pool_num" -> "1"
+    )
+    val acter_location2 = xmppClient.startLocalClient(new callJobXmppConsumer()(system, xmppconfig2))(system, xmppconfig2)
+    val acter_location3 = xmppClient.startLocalClient(new callJobXmppConsumer()(system, xmppconfig2))(system, xmppconfig2)
     println(acter_location)
+    println(acter_location2)
+    println(acter_location3)
 
-    val sendActor = system.actorSelection(acter_location) // "akka://maxActor/user/xmpp"
+    val sendActor = system.actorSelection(acter_location2) // "akka://maxActor/user/xmpp"
+    val result = new PhMaxJob
+    result.company_id = "a"
+    result.user_id = "b"
+    result.call = "c"
+    result.job_id = "d"
+    result.percentage = 1
+    sendActor ! result
 
-    val a = sendXmppSingleProgress("company_id", "user_id", "call", "job_id")(sendActor).singleProgress
-    a(Map("progress" -> 1))
+//    xmppClient.stopLocalClient()(system, xmppconfig2)
+//    sendActor ! result
+//
+//    val acter_location4 = xmppClient.startLocalClient(new callJobXmppConsumer()(system, xmppconfig2))(system, xmppconfig2)
+//    println(acter_location4)
+//    val sendActor4 = system.actorSelection(acter_location4)
+//    sendActor4 ! result
 }

@@ -16,12 +16,18 @@ import org.apache.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHel
   */
 case class MaxSparkListener(helper: PhListenHelperTrait, job_name: String) extends MaxSparkListenerTrait {
 
-    override def onJobStart(job: SparkListenerJobStart): Unit =
+    override def onJobStart(job: SparkListenerJobStart): Unit ={
+        println("onJobStart")
         helper.jobStart(job.stageInfos.map(stageInfo => stageInfo.numTasks).sum)
+    }
 
-    override def onTaskEnd(task: SparkListenerTaskEnd): Unit =
+    override def onTaskEnd(task: SparkListenerTaskEnd): Unit ={
+        println("onTaskEnd")
         helper.taskEnd(this)
+    }
 
-    override def onJobEnd(job: SparkListenerJobEnd): Unit =
+    override def onJobEnd(job: SparkListenerJobEnd): Unit = {
+        println("onJobEnd")
         helper.jobEnd()
+    }
 }

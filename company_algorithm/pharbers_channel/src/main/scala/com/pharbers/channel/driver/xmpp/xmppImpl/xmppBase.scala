@@ -1,21 +1,18 @@
 package com.pharbers.channel.driver.xmpp.xmppImpl
 
-import com.pharbers.baseModules.PharbersInjectModule
+import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
-trait xmppBase extends PharbersInjectModule {
-    override val id: String = "xmpp-module"
-    override val configPath: String = "pharbers_config/xmpp_manager.xml"
-    override val md = "xmpp-host" :: "xmpp-port" :: "xmpp-user" ::
-            "xmpp-pwd" :: "xmpp-listens" :: "xmpp-report" :: "xmpp-pool-num" :: Nil
+object xmppBase {
+    type XmppConfigType = Map[String, String]
+}
 
-    val xmpp_host = config.mc.find(p => p._1 == "xmpp-host").get._2.toString
-    val xmpp_port = config.mc.find(p => p._1 == "xmpp-port").get._2.toString.toInt
-    val xmpp_user = config.mc.find(p => p._1 == "xmpp-user").get._2.toString
-    val xmpp_pwd = config.mc.find(p => p._1 == "xmpp-pwd").get._2.toString
-
-    val xmpp_listens = config.mc.find(p => p._1 == "xmpp-listens").get._2.toString.split("#")
-    val xmpp_report = config.mc.find(p => p._1 == "xmpp-report").get._2.toString.split("#")
-
-    val xmpp_pool_num = config.mc.find(p => p._1 == "xmpp-pool-num").get._2.toString.toInt
-
+trait xmppBase {
+    val xmppConfig: XmppConfigType
+    protected val xmpp_host: String = xmppConfig("xmpp_host").toString
+    protected val xmpp_port: Int = xmppConfig("xmpp_port").toString.toInt
+    protected val xmpp_user: String = xmppConfig("xmpp_user").toString
+    protected val xmpp_pwd: String = xmppConfig("xmpp_pwd").toString
+    protected val xmpp_listens: Array[String] = xmppConfig("xmpp_listens").toString.split("#")
+    protected val xmpp_report: Array[String] = xmppConfig("xmpp_report").toString.split("#")
+    protected val xmpp_pool_num: Int = xmppConfig("xmpp_pool_num").toString.toInt
 }

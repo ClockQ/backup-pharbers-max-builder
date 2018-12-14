@@ -1,0 +1,10 @@
+<pharbers-modules>
+    <max_path_config>
+        <client_dir value="hdfs:///workData/Client/" />
+        <match_file_dir value="hdfs:///data/" />
+        <cache_dir value="hdfs:///workData/Cache/" />
+        <panel_dir value="hdfs:///workData/Panel/" />
+        <max_dir value="hdfs:///workData/Max/" />
+        <export_dir value="hdfs:///workData/Export/" />
+    </max_path_config>
+</pharbers-modules>

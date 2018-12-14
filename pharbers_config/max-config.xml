@@ -1,0 +1,6 @@
+<pharbers-modules>
+    <max-config>
+        <kafka value="false" />
+        <xmpp value="true" />
+    </max-config>
+</pharbers-modules>
