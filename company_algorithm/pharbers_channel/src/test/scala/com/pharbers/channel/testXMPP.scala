@@ -1,10 +1,14 @@
 package com.pharbers.channel
 
+import akka.pattern.ask
 import akka.actor.ActorSystem
+import akka.util.Timeout
 import com.pharbers.channel.consumer.callJobXmppConsumer
-import com.pharbers.channel.detail.PhMaxJob
+import com.pharbers.channel.detail.{PhMaxJob, channelEntity}
 import com.pharbers.channel.driver.xmpp.xmppClient
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
+
+import scala.concurrent.Await
 
 object testXMPP extends App {
     implicit val system = ActorSystem("maxActor")
@@ -42,8 +46,12 @@ object testXMPP extends App {
     result.percentage = 1
     sendActor ! result
 
+
+//    import scala.concurrent.duration._
+//    implicit val t: Timeout = 10 seconds
+//    val r = sendActor ? result
+//    Await.result(r.mapTo[channelEntity], t.duration)
 //    xmppClient.stopLocalClient()(system, xmppconfig2)
-//    sendActor ! result
 //
 //    val acter_location4 = xmppClient.startLocalClient(new callJobXmppConsumer()(system, xmppconfig2))(system, xmppconfig2)
 //    println(acter_location4)
