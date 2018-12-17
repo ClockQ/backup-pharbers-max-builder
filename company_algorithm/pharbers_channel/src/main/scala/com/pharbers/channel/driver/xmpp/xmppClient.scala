@@ -1,5 +1,9 @@
 package com.pharbers.channel.driver.xmpp
 
+import akka.pattern.ask
+import akka.util.Timeout
+
+import scala.concurrent.Await
 import org.jivesoftware.smack._
 import akka.routing.RoundRobinPool
 import com.pharbers.util.log.phLogTrait
@@ -8,6 +12,8 @@ import com.pharbers.channel.detail.channelEntity
 import akka.actor.{Actor, ActorLogging, ActorRef, ActorSystem, InvalidActorNameException, PoisonPill, Props}
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 import com.pharbers.channel.driver.xmpp.xmppImpl.{xmppBase, xmppMsgPool, xmppTrait}
+
+import scala.language.postfixOps
 
 object xmppClient extends phLogTrait {
     def props(handler: xmppTrait)(implicit xmppConfig: XmppConfigType) = Props(new xmppClient(handler))
@@ -23,11 +29,15 @@ object xmppClient extends phLogTrait {
         }
     }
 
-    // 不好使, 有问题, 我真不会了, 老齐立字据了, 真不会, 不会不会
     def stopLocalClient()(implicit as: ActorSystem, xmppConfig: XmppConfigType): Unit = {
+        import scala.concurrent.duration._
+        implicit val t: Timeout = 10 seconds
+
         try {
             val actorRef = as.actorSelection(s"akka://${as.name}/user/${xmppConfig("xmpp_user")}")
-            actorRef ! "stop"
+            val stopResult = actorRef ? "stop"
+            Await.result(stopResult.mapTo[Boolean], t.duration)
+            phLog("xmpp stop result = " + stopResult)
         } catch {
             case _: Exception => Unit
         }
@@ -79,13 +89,15 @@ class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfi
 
     def stopXmpp(): Unit = {
         conn.disconnect()
-        self ! PoisonPill
         xmpp_pool ! PoisonPill
+        self ! PoisonPill
     }
 
     override def receive: Receive = {
         case "start" => startXmpp()
-        case "stop" => stopXmpp()
+        case "stop" =>
+            stopXmpp()
+            sender ! true
         case msg: channelEntity => xmpp_pool ! (msg, this)
         case _ => msg: Any => phLog("发送非法:" + msg)
     }
