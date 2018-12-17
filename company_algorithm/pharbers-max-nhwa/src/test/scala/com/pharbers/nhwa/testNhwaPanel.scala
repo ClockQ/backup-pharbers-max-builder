@@ -7,7 +7,7 @@ import com.pharbers.channel.consumer.callJobXmppConsumer
 import com.pharbers.channel.driver.xmpp.xmppClient
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 import com.pharbers.nhwa.panel.phNhwaPanelJob
-import com.pharbers.pactions.actionbase.{JVArgs, MapArgs, StringArgs}
+import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
 import com.pharbers.spark.phSparkDriver
 
 object testNhwaPanel extends App {
@@ -20,7 +20,7 @@ object testNhwaPanel extends App {
         "user_id" -> "user_id",
         "company_id" -> "company_id",
         "p_current" -> "1",
-        "p_total" -> "1",
+        "p_total" -> "2",
         "job_id" -> "job_id",
         "cpa_file" -> "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_CPA_.csv",
         "not_arrival_hosp_file" -> "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_not_arrival_hosp.csv",
@@ -31,7 +31,7 @@ object testNhwaPanel extends App {
         "hosp_ID_file" -> "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv"
     )
 
-    implicit val system = ActorSystem("maxActor")
+    implicit val system: ActorSystem = ActorSystem("maxActor")
     implicit val xmppconfig: XmppConfigType = Map(
         "xmpp_host" -> "192.168.100.172",
         "xmpp_port" -> "5222",
@@ -44,9 +44,10 @@ object testNhwaPanel extends App {
     val acter_location: String = xmppClient.startLocalClient(new callJobXmppConsumer)
     val lactor: ActorSelection = system.actorSelection(acter_location)
 
-    val result = phNhwaPanelJob(map)(lactor).perform(MapArgs(Map().empty))
-            .asInstanceOf[MapArgs].get("phPanelInfo2Redis").asInstanceOf[StringArgs].get
+    val result = phNhwaPanelJob(map)(lactor).perform()
+            .asInstanceOf[MapArgs].get("result")
+            .asInstanceOf[StringArgs].get
     println(result)
 
-    new phSparkDriver("job_id").stopCurrConn
+    phSparkDriver("job_id").stopCurrConn
 }

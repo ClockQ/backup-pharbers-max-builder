@@ -5,15 +5,16 @@ import org.apache.spark.listener.listenTrait.MaxSparkListenerTrait
 import com.pharbers.pactions.actionbase.{NULLArgs, pActionArgs, pActionTrait}
 
 object removeListenerAction {
-    def apply(listener: MaxSparkListenerTrait, arg_name: String = "removeListenerAction"): pActionTrait =
-        new removeListenerAction(listener, arg_name)
+    def apply(app_name: String, listener: MaxSparkListenerTrait): pActionTrait =
+        new removeListenerAction(app_name, listener)
 }
 
-class removeListenerAction(listener: MaxSparkListenerTrait, override val name: String) extends pActionTrait {
+class removeListenerAction(app_name: String, listener: MaxSparkListenerTrait) extends pActionTrait {
+    override val name: String = "removeListenerAction"
     override val defaultArgs: pActionArgs = NULLArgs
 
-    override def perform(args: pActionArgs): pActionArgs = {
-        phSparkDriver(listener.job_name).sc.listenerBus.removeListener(listener)
+    override def perform(args: pActionArgs = NULLArgs): pActionArgs = {
+        phSparkDriver(app_name).sc.listenerBus.removeListener(listener)
         args
     }
 }

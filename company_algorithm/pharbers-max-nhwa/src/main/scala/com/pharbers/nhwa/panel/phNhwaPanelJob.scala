@@ -3,11 +3,12 @@ package com.pharbers.nhwa.panel
 import akka.actor.ActorSelection
 import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
+import com.pharbers.nhwa.phResult2StringJob
 import com.pharbers.pactions.generalactions._
 import org.apache.spark.listener.helper.ListenerHelper
 import com.pharbers.pactions.generalactions.memory.phMemoryArgs
+import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
 import org.apache.spark.listener.{MaxSparkListener, addListenerAction}
-import org.apache.spark.listener.sendProgress.{sendXmppMultiProgress, sendXmppSingleProgress}
 
 /**
   * 1. read 2017年未出版医院名单.xlsx
@@ -109,28 +110,30 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit sendActor: ActorSe
         )
     )
 
-    implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "ymCalc", job_id)(p_current, p_total).multiProgress
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "panel", job_id)(p_current, p_total).multiProgress
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(MaxSparkListener(ListenerHelper(0, 10), job_id)) ::
+                addListenerAction(0, 10, job_id) ::
                 loadNotPublishedHosp ::
-                addListenerAction(MaxSparkListener(ListenerHelper(11, 20), job_id)) ::
+                addListenerAction(11, 20, job_id) ::
                 load_hosp_ID_file ::
-                addListenerAction(MaxSparkListener(ListenerHelper(21, 30), job_id)) ::
+                addListenerAction(21, 30, job_id) ::
                 loadProductMatchFile ::
-                addListenerAction(MaxSparkListener(ListenerHelper(31, 40), job_id)) ::
+                addListenerAction(31, 40, job_id) ::
                 loadFullHospFile ::
-                addListenerAction(MaxSparkListener(ListenerHelper(41, 50), job_id)) ::
+                addListenerAction(41, 50, job_id) ::
                 loadMarketMatchFile ::
-                addListenerAction(MaxSparkListener(ListenerHelper(51, 60), job_id)) ::
+                addListenerAction(51, 60, job_id) ::
                 readCpa ::
                 readNotArrivalHosp ::
-                addListenerAction(MaxSparkListener(ListenerHelper(61, 90), job_id)) ::
+                addListenerAction(61, 90, job_id) ::
                 phNhwaPanelConcretJob(df) ::
                 phSavePanelJob(df) ::
-                addListenerAction(MaxSparkListener(ListenerHelper(91, 99), job_id)) ::
+                addListenerAction(91, 99, job_id) ::
                 phPanelInfo2Redis(df) ::
+                phResult2StringJob("phPanelInfo2Redis", tranFun) ::
                 Nil
     }
 

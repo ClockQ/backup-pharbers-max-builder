@@ -1,7 +1,6 @@
 package com.pharbers.nhwa.calcym
 
 import scala.reflect.ClassTag
-import play.api.libs.json.Json.toJson
 import com.pharbers.pactions.actionbase._
 import com.pharbers.spark.phSparkDriver
 import org.apache.spark.sql.types.LongType
@@ -14,7 +13,7 @@ object phCalcYM2JVJob {
 
 class phCalcYM2JVJob[T: ClassTag](override val defaultArgs: pActionArgs) extends pActionTrait {
 
-    override val name: String = "result"
+    override val name: String = "phCalcYM2JVJob"
 
     override def perform(pr: pActionArgs): pActionArgs = {
         val job_id = defaultArgs.asInstanceOf[StringArgs].get
@@ -28,6 +27,7 @@ class phCalcYM2JVJob[T: ClassTag](override val defaultArgs: pActionArgs) extends
                 .collect()
                 .map(_.getString(0))
                 .sorted
-        JVArgs(toJson(result.mkString("#")))
+
+        ListArgs(result.map(StringArgs).toList)
     }
 }

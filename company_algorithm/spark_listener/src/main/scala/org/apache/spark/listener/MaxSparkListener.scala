@@ -14,20 +14,17 @@ import org.apache.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHel
   * 4.自定义进度和异常的handle处理（如控制台打印，保存db，或jms传输到web等终端
   *
   */
-case class MaxSparkListener(helper: PhListenHelperTrait, job_name: String) extends MaxSparkListenerTrait {
+case class MaxSparkListener(helper: PhListenHelperTrait, override val app_name: String) extends MaxSparkListenerTrait {
 
-    override def onJobStart(job: SparkListenerJobStart): Unit ={
-        println("onJobStart")
+    override def onJobStart(job: SparkListenerJobStart): Unit = {
         helper.jobStart(job.stageInfos.map(stageInfo => stageInfo.numTasks).sum)
     }
 
-    override def onTaskEnd(task: SparkListenerTaskEnd): Unit ={
-        println("onTaskEnd")
-        helper.taskEnd(this)
+    override def onTaskEnd(task: SparkListenerTaskEnd): Unit = {
+        helper.taskEnd()
     }
 
     override def onJobEnd(job: SparkListenerJobEnd): Unit = {
-        println("onJobEnd")
-        helper.jobEnd()
+        helper.jobEnd(app_name, this)
     }
 }

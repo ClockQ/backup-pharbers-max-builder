@@ -19,13 +19,11 @@ case class ListenerHelper(start_progress: Int, end_progress: Int)
     private var progress: Int = 0
 
     override def jobStart(taskSum: Int): Unit = {
-        println("jobStart" + taskSum)
         remainTask += taskSum
         stride = (end_progress - current) / remainTask
     }
 
-    override def jobEnd(): Unit = {
-        println("jobEnd")
+    override def taskEnd(): Unit = {
         remainTask -= 1
         current += stride
         if (progress < current.toInt) {
@@ -34,9 +32,9 @@ case class ListenerHelper(start_progress: Int, end_progress: Int)
         }
     }
 
-    override def taskEnd(listener: MaxSparkListenerTrait): Unit = {
-        println("taskEnd")
-        if (remainTask < 1) phLog("remainTask = " + remainTask)
-        removeListenerAction(listener).perform(NULLArgs)
+    override def jobEnd(app_name: String, listener: MaxSparkListenerTrait): Unit = {
+        if (remainTask < 1)
+            phLog("remainTask = " + remainTask)
+        removeListenerAction(app_name, listener).perform(NULLArgs)
     }
 }

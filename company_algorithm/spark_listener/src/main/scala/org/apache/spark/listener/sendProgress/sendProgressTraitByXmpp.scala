@@ -24,7 +24,6 @@ case class sendXmppSingleProgress(company_id: String, user_id: String, call: Str
         result.call = call
         result.job_id = job_id
         result.percentage = progress
-println("abdsadfasfkljsdfg;lakgjd;ladjg")
         sendProcess(result)(sendActor)
         phLog(s"$company_id $user_id current $call progress = $progress")
     }
