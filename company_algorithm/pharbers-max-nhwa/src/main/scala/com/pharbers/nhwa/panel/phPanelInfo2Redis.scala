@@ -12,8 +12,9 @@ object phPanelInfo2Redis {
 
 class phPanelInfo2Redis(override val defaultArgs: pActionArgs) extends pActionTrait with phLogTrait {
     override val name: String = "phPanelInfo2Redis"
-    
+
     override def perform(pr: pActionArgs): pActionArgs = {
+        val rd = new PhRedisDriver()
 
         val company = defaultArgs.asInstanceOf[MapArgs].get("company").asInstanceOf[StringArgs].get
         val user = defaultArgs.asInstanceOf[MapArgs].get("user").asInstanceOf[StringArgs].get
@@ -30,30 +31,29 @@ class phPanelInfo2Redis(override val defaultArgs: pActionArgs) extends pActionTr
                 .withColumnRenamed("IF_PANEL_ALL", "SAMPLE")
                 .filter("SAMPLE like '1'")
                 .select("u_HOSP_ID", "HOSP_NAME")
-        
+
         val condition = prod_name.map(x => s"Prod_Name like '%$x%'").mkString(" OR ") //获得所有子公司
         val panelDF_filter_company = panelDF.filter(condition) // 包含子公司关键字的数据
         val panel_hosp_distinct = panelDF.withColumnRenamed("HOSP_ID", "p_HOSP_ID").select("p_HOSP_ID").distinct()
 
-        phLog(s"准备 -- 存储${mkt}市场的[panel]聚合数据到Redis中", "INFO")
+        phInfoLog(s"准备 -- 存储${mkt}市场的[panel]聚合数据到Redis中")
 
         val panel_prod_count = panelDF.select("Prod_Name").distinct().count()
-        val panel_sales = panelDF.agg(Map("Sales" -> "sum")).take(1)(0).toString().split('[').last.split(']').head.toDouble
-        val panel_company_sales = if (panelDF_filter_company.count() == 0) 0.0
-        else panelDF_filter_company.agg(Map("Sales" -> "sum")).take(1)(0).toString().split('[').last.split(']').head.toDouble
+        val panel_sales = panelDF.agg(Map("Sales" -> "sum")).take(1)(0).getDouble(0)
+        val panel_company_sales =
+            if (panelDF_filter_company.count() == 0) 0.0
+            else panelDF_filter_company.agg(Map("Sales" -> "sum")).take(1)(0).getDouble(0)
         val not_panel_hosp_lst = hosp_ID_file
                 .join(panel_hosp_distinct, hosp_ID_file("u_HOSP_ID") === panel_hosp_distinct("p_HOSP_ID"), "left")
                 .filter("p_HOSP_ID is null").select("HOSP_NAME").collect().map(x => x.toString())
 
-        phLog(s"开始 -- 存储${mkt}市场的[panel]聚合数据到Redis中", "INFO")
+        phInfoLog(s"开始 -- 存储${mkt}市场的[panel]聚合数据到Redis中")
 
-        val rd = new PhRedisDriver()
-
-        //TODO:singleJobKey的加密改为Base64(company + ym + mkt)，同一公司下的所有用户可以看到彼此的保存历史
+        // singleJobKey的加密改为Base64(company + ym + mkt)，同一公司下的所有用户可以看到彼此的保存历史
         val singleJobKey = Base64.getEncoder.encodeToString((company + "#" + ym + "#" + mkt).getBytes())
-        //TODO:SinglePanelSpecialKey for example -> not_panel_hosp_key it depends on (user + company + ym + mkt) but had same key
+        // SinglePanelSpecialKey for example -> not_panel_hosp_key it depends on (user + company + ym + mkt) but had same key
         val not_panel_hosp_key = md5().encrypt(user + company + ym + mkt + "not_panel_hosp_lst")
-        
+
         rd.addSet(job_id, panel_name)
         rd.addSet(job_id + "ym", ym)
         rd.expire(job_id, 60 * 60 * 24)
@@ -67,15 +67,15 @@ class phPanelInfo2Redis(override val defaultArgs: pActionArgs) extends pActionTr
         rd.addMap(singleJobKey, "panel_prod_count", panel_prod_count)
         rd.addMap(singleJobKey, "panel_sales", panel_sales)
         rd.addMap(singleJobKey, "panel_company_sales", panel_company_sales)
-        rd.expire(singleJobKey, 60*60*24)
+        rd.expire(singleJobKey, 60 * 60 * 24)
 
         rd.delete(not_panel_hosp_key)
         rd.addSet(not_panel_hosp_key, not_panel_hosp_lst: _*)
-        rd.expire(not_panel_hosp_key, 60*60*24)
+        rd.expire(not_panel_hosp_key, 60 * 60 * 24)
 
-        phLog(s"完成 -- 存储${mkt}市场的[panel]聚合数据到Redis中", "INFO")
+        phInfoLog(s"完成 -- 存储${mkt}市场的[panel]聚合数据到Redis中")
 
         StringArgs(singleJobKey)
     }
-    
+
 }

@@ -5,10 +5,9 @@ import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.nhwa.phResult2StringJob
 import com.pharbers.pactions.generalactions._
-import org.apache.spark.listener.helper.ListenerHelper
+import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.generalactions.memory.phMemoryArgs
 import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
-import org.apache.spark.listener.{MaxSparkListener, addListenerAction}
 
 /**
   * 1. read 2017年未出版医院名单.xlsx
