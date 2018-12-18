@@ -1,13 +1,12 @@
 package com.pharbers.nhwa.calcym
 
 import akka.actor.ActorSelection
+import com.pharbers.pactions.actionbase._
 import com.pharbers.nhwa.phResult2StringJob
 import com.pharbers.pactions.generalactions._
-import org.apache.spark.listener.helper.ListenerHelper
-import com.pharbers.pactions.actionbase._
+import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.{sequenceJob, sequenceJobWithMap}
 import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
-import org.apache.spark.listener.{MaxSparkListener, addListenerAction}
 
 case class phNhwaCalcYMJob(args: Map[String, String])(implicit sendActor: ActorSelection) extends sequenceJobWithMap {
     override val name: String = "phNhwaCalcYMJob"
@@ -29,11 +28,12 @@ case class phNhwaCalcYMJob(args: Map[String, String])(implicit sendActor: ActorS
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-            addListenerAction(0, 99, job_id) ::
-            readCpa ::
-            phNhwaCalcYMConcretJob(jobArgs) ::
-            phCalcYM2JVJob(jobArgs) ::
-            phResult2StringJob("phCalcYM2JVJob", tranFun) ::
-            Nil
+                addListenerAction(0, 50, job_id) ::
+                readCpa ::
+                phNhwaCalcYMConcretJob(jobArgs) ::
+                addListenerAction(51, 99, job_id) ::
+                phCalcYM2JVJob(jobArgs) ::
+                phResult2StringJob("phCalcYM2JVJob", tranFun) ::
+                Nil
     }
 }

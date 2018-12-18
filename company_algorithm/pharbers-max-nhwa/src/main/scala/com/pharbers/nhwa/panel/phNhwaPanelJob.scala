@@ -37,6 +37,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit sendActor: ActorSe
     lazy val user_id: String = args("user_id")
     lazy val job_id: String = args("job_id")
     lazy val company_id: String = args("company_id")
+    lazy val prod_name_lst: List[String] = args("prod_lst").split("#").toList
     lazy val p_current: Double = args("p_current").toDouble
     lazy val p_total: Double = args("p_total").toDouble
 
@@ -103,10 +104,11 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit sendActor: ActorSe
             "ym" -> StringArgs(ym),
             "mkt" -> StringArgs(mkt),
             "user" -> StringArgs(user_id),
-            "name" -> StringArgs(panel_name),
-            "company" -> StringArgs(company_id),
             "job_id" -> StringArgs(job_id),
-            "panel_path" -> StringArgs(panel_path)
+            "company" -> StringArgs(company_id),
+            "panel_name" -> StringArgs(panel_name),
+            "panel_path" -> StringArgs(panel_path),
+            "prod_name" -> ListArgs(prod_name_lst.map(StringArgs))
         )
     )
 
@@ -128,10 +130,11 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit sendActor: ActorSe
                 addListenerAction(51, 60, job_id) ::
                 readCpa ::
                 readNotArrivalHosp ::
-                addListenerAction(61, 90, job_id) ::
+                addListenerAction(61, 70, job_id) ::
                 phNhwaPanelConcretJob(df) ::
+                addListenerAction(71, 80, job_id) ::
                 phSavePanelJob(df) ::
-                addListenerAction(91, 99, job_id) ::
+                addListenerAction(81, 99, job_id) ::
                 phPanelInfo2Redis(df) ::
                 phResult2StringJob("phPanelInfo2Redis", tranFun) ::
                 Nil

@@ -65,7 +65,6 @@ class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfi
     def startXmpp(): Unit = {
         cm.addChatListener(new ChatManagerListener {
             override def chatCreated(chat: Chat, b: Boolean): Unit = {
-                phLog("chat created !!!")
                 if (!chat.getListeners.isEmpty) return
 
                 chat.addMessageListener(new MessageListener {

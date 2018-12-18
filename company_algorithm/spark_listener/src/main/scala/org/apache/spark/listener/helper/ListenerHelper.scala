@@ -34,7 +34,6 @@ case class ListenerHelper(start_progress: Int, end_progress: Int)
 
     override def jobEnd(app_name: String, listener: MaxSparkListenerTrait): Unit = {
         if (remainTask < 1)
-            phLog("remainTask = " + remainTask)
-        removeListenerAction(app_name, listener).perform(NULLArgs)
+            removeListenerAction(app_name, listener).perform(NULLArgs)
     }
 }
