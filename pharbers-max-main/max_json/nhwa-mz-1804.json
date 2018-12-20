@@ -49,7 +49,7 @@
         "ym": "201804",
         "mkt": "麻醉市场",
         "panel_name": "5e4da44e-e68c-4f6c-949e-ee167a4979aa",
-        "max_name": "8cdfa7f4-3d46-4109-8279-fcdba1",
+        "max_name": "8cdfa7f4-3d46-4109-8279-fcdba",
         "max_search_name": "8cdfa7f4-3d46-4109-8279-fcdba1c7",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
         "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
@@ -64,7 +64,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "麻醉市场",
-        "panel_name": "fabd7533-0593-45f8-8e32-ab251b723c",
+        "panel_name": "fabd7533-0593-45f8-8e32-ab251b7c",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
         "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
         "conf": {

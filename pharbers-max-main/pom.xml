@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pharbers</groupId>
-    <artifactId>pharbers-max-builder</artifactId>
+    <artifactId>pharbers-max-main</artifactId>
     <version>1.0</version>
     <!-- Maven profiles allow you to support both Scala 2.10, 2.11 and Scala 2.12 with
       the right dependencies for modules specified for each version separately -->
@@ -24,47 +24,7 @@
                 <!-- pharbers module -->
                 <dependency>
                     <groupId>com.pharbers</groupId>
-                    <artifactId>base_module</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>spark_driver</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>paction</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>pharbers_channel</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>spark_listener</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>redis</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>security</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>pharbers-max-common</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>macros</artifactId>
+                    <artifactId>pharbers-max-builder</artifactId>
                     <version>${ph.module.version}</version>
                 </dependency>
 

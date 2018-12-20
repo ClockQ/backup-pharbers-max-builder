@@ -25,13 +25,27 @@ case class phAstellasPanelJob(args: Map[String, String])(implicit sendActor: Act
 
     val ym: String = args("ym")
     val mkt: String = args("mkt")
-    val mkt_en: String = args("mkt_en")
+    val mkt_en: String = getMktEn(mkt)
     val user_id: String = args("user_id")
     val job_id: String = args("job_id")
     val company_id: String = args("company_id")
     val prod_name_lst: List[String] = args("prod_lst").split("#").toList
     val p_current: Double = args("p_current").toDouble
     val p_total: Double = args("p_total").toDouble
+
+    def getMktEn(mkt: String): String = {
+        mkt match {
+            case "阿洛刻市场" => "Allelock"
+            case "米开民市场" => "Mycamine"
+            case "普乐可复市场" => "Prograf"
+            case "佩尔市场" => "Perdipine"
+            case "哈乐市场" => "Harnal"
+            case "痛风市场" => "Gout"
+            case "卫喜康市场" => "Vesicare"
+            case "Grafalon市场" => "Grafalon"
+            case "前列腺癌市场" => "前列腺癌"
+        }
+    }
 
     //1. read 产品匹配表
     val load_product_match_file: sequenceJob = new sequenceJob {

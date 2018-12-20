@@ -52,6 +52,7 @@ object xmppClient extends phLogTrait {
         implicit val t: Timeout = 10 seconds
 
         try {
+            Thread.sleep(1000)
             val actorRef = as.actorSelection(s"akka://${as.name}/user/${xmppConfig("xmpp_user")}")
             val stopResult = actorRef ? "stop"
             Await.result(stopResult.mapTo[Boolean], t.duration)
@@ -106,7 +107,6 @@ class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfi
 
     def stopXmpp(): Unit = {
         conn.disconnect()
-        xmpp_pool ! PoisonPill
         self ! PoisonPill
     }
 

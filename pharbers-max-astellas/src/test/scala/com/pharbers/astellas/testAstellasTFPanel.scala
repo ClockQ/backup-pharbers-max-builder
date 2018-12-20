@@ -2,38 +2,37 @@ package com.pharbers.astellas
 
 import java.util.UUID
 
-import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
-import com.pharbers.astellas.calc.phAstellasMaxJob
-import com.pharbers.channel.driver.xmpp.xmppClient
+import com.pharbers.astellas.panel.phAstellasPanelJob
 import com.pharbers.channel.consumer.callJobXmppConsumer
-import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
+import com.pharbers.channel.driver.xmpp.xmppClient
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
+import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
+import com.pharbers.spark.phSparkDriver
 
-object testAstellasCalc extends App {
-    val job_id: String = "job_id"
-    val panel_name: String = "0f6ba5ae-54ce-47f8-92bc-841c7437c0ec"
+object testAstellasTFPanel extends App {
+    val job_id: String = "astl_job_id"
+
+    val panel_name: String = UUID.randomUUID().toString
     println(s"panel_name = $panel_name")
-    val max_name: String = UUID.randomUUID().toString
-    println(s"max_name = $max_name")
-    val max_search_name: String = UUID.randomUUID().toString
-    println(s"max_search_name = $max_search_name")
 
     val map: Map[String, String] = Map(
         "panel_path" -> "hdfs:///workData/Panel/",
         "panel_name" -> panel_name,
-        "max_path" -> "hdfs:///workData/Max/",
-        "max_name" -> max_name,
-        "max_search_name" -> max_search_name,
         "ym" -> "201804",
-        "mkt" -> "阿洛刻市场",
-        "job_id" -> job_id,
+        "mkt" -> "痛风市场",
         "user_id" -> "user_id",
         "company_id" -> "company_id",
-        "prod_lst" -> "安斯泰来",
         "p_current" -> "1",
         "p_total" -> "1",
-        "universe_file" -> "/data/astellas/pha_config_repository1804/Astellas_Universe_Allelock_20180709.csv"
+        "job_id" -> job_id,
+        "prod_lst" -> "安斯泰来",
+        "cpa_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+        "gycx_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+        "product_match_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+        "markets_match_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Gout.csv",
+        "hosp_ID_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Gout_20180703.csv",
+        "hospital_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
     )
 
     implicit val system: ActorSystem = ActorSystem("maxActor")
@@ -50,7 +49,7 @@ object testAstellasCalc extends App {
 //    val lactor: ActorSelection = system.actorSelection(acter_location)
     val lactor: ActorSelection = system.actorSelection("akka://maxActor/user/null")
 
-    val result = phAstellasMaxJob(map)(lactor).perform()
+    val result = phAstellasPanelJob(map)(lactor).perform()
             .asInstanceOf[MapArgs].get("result")
             .asInstanceOf[StringArgs].get
     println(result)
