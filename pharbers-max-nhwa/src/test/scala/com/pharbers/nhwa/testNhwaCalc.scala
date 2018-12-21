@@ -1,11 +1,12 @@
 package com.pharbers.nhwa
 
 import java.util.UUID
+
 import com.pharbers.spark.phSparkDriver
 import com.pharbers.nhwa.calc.phNhwaMaxJob
 import akka.actor.{ActorSelection, ActorSystem}
-import com.pharbers.channel.driver.xmpp.xmppClient
-import com.pharbers.channel.consumer.callJobXmppConsumer
+import com.pharbers.channel.consumer.commonXmppConsumer
+import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
@@ -45,7 +46,7 @@ object testNhwaCalc extends App {
         "xmpp_report" -> "lu@localhost#admin@localhost",
         "xmpp_pool_num" -> "1"
     )
-    val acter_location: String = xmppClient.startLocalClient(new callJobXmppConsumer)
+    val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
 //    val lactor: ActorSelection = system.actorSelection(acter_location)
     val lactor: ActorSelection = system.actorSelection("akka://maxActor/user/null")
 

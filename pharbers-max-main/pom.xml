@@ -24,7 +24,7 @@
                 <!-- pharbers module -->
                 <dependency>
                     <groupId>com.pharbers</groupId>
-                    <artifactId>pharbers-max-builder</artifactId>
+                    <artifactId>pharbers-max-reflect</artifactId>
                     <version>${ph.module.version}</version>
                 </dependency>
 

@@ -1,0 +1,461 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "job_id",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///workData/Panel/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "安斯泰来"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "Allelock"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "Allelock"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Mycamine"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Prograf"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Perdipine"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Harnal"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Gout"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Vesicare"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Grafalon"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "qlx"
+          }
+        ]
+      },
+      "panelConf": {
+        "data": [
+          {
+            "type": "PhPanelConf",
+            "id": "Allelock"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Mycamine"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Prograf"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Perdipine"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Harnal"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Gout"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Vesicare"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Grafalon"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "qlx"
+          }
+        ]
+      },
+      "calcYmConf": {
+        "data": {
+          "type": "PhCalcYmConf",
+          "id": "tmp_a8344a6b-fd4a-4296-8f44-442b1e28e8ca"
+        }
+      },
+      "xmppConf": {
+        "data": {
+          "type": "PhXmppConf",
+          "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhCalcConf",
+      "id": "Allelock",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "阿洛刻市场",
+        "panel_name": "panel_Allelock",
+        "max_name": "max_Allelock",
+        "max_search_name": "search_Allelock",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Allelock_20180709.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Mycamine",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "米开民市场",
+        "panel_name": "panel_Mycamine",
+        "max_name": "max_Mycamine",
+        "max_search_name": "search_Mycamine",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Mycamine_20180710.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Prograf",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "普乐可复市场",
+        "panel_name": "panel_Prograf",
+        "max_name": "max_Prograf",
+        "max_search_name": "search_Prograf",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Prograf_20180710.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Perdipine",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "佩尔市场",
+        "panel_name": "panel_Perdipine",
+        "max_name": "max_Perdipine",
+        "max_search_name": "search_Perdipine",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Perdipine_20180710.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Harnal",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "哈乐市场",
+        "panel_name": "panel_Harnal",
+        "max_name": "max_Harnal",
+        "max_search_name": "search_Harnal",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Harnal_20180709.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Gout",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "痛风市场",
+        "panel_name": "panel_Gout",
+        "max_name": "max_Gout",
+        "max_search_name": "search_Gout",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Gout_20180709.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Vesicare",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "卫喜康市场",
+        "panel_name": "panel_Vesicare",
+        "max_name": "max_Vesicare",
+        "max_search_name": "search_Vesicare",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Vesicare_20180709.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Grafalon",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "Grafalon市场",
+        "panel_name": "panel_Grafalon",
+        "max_name": "max_Grafalon",
+        "max_search_name": "search_Grafalon",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Grafalon_20180710.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "qlx",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "前列腺癌市场",
+        "panel_name": "panel_qlx",
+        "max_name": "max_qlx",
+        "max_search_name": "search_qlx",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
+        "conf": {
+          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_前列腺癌_20180709.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Allelock",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "阿洛刻市场",
+        "panel_name": "panel_Allelock",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Allelock_20180702.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Allelock_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Mycamine",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "米开民市场",
+        "panel_name": "panel_Mycamine",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Mycamine.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Mycamine_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Grafalon",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "Grafalon市场",
+        "panel_name": "panel_Grafalon",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Grafalon.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Grafalon_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Harnal",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "哈乐市场",
+        "panel_name": "panel_Harnal",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Harnal.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Harnal_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Perdipine",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "佩尔市场",
+        "panel_name": "panel_Perdipine",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Perdipine.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Perdipine_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "qlx",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "前列腺癌市场",
+        "panel_name": "panel_qlx",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_前列腺癌市场.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_前列腺癌_20180706.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Vesicare",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "卫喜康市场",
+        "panel_name": "panel_Vesicare",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Vesicare.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Vesicare_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Gout",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "痛风市场",
+        "panel_name": "panel_Gout",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Gout.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Gout_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Prograf",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "米开民市场",
+        "panel_name": "panel_Prograf",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+          "product_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ProductMatchTable_20180703.csv",
+          "markets_match_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_MarketMatchTable_Prograf.csv",
+          "hosp_ID_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_2018_If_panel_all_Prograf_20180703.csv",
+          "hospital_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_ThreeSourceTable_20180629.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcYmConf",
+      "id": "tmp_a8344a6b-fd4a-4296-8f44-442b1e28e8ca",
+      "attributes": {
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
+        "clazz": "com.pharbers.astellas.calcym.phAstellasCalcYMJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
+          "gycx_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv"
+        }
+      }
+    },
+    {
+      "type": "PhXmppConf",
+      "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
+      "attributes": {
+        "disableSend": true,
+        "conf": {
+          "xmpp_host": "192.168.100.172",
+          "xmpp_user": "cui",
+          "xmpp_listens": "lu@localhost",
+          "xmpp_pool_num": "1",
+          "xmpp_pwd": "cui",
+          "xmpp_report": "lu@localhost#admin@localhost",
+          "xmpp_port": "5222"
+        }
+      }
+    }
+  ]
+}

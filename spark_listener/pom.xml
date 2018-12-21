@@ -24,12 +24,12 @@
                 <!-- pharbers module -->
                 <dependency>
                     <groupId>com.pharbers</groupId>
-                    <artifactId>logs</artifactId>
+                    <artifactId>base_module</artifactId>
                     <version>${ph.module.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.pharbers</groupId>
-                    <artifactId>base_module</artifactId>
+                    <artifactId>logs</artifactId>
                     <version>${ph.module.version}</version>
                 </dependency>
                 <dependency>

@@ -9,7 +9,10 @@ import com.pharbers.channel.detail.channelEntity
   * @ Description: TODO
   */
 trait xmppTrait {
+    /** 发送 msg */
     val encodeHandler: channelEntity => String
+    /** 接受 msg */
     val decodeHandler: String => channelEntity
+    /** 处理 msg */
     val consumeHandler: String => Unit
 }

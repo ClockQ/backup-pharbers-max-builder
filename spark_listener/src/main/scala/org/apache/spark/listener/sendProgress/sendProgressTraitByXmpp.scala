@@ -5,12 +5,13 @@ import akka.actor.ActorSelection
 import scala.language.postfixOps
 import scala.concurrent.duration._
 import com.pharbers.util.log.phLogTrait
-import com.pharbers.channel.detail.{PhMaxJob, channelEntity}
+import com.pharbers.channel.detail.channelEntity
+import org.apache.spark.listener.entity.PhMaxJobResult
 
 sealed trait sendProgressTraitByXmpp extends sendProgressTrait {
     def sendProcess(obj: channelEntity)(implicit actorRef: ActorSelection): Unit = {
         implicit val resolveTimeout: Timeout = Timeout(5 seconds)
-        actorRef ! obj.asInstanceOf[PhMaxJob]
+        actorRef ! obj
     }
 }
 
@@ -18,7 +19,7 @@ case class sendXmppSingleProgress(company_id: String, user_id: String, call: Str
                                  (implicit sendActor: ActorSelection) extends sendProgressTraitByXmpp with phLogTrait {
     val singleProgress: Map[String, Any] => Unit = { map =>
         val progress = map("progress").asInstanceOf[Int]
-        val result = new PhMaxJob
+        val result = new PhMaxJobResult
         result.company_id = company_id
         result.user_id = user_id
         result.call = call
@@ -41,7 +42,7 @@ case class sendXmppMultiProgress(company_id: String, user_id: String, call: Stri
         }
 
         if(currentprogress > previousProgress){
-            val result = new PhMaxJob
+            val result = new PhMaxJobResult
             result.company_id = company_id
             result.user_id = user_id
             result.call = call

@@ -4,6 +4,7 @@
     <groupId>com.pharbers</groupId>
     <artifactId>pharbers-max-common</artifactId>
     <version>1.0</version>
+
     <!-- Maven profiles allow you to support both Scala 2.10, 2.11 and Scala 2.12 with
       the right dependencies for modules specified for each version separately -->
     <profiles>
@@ -22,21 +23,6 @@
 
             <dependencies>
                 <!-- pharbers module -->
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>base_module</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>spark_driver</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>com.pharbers</groupId>
-                    <artifactId>paction</artifactId>
-                    <version>${ph.module.version}</version>
-                </dependency>
                 <dependency>
                     <groupId>com.pharbers</groupId>
                     <artifactId>pharbers_channel</artifactId>
