@@ -22,7 +22,6 @@ object xmppFactor extends phLogTrait {
         xmppConfig.getOrElse("xmpp_pool_num", throw new Exception("XMPP failed to initialize !!! not found xmpp_pool_num"))
 
         try {
-            startNull()
             val actorRef = as.actorOf(props(handler), name = xmppConfig("xmpp_user"))
             phLog("actor address : " + actorRef.path.toString)
             actorRef ! "start"
@@ -33,15 +32,15 @@ object xmppFactor extends phLogTrait {
         }
     }
 
-    def startNull()(implicit as: ActorSystem): Unit = {
+    def getNullActor(implicit as: ActorSystem): String = {
+        val name: String = "null"
         try {
-            as.actorOf(xmppNull.props(), name = "null")
+            as.actorOf(xmppNull.props(), name)
         } catch {
             case _: InvalidActorNameException => Unit
         }
+        s"akka://${as.name}/user/$name"
     }
-
-    def getNullActor(implicit as: ActorSystem): String = s"akka://${as.name}/user/null"
 
     def stopLocalClient()(implicit as: ActorSystem, xmppConfig: XmppConfigType): Unit = {
         import scala.concurrent.duration._

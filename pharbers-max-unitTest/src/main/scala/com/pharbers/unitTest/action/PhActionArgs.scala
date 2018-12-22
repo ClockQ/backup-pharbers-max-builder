@@ -1,9 +1,9 @@
 package com.pharbers.unitTest.action
 
-import com.pharbers.reflect.PhEntity.PhAction
+import com.pharbers.reflect.PhEntity.PhActionJob
 import com.pharbers.pactions.actionbase.pActionArgs
 
-case class PhActionArgs(action: PhAction) extends pActionArgs {
-    type t = PhAction
-    override def get: PhAction = action
+case class PhActionArgs(action: PhActionJob) extends pActionArgs {
+    type t = PhActionJob
+    override def get: PhActionJob = action
 }

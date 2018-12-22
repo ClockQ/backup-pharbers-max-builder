@@ -13,13 +13,11 @@ class phMaxPersistentAction[T](override val defaultArgs: pActionArgs) extends pA
     override def perform(prMap: pActionArgs): pActionArgs = {
 
         val prod_name = defaultArgs.asInstanceOf[MapArgs].get("prod_name").asInstanceOf[ListArgs].get.map(_.asInstanceOf[StringArgs].get)
-        val panel_name = defaultArgs.asInstanceOf[MapArgs].get("panel_name").asInstanceOf[StringArgs].get
-        val max_name_postfix = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
+        val max_name = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
         val max_path = defaultArgs.asInstanceOf[MapArgs].get("max_path").asInstanceOf[StringArgs].get
 
         val maxDF = prMap.asInstanceOf[MapArgs].get("max_calc_action").asInstanceOf[DFArgs].get
 
-        val max_name = panel_name + max_name_postfix
         val resultLocation = max_path + max_name
 
         val condition = prod_name.map(x => col("Product") like s"%$x%").reduce((a, b) => a or b) //获得所有子公司

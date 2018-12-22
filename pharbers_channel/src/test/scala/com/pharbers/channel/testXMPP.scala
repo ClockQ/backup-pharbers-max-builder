@@ -50,7 +50,7 @@ object testXMPP extends App {
         xmppFactor.stopLocalClient()(system, xmppconfig)
     }
 
-    Thread.sleep(2000)
+    Thread.sleep(5000)
 
     // 测试二次创建及发送情况
     {

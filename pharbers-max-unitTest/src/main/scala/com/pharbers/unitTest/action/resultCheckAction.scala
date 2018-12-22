@@ -5,23 +5,30 @@ import com.pharbers.spark.phSparkDriver
 import org.apache.spark.sql.DataFrame
 import com.pharbers.pactions.actionbase._
 import org.apache.spark.sql.functions.{expr, lit, udf}
+import com.pharbers.pactions.generalactions.readCsvAction
+import org.apache.spark.sql.expressions.UserDefinedFunction
 
 object resultCheckAction {
     def apply(args: pActionArgs)(implicit as: ActorSystem): pActionTrait = new resultCheckAction(args)
 }
 
 class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTrait {
-    override val name: String = "result_check"
+    override val name: String = "resultCheckAction"
     val delimiter: String = 31.toChar.toString
 
-    lazy val sparkDriver: phSparkDriver = phSparkDriver()
-    import sparkDriver.ss.implicits._
-
     override def perform(prMap: pActionArgs): pActionArgs = {
-        val maxResult = prMap.asInstanceOf[MapArgs].get("max_result").asInstanceOf[StringArgs].get
-        val maxDF = phSparkDriver().readCsv(max_path_obj.p_maxPath + maxResult, delimiter)
+        val action = defaultArgs.asInstanceOf[MapArgs].get("checkAction").asInstanceOf[PhActionArgs].get
+
+        val sparkDriver: phSparkDriver = phSparkDriver(action.job_id)
+        import sparkDriver.ss.implicits._
+
+        val maxResult = prMap.asInstanceOf[MapArgs].get("executeMaxAction").asInstanceOf[StringArgs].get
+        val maxDF = readCsvAction(action.max_path + maxResult, delimiter = delimiter, applicationName = action.job_id)
+                .perform(NULLArgs).asInstanceOf[DFArgs].get
+
         val date: String = maxDF.select("Date").distinct().collect().head.getString(0)
         val mkt: String = maxDF.select("MARKET").distinct().collect().head.getString(0)
+
         val market = mkt match {
             case "阿洛刻市场" => "Allelock"
             case "米开民市场" => "Mycamine"
@@ -34,7 +41,13 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
             case "前列腺癌市场" => "前列腺癌"
             case _ => mkt
         }
-        val offlineDF = prMap.asInstanceOf[MapArgs].get("offline_result")
+
+        // 自定义udf的函数
+        val addBooleanCol: UserDefinedFunction = udf{
+            (d1: String, d2: String) => (d1.toDouble - d2.toDouble).abs < 1.0E-3
+        }
+
+        val offlineDF = prMap.asInstanceOf[MapArgs].get("loadOfflineResult")
                 .asInstanceOf[DFArgs].get
                 .filter($"YM" === date && $"MKT" === market)
                 .withColumnRenamed("CATEGORY", "scope")
@@ -43,13 +56,12 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
                 .withColumnRenamed("f_units(offline)", "offlineUnits")
                 .withColumnRenamed("f_sales(offline)", "offlineSales")
 
-        //保存max结果
+//        //保存max结果
 //        maxDF.coalesce(1).write
 //                .format("csv")
 //                .option("header", value = true)
 //                .option("delimiter", 31.toChar.toString)
 //                .save(s"/mnt/config/result/$market" + "线上max结果")
-
 
         //比较全国
         val ckTotalDF: DataFrame = {
@@ -59,7 +71,6 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
             val onlineHospNum = maxDF.select("Panel_ID").distinct().count().toString
             val ID = "全国"
             val offlineTotalResult = offlineDF.filter(" scope == 'ALL' ")
-            val sparkDriver = phSparkDriver()
             val onlineTotalResult = sparkDriver.ss
                     .createDataFrame(
                         Seq(
@@ -73,26 +84,26 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
             result
         }
 
-        //        //比较省份
-        //        val ckProvinceDF: DataFrame = {
-        //            val onlineTotalResult = maxDF.select("Province", "Panel_ID", "Product", "f_sales", "f_units")
-        //                    .groupBy("Province")
-        //                    .agg(expr("count(distinct Panel_ID)") as "onlineHospNum", expr("count(distinct Product)") as "onlineProductNum", expr("sum(f_units)") as "onlineUnits", expr("sum(f_sales)") as "onlineSales")
-        //                    .withColumnRenamed("Province", "area")
-        //            val offlineTotalResult = offlineDF.filter(" scope == 'PROVINCES' ")
-        //            val totalResult = offlineTotalResult.join(onlineTotalResult, offlineTotalResult("ID") === onlineTotalResult("area"), "full")
-        //            val nomalTotalResult = totalResult.na.drop()
-        //                    .withColumn("hospBoolean", addBooleanCol(totalResult("offlineHospNum"), totalResult("onlineHospNum")))
-        //                    .withColumn("productBoolean", addBooleanCol(totalResult("offlineProductNum"), totalResult("onlineProductNum")))
-        //                    .withColumn("salesBoolean", addBooleanCol(totalResult("offlineSales"), totalResult("onlineSales")))
-        //                    .withColumn("unitsBoolean", addBooleanCol(totalResult("offlineUnits"), totalResult("onlineUnits")))
-        //            val abnomalTotalResult = totalResult.where(totalResult.col("ID").isNull or totalResult.col("area").isNull)
-        //                    .withColumn("hospBoolean", lit(false))
-        //                    .withColumn("productBoolean", lit(false))
-        //                    .withColumn("salesBoolean", lit(false))
-        //                    .withColumn("unitsBoolean", lit(false))
-        //            nomalTotalResult.union(abnomalTotalResult)
-        //        }
+//        //比较省份
+//        val ckProvinceDF: DataFrame = {
+//            val onlineTotalResult = maxDF.select("Province", "Panel_ID", "Product", "f_sales", "f_units")
+//                    .groupBy("Province")
+//                    .agg(expr("count(distinct Panel_ID)") as "onlineHospNum", expr("count(distinct Product)") as "onlineProductNum", expr("sum(f_units)") as "onlineUnits", expr("sum(f_sales)") as "onlineSales")
+//                    .withColumnRenamed("Province", "area")
+//            val offlineTotalResult = offlineDF.filter(" scope == 'PROVINCES' ")
+//            val totalResult = offlineTotalResult.join(onlineTotalResult, offlineTotalResult("ID") === onlineTotalResult("area"), "full")
+//            val nomalTotalResult = totalResult.na.drop()
+//                    .withColumn("hospBoolean", addBooleanCol(totalResult("offlineHospNum"), totalResult("onlineHospNum")))
+//                    .withColumn("productBoolean", addBooleanCol(totalResult("offlineProductNum"), totalResult("onlineProductNum")))
+//                    .withColumn("salesBoolean", addBooleanCol(totalResult("offlineSales"), totalResult("onlineSales")))
+//                    .withColumn("unitsBoolean", addBooleanCol(totalResult("offlineUnits"), totalResult("onlineUnits")))
+//            val abnomalTotalResult = totalResult.where(totalResult.col("ID").isNull or totalResult.col("area").isNull)
+//                    .withColumn("hospBoolean", lit(false))
+//                    .withColumn("productBoolean", lit(false))
+//                    .withColumn("salesBoolean", lit(false))
+//                    .withColumn("unitsBoolean", lit(false))
+//            nomalTotalResult.union(abnomalTotalResult)
+//        }
 
         //比较城市
         val ckCityDF: DataFrame = {
@@ -136,6 +147,7 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
                     .withColumn("unitsBoolean", lit(false))
             nomalTotalResult.union(abnomalTotalResult)
         }
+
         DFArgs(ckTotalDF.union(
             (ckCityDF union ckHospDF)
                     .na.fill(value = date, cols = Array("Date"))
@@ -143,11 +155,4 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
                     .where("hospBoolean = false or productBoolean = false or salesBoolean = false or unitsBoolean = false"))
         )
     }
-
-    // 自定义udf的函数
-    val ~= = (d1: String, d2: String) => {
-        (d1.toDouble - d2.toDouble).abs < 1.0E-3
-    }
-
-    val addBooleanCol = udf(~=)
 }

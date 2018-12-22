@@ -1,11 +1,11 @@
-package com.pharbers.reflect.PhEntity
+package com.pharbers.reflect.PhEntity.jobEntity
 
 import com.pharbers.macros.api.commonEntity
 import com.pharbers.macros.common.connecting.ToStringMacro
 import com.pharbers.reflect.PhEntity.confTrait.PhActionTrait
 
 @ToStringMacro
-class PhUnitTestConf extends commonEntity with PhActionTrait {
+class PhCalcConf extends commonEntity with PhActionTrait {
 
     var ym: String = ""
     var mkt: String = ""

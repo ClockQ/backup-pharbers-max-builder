@@ -21,13 +21,10 @@ class phMaxInfo2RedisAction(override val defaultArgs: pActionArgs) extends pActi
         val mkt = defaultArgs.asInstanceOf[MapArgs].get("mkt").asInstanceOf[StringArgs].get
         val company_id = defaultArgs.asInstanceOf[MapArgs].get("company_id").asInstanceOf[StringArgs].get
         val prod_name = defaultArgs.asInstanceOf[MapArgs].get("prod_name").asInstanceOf[ListArgs].get.map(_.asInstanceOf[StringArgs].get)
-        val panel_name = defaultArgs.asInstanceOf[MapArgs].get("panel_name").asInstanceOf[StringArgs].get
-        val max_name_postfix = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
+        val max_name = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
         val max_search_name = defaultArgs.asInstanceOf[MapArgs].get("max_search_name").asInstanceOf[StringArgs].get
 
         val maxDF = prMap.asInstanceOf[MapArgs].get("max_calc_action").asInstanceOf[DFArgs].get
-
-        val max_name = panel_name + max_name_postfix
 
         val singleJobKey = Base64.getEncoder.encodeToString((company_id +"#"+ ym +"#"+ mkt).getBytes())
 

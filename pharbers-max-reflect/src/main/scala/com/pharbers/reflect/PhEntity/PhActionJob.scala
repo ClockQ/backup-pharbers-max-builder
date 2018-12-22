@@ -1,7 +1,9 @@
 package com.pharbers.reflect.PhEntity
 
+import com.pharbers.channel.detail.channelEntity
 import com.pharbers.macros.api.commonEntity
-import com.pharbers.macros.common.connecting.{One2ManyConn, One2OneConn, ToStringMacro}
+import com.pharbers.macros.common.connecting._
+import com.pharbers.reflect.PhEntity.confEntity._
 
 @One2OneConn[PhXmppConf]("xmppConf")
 @One2OneConn[PhCalcYmConf]("calcYmConf")
@@ -9,7 +11,7 @@ import com.pharbers.macros.common.connecting.{One2ManyConn, One2OneConn, ToStrin
 @One2ManyConn[PhCalcConf]("calcConf")
 @One2ManyConn[PhUnitTestConf]("unitTestConf")
 @ToStringMacro
-class PhAction extends commonEntity {
+class PhActionJob() extends commonEntity with channelEntity {
     var job_id: String = ""
     var user_id: String = ""
     var company_id: String = ""
@@ -18,7 +20,7 @@ class PhAction extends commonEntity {
     var max_path: String = ""
     var prod_lst: String = ""
 
-    def ckElem(value: String): String = {
+    private def ckElem(value: String): String = {
         if(value.isEmpty) throw new Exception("element is none")
         value
     }

@@ -3,10 +3,10 @@ package com.pharbers.unitTest
 import akka.actor.ActorSystem
 import com.pharbers.unitTest.action._
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import com.pharbers.pactions.actionbase.{MapArgs, StringArgs, pActionArgs, pActionTrait}
+import com.pharbers.pactions.actionbase.{MapArgs, pActionArgs, pActionTrait}
 
 object resultCheckJob{
-    def apply(args: StringArgs)(implicit as: ActorSystem): pActionTrait = new resultCheckJob(args)
+    def apply(args: PhActionArgs)(implicit as: ActorSystem): pActionTrait = new resultCheckJob(args)
 }
 
 class resultCheckJob(override val defaultArgs: pActionArgs)
@@ -15,16 +15,15 @@ class resultCheckJob(override val defaultArgs: pActionArgs)
 
     val df = MapArgs(
         Map(
-            "json_file" -> defaultArgs.asInstanceOf[StringArgs]
+            "checkAction" -> defaultArgs.asInstanceOf[PhActionArgs]
         )
     )
 
     override val actions: List[pActionTrait] = {
-                generateNameAction(df) ::
                 executeMaxAction(df) ::
                 loadOfflineResult(df) ::
                 resultCheckAction(df) ::
-//                writeCheckResultAction(df) ::
+                writeCheckResultAction(df) ::
                 Nil
     }
 }

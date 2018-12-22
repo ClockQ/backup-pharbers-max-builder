@@ -12,8 +12,8 @@ class loadOfflineResult(override val defaultArgs: pActionArgs) extends pActionTr
     override val name: String = "loadOfflineResult"
 
     override def perform(prMap: pActionArgs): pActionArgs = {
-        val action = prMap.asInstanceOf[MapArgs].get("generateName").asInstanceOf[PhActionArgs].get
-        val offline_result_file = action.unitTestConf.get.head.conf.head._2
+        val action = defaultArgs.asInstanceOf[MapArgs].get("checkAction").asInstanceOf[PhActionArgs].get
+        val offline_result_file = action.unitTestConf.get.head.conf("offline_result_file")
 
         readCsvAction(offline_result_file, applicationName = action.job_id).perform(NULLArgs)
     }

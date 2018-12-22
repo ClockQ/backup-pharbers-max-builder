@@ -130,8 +130,8 @@ class phAstellasPanelConcretJob(override val defaultArgs: pActionArgs) extends p
         // 合并cpa和gycx的源数据
         val total = {
             val filtered_cpa = cpa.select("HOSP_ID", "YM", "MOLE_NAME", "min1", "MARKET", "VALUE", "STANDARD_UNIT")
-                    .withColumnRenamed("MARKET_EN", "MARKET")
             val have_market_gycx = delete_double_gycx.join(markets_match, delete_double_gycx("GYC_MOLE_NAME") === markets_match("MOLE_NAME"))
+                            .withColumn("MARKET", when(col("MARKET") === mkt_en, mkt).otherwise(col("MARKET")))
                     .select(filtered_cpa.columns.head, filtered_cpa.columns.tail: _*).distinct()
             filtered_cpa.union(have_market_gycx)
                     .withColumn("VALUE", 'VALUE.cast(DoubleType))

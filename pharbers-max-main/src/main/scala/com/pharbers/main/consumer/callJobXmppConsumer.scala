@@ -11,9 +11,7 @@ import com.pharbers.jsonapi.json.circe.CirceJsonapiSupport
 import com.pharbers.jsonapi.model._
 import com.pharbers.macros._
 import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
-import com.pharbers.main.entity.PhMaxJob
 import io.circe.syntax._
-import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.language.postfixOps
 
