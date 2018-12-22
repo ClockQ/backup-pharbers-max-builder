@@ -1,4 +1,4 @@
-package com.pharbers.reflect.PhEntity.jobEntity
+package com.pharbers.reflect.PhEntity.confEntity
 
 import com.pharbers.macros.api.commonEntity
 import com.pharbers.macros.common.connecting.ToStringMacro
