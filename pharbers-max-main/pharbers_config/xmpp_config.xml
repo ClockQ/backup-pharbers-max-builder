@@ -1,0 +1,11 @@
+<pharbers-modules>
+    <xmpp-module>
+        <xmpp_host value="192.168.100.172" />
+        <xmpp_port value="5222" />
+        <xmpp_user value="driver" />
+        <xmpp_pwd value="driver" />
+        <xmpp_listens value="lu@localhost" />
+        <xmpp_report value="lu@localhost" />
+        <xmpp_pool_num value="1" />
+    </xmpp-module>
+</pharbers-modules>

@@ -3,9 +3,9 @@
     "type": "PhAction",
     "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
     "attributes": {
-      "job_id": "job_id222222222222",
-      "user_id": "user_id222222222222",
-      "company_id": "company_id222222222222",
+      "job_id": "job_id1111111111111111",
+      "user_id": "user_id11111111111111111",
+      "company_id": "company_id1111111111111",
       "panel_path": "hdfs:///workData/Panel/",
       "max_path": "hdfs:///workData/Max/",
       "prod_lst": "恩华"
@@ -97,8 +97,8 @@
         "conf": {
           "xmpp_host": "192.168.100.172",
           "xmpp_port": "5222",
-          "xmpp_user": "alfred",
-          "xmpp_pwd": "alfred",
+          "xmpp_user": "cui",
+          "xmpp_pwd": "cui",
           "xmpp_listens": "lu@localhost",
           "xmpp_report": "lu@localhost",
           "xmpp_pool_num": "1"

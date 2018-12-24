@@ -1,27 +1,22 @@
-package com.pharbers.reflect
+package com.pharbers.reflect.util
 
 import java.util.UUID
 import scala.io.Source
 import java.io.{File, PrintWriter}
 import com.pharbers.jsonapi.model.RootObject
 import com.pharbers.reflect.PhEntity.PhActionJob
-import com.pharbers.jsonapi.json.circe.CirceJsonapiSupport
 import com.pharbers.reflect.PhEntity.confEntity.{PhCalcConf, PhPanelConf, PhUnitTestConf}
 
-package object util extends CirceJsonapiSupport {
+object generateNameAction {
 
-    def generateNameAction(json_file: String, tmp_file: String = ""): PhActionJob = {
+    def generateNameAction(actionJob: PhActionJob, tmp_file: String = ""): PhActionJob = {
         import io.circe.syntax._
         import com.pharbers.macros._
         import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
 
-        val json_str: String = Source.fromFile(json_file).getLines.mkString
-        val jsonapi: RootObject = decodeJson[RootObject](parseJson(json_str))
-        val action: PhActionJob = formJsonapi[PhActionJob](jsonapi)
-
-        val panelConf: List[PhPanelConf] = action.panelConf.getOrElse(Nil)
-        val calcConf: List[PhCalcConf] = action.calcConf.getOrElse(Nil)
-        val unitTestConf: List[PhUnitTestConf] = action.unitTestConf.getOrElse(Nil)
+        val panelConf: List[PhPanelConf] = actionJob.panelConf.getOrElse(Nil)
+        val calcConf: List[PhCalcConf] = actionJob.calcConf.getOrElse(Nil)
+        val unitTestConf: List[PhUnitTestConf] = actionJob.unitTestConf.getOrElse(Nil)
 
         val tmp_panel = panelConf.map{ panel =>
             val panel_name = UUID.randomUUID().toString
@@ -48,20 +43,28 @@ package object util extends CirceJsonapiSupport {
             unitTest
         }
 
-        action.job_id = UUID.randomUUID().toString
-        action.panelConf = Some(tmp_panel)
-        action.calcConf = Some(tmp_calc)
-        action.unitTestConf = Some(tmp_unitTest)
-
-//    println(action)
-//    println(toJsonapi(action).asJson.noSpaces)
+        actionJob.job_id = UUID.randomUUID().toString
+        actionJob.panelConf = Some(tmp_panel)
+        actionJob.calcConf = Some(tmp_calc)
+        actionJob.unitTestConf = Some(tmp_unitTest)
 
         if(tmp_file != ""){
             val writer = new PrintWriter(new File(tmp_file))
-            writer.write(toJsonapi(action).asJson.noSpaces)
+            writer.write(toJsonapi(actionJob).asJson.noSpaces)
             writer.close()
         }
 
-        action
+        actionJob
+    }
+
+    def generateNameAction(json_file: String, tmp_file: String = ""): PhActionJob = {
+        import com.pharbers.macros._
+        import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
+
+        val json_str: String = Source.fromFile(json_file).getLines.mkString
+        val jsonapi: RootObject = decodeJson[RootObject](parseJson(json_str))
+        val actionJob: PhActionJob = formJsonapi[PhActionJob](jsonapi)
+
+        generateNameAction(actionJob, tmp_file)
     }
 }
