@@ -8,11 +8,9 @@ import com.pharbers.reflect.PhEntity.PhActionJob
 import com.pharbers.reflect.PhEntity.confEntity.{PhCalcConf, PhPanelConf, PhUnitTestConf}
 
 object generateNameAction {
+    import Jsonapi._
 
-    def generateNameAction(actionJob: PhActionJob, tmp_file: String = ""): PhActionJob = {
-        import io.circe.syntax._
-        import com.pharbers.macros._
-        import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
+    def generateNameAction(actionJob: PhActionJob): PhActionJob = {
 
         val panelConf: List[PhPanelConf] = actionJob.panelConf.getOrElse(Nil)
         val calcConf: List[PhCalcConf] = actionJob.calcConf.getOrElse(Nil)
@@ -48,6 +46,18 @@ object generateNameAction {
         actionJob.calcConf = Some(tmp_calc)
         actionJob.unitTestConf = Some(tmp_unitTest)
 
+        actionJob
+    }
+
+    def generateNameAction(json_file: String, tmp_file: String = ""): PhActionJob = {
+        import io.circe.syntax._
+        import com.pharbers.macros._
+        import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
+
+        val json_str: String = Source.fromFile(json_file).getLines.mkString
+        val jsonapi: RootObject = json2Jsobj(str2Json(json_str))
+        val actionJob: PhActionJob = generateNameAction(formJsonapi[PhActionJob](jsonapi))
+
         if(tmp_file != ""){
             val writer = new PrintWriter(new File(tmp_file))
             writer.write(toJsonapi(actionJob).asJson.noSpaces)
@@ -55,16 +65,5 @@ object generateNameAction {
         }
 
         actionJob
-    }
-
-    def generateNameAction(json_file: String, tmp_file: String = ""): PhActionJob = {
-        import com.pharbers.macros._
-        import com.pharbers.macros.convert.jsonapi.JsonapiMacro._
-
-        val json_str: String = Source.fromFile(json_file).getLines.mkString
-        val jsonapi: RootObject = decodeJson[RootObject](parseJson(json_str))
-        val actionJob: PhActionJob = formJsonapi[PhActionJob](jsonapi)
-
-        generateNameAction(actionJob, tmp_file)
     }
 }
