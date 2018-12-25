@@ -18,7 +18,7 @@ class commonXmppConsumer() extends xmppTrait with CirceJsonapiSupport {
 
     override val decodeHandler: String => channelEntity = _ => ???
 
-    override val consumeHandler: String => Unit = input => {
-        println(s"接受信息: $input")
+    override val consumeHandler: (String, String) => Unit = (from, input) => {
+        println(s"接受$from 发送的信息: $input")
     }
 }

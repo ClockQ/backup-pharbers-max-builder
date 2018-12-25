@@ -1,6 +1,6 @@
 package com.pharbers.common.calc
 
-import akka.actor.ActorSelection
+import com.pharbers.channel.detail.channelEntity
 
 case class phCommonMaxJob(args: Map[String, String])
-                         (override implicit val sendActor: ActorSelection) extends phCommonMaxJobTrait
+                         (override implicit val send: channelEntity => Unit) extends phCommonMaxJobTrait

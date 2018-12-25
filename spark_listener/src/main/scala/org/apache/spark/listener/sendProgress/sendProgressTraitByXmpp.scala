@@ -1,7 +1,6 @@
 package org.apache.spark.listener.sendProgress
 
 import akka.util.Timeout
-import akka.actor.ActorSelection
 import scala.language.postfixOps
 import scala.concurrent.duration._
 import com.pharbers.util.log.phLogTrait
@@ -9,14 +8,14 @@ import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.entity.PhMaxJobResult
 
 sealed trait sendProgressTraitByXmpp extends sendProgressTrait {
-    def sendProcess(obj: channelEntity)(implicit actorRef: ActorSelection): Unit = {
+    def sendProcess(obj: channelEntity)(implicit send: channelEntity => Unit): Unit = {
         implicit val resolveTimeout: Timeout = Timeout(5 seconds)
-        actorRef ! obj
+        send(obj)
     }
 }
 
 case class sendXmppSingleProgress(company_id: String, user_id: String, call: String, job_id: String)
-                                 (implicit sendActor: ActorSelection) extends sendProgressTraitByXmpp with phLogTrait {
+                                 (implicit send: channelEntity => Unit) extends sendProgressTraitByXmpp with phLogTrait {
     val singleProgress: Map[String, Any] => Unit = { map =>
         val progress = map("progress").asInstanceOf[Int]
         val result = new PhMaxJobResult
@@ -25,14 +24,14 @@ case class sendXmppSingleProgress(company_id: String, user_id: String, call: Str
         result.call = call
         result.job_id = job_id
         result.percentage = progress
-        sendProcess(result)(sendActor)
+        sendProcess(result)(send)
         phLog(s"$company_id $user_id current $call progress = $progress")
     }
 }
 
 case class sendXmppMultiProgress(company_id: String, user_id: String, call: String, job_id: String)
                                 (p_current: Double, p_total: Double)
-                                (implicit sendActor: ActorSelection) extends sendProgressTraitByXmpp with phLogTrait {
+                                (implicit send: channelEntity => Unit) extends sendProgressTraitByXmpp with phLogTrait {
     private var previousProgress = 0
     val multiProgress: Map[String, Any] => Unit = { map =>
         val progress = map("progress").asInstanceOf[Int]
@@ -49,7 +48,7 @@ case class sendXmppMultiProgress(company_id: String, user_id: String, call: Stri
             result.job_id = job_id
             result.percentage = progress
 
-            sendProcess(result)(sendActor)
+            sendProcess(result)(send)
             phLog(s"xmpp msg => $company_id $user_id current $call progress = " + currentprogress)
             previousProgress = currentprogress
         }

@@ -1,14 +1,14 @@
 package com.pharbers.nhwa.calcym
 
-import akka.actor.ActorSelection
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
+import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
 import com.pharbers.common.action.{phResult2StringJob, readCpa}
 import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
 
-case class phNhwaCalcYMJob(args: Map[String, String])(implicit sendActor: ActorSelection) extends sequenceJobWithMap {
+case class phNhwaCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phNhwaCalcYMJob"
 
     val cpa_file: String = args("cpa_file")

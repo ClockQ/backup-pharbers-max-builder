@@ -613,15 +613,7 @@
       "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
       "attributes": {
         "disableSend": true,
-        "conf": {
-          "xmpp_host": "192.168.100.172",
-          "xmpp_user": "cui",
-          "xmpp_listens": "lu@localhost",
-          "xmpp_pool_num": "1",
-          "xmpp_pwd": "cui",
-          "xmpp_report": "lu@localhost#admin@localhost",
-          "xmpp_port": "5222"
-        }
+        "xmpp_report" : ""
       }
     }
   ]

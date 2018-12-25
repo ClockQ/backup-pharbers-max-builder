@@ -3,8 +3,11 @@ package com.pharbers.astellas
 import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
 import com.pharbers.astellas.calcym.phAstellasCalcYMJob
+import com.pharbers.astellas.panel.phAstellasPanelJob
+import com.pharbers.astellas.testAstellasCalc.{map, system}
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.channel.consumer.commonXmppConsumer
+import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
@@ -30,9 +33,12 @@ object testAstellasCalcYM extends App {
     )
     val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
 //    val lactor: ActorSelection = system.actorSelection(acter_location)
-    val lactor: ActorSelection = system.actorSelection("akka://maxActor/user/null")
+    val lactor: ActorSelection = system.actorSelection(xmppFactor.getNullActor)
+    val send: channelEntity => Unit = { obj =>
+        lactor ! ("lu@localhost#alfred@localhost", obj)
+    }
 
-    val result = phAstellasCalcYMJob(map)(lactor).perform()
+    val result = phAstellasPanelJob(map)(send).perform()
             .asInstanceOf[MapArgs].get("result")
             .asInstanceOf[StringArgs].get
     println(result)

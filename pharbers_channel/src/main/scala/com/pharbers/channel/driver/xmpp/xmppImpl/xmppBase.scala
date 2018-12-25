@@ -13,6 +13,5 @@ trait xmppBase {
     protected val xmpp_user: String = xmppConfig("xmpp_user").toString
     protected val xmpp_pwd: String = xmppConfig("xmpp_pwd").toString
     protected val xmpp_listens: Array[String] = xmppConfig("xmpp_listens").toString.split("#").filter(_.nonEmpty)
-    protected val xmpp_report: Array[String] = xmppConfig("xmpp_report").toString.split("#").filter(_.nonEmpty)
     protected val xmpp_pool_num: Int = xmppConfig("xmpp_pool_num").toString.toInt
 }

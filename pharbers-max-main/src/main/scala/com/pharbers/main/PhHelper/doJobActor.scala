@@ -10,7 +10,14 @@ object doJobActor {
 
 class doJobActor(implicit as: ActorSystem) extends Actor {
     override def receive: Receive = {
-        case msg: PhActionJob => PhBuilder(msg).calcYmExec().panelExec().stopSpark().stopXMPP()//.calcExec()
+        case msg: PhActionJob =>
+            println(msg)
+            val builder = PhBuilder(msg)
+            try{
+                builder.calcYmExec().panelExec().calcExec().stopSpark()
+            }catch{
+                case _: Exception => builder.stopSpark()
+            }
         case _ => ???
     }
 }

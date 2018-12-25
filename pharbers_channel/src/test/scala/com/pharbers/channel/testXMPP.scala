@@ -29,11 +29,10 @@ object testXMPP extends App {
         val xmppconfig: XmppConfigType = Map(
             "xmpp_host" -> "192.168.100.172",
             "xmpp_port" -> "5222",
-            "xmpp_user" -> "cui",
-            "xmpp_pwd" -> "cui",
-            "xmpp_listens" -> "alfred@localhost",
-            "xmpp_report" -> "alfred@localhost",
-            "xmpp_pool_num" -> "1"
+            "xmpp_user" -> "driver",
+            "xmpp_pwd" -> "driver",
+            "xmpp_listens" -> "lu@localhost",
+            "xmpp_pool_num" -> "2"
         )
         val acter_location = xmppFactor.startLocalClient(new commonXmppConsumer())(system, xmppconfig)
         println(acter_location)
@@ -45,23 +44,21 @@ object testXMPP extends App {
         result.call = "c"
         result.job_id = "d"
         result.percentage = 1
+        sendActor ! ("lu@localhost", result)
+        sendActor ! ("alfred@localhost", result)
         sendActor ! result
         nullActor ! result
-        xmppFactor.stopLocalClient()(system, xmppconfig)
     }
-
-    Thread.sleep(5000)
 
     // 测试二次创建及发送情况
     {
         val xmppconfig2: XmppConfigType = Map(
             "xmpp_host" -> "192.168.100.172",
             "xmpp_port" -> "5222",
-            "xmpp_user" -> "cui",
-            "xmpp_pwd" -> "cui",
+            "xmpp_user" -> "driver",
+            "xmpp_pwd" -> "driver",
             "xmpp_listens" -> "lu@localhost",
-            "xmpp_report" -> "lu@localhost",
-            "xmpp_pool_num" -> "1"
+            "xmpp_pool_num" -> "5"
         )
         val acter_location2 = xmppFactor.startLocalClient(new commonXmppConsumer())(system, xmppconfig2)
         println(acter_location2)
@@ -72,6 +69,11 @@ object testXMPP extends App {
         result2.call = "c"
         result2.job_id = "d"
         result2.percentage = 1
-        sendActor2 ! result2
+        sendActor2 ! ("lu@localhost", result2)
+
+        xmppFactor.stopLocalClient()(system, xmppconfig2)
+        sendActor2 ! ("lu@localhost", result2)
     }
+
+
 }

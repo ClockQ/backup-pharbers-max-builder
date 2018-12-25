@@ -26,7 +26,7 @@ case class ListenerHelper(start_progress: Int, end_progress: Int)
     override def taskEnd(): Unit = {
         remainTask -= 1
         current += stride
-        if (progress < current.toInt) {
+        if (current.toInt > progress && current.toInt <= end_progress) {
             progress = current.toInt
             send(Map("progress" -> progress))
         }

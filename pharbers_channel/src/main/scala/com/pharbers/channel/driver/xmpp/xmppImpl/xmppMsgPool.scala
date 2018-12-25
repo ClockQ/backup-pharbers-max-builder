@@ -10,8 +10,12 @@ object xmppMsgPool {
 
 class xmppMsgPool(handler: xmppTrait) extends Actor with ActorLogging with phLogTrait {
     override def receive: Receive = {
-        case (sender: String, body: AnyRef) => handler.consumeHandler(body.toString)
-        case (entity: channelEntity, cli: xmppClient) => cli.broadcastXmppMsg(handler.encodeHandler(entity))
+        case (from: String, body: AnyRef) =>
+            handler.consumeHandler(from, body.toString)
+
+        case (receiver: String, entity: channelEntity, cli: xmppClient) =>
+            cli.broadcastXmppMsg(receiver, handler.encodeHandler(entity))
+
         case msg: Any => phLog("接受非法:" + msg)
     }
 }

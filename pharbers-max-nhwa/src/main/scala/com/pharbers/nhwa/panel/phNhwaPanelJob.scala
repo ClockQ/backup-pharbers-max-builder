@@ -1,6 +1,6 @@
 package com.pharbers.nhwa.panel
 
-import akka.actor.ActorSelection
+import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
@@ -19,7 +19,7 @@ import com.pharbers.common.panel.{phPanelInfo2Redis, phSavePanelJob}
   * 6. read CPA文件第一页
   * 7. read CPA文件第二页
   **/
-case class phNhwaPanelJob(args: Map[String, String])(implicit sendActor: ActorSelection) extends sequenceJobWithMap {
+case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phNhwaPanelJob"
 
     val panel_path: String = args("panel_path")

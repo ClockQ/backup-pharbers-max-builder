@@ -24,6 +24,11 @@
                 <!-- pharbers module -->
                 <dependency>
                     <groupId>com.pharbers</groupId>
+                    <artifactId>spark_driver</artifactId>
+                    <version>${ph.module.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.pharbers</groupId>
                     <artifactId>pharbers-max-common</artifactId>
                     <version>${ph.module.version}</version>
                 </dependency>

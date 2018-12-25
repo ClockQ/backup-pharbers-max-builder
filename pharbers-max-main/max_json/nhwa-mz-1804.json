@@ -8,7 +8,8 @@
       "company_id": "company_id222222222222",
       "panel_path": "hdfs:///workData/Panel/",
       "max_path": "hdfs:///workData/Max/",
-      "prod_lst": "恩华"
+      "prod_lst": "",
+      "prod_lst2": "恩华"
     },
     "relationships": {
       "calcConf": {
@@ -94,15 +95,7 @@
       "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
       "attributes": {
         "disableSend": false,
-        "conf": {
-          "xmpp_host": "192.168.100.172",
-          "xmpp_port": "5222",
-          "xmpp_user": "alfred",
-          "xmpp_pwd": "alfred",
-          "xmpp_listens": "lu@localhost",
-          "xmpp_report": "lu@localhost",
-          "xmpp_pool_num": "1"
-        }
+        "xmpp_report" : "lu@localhost"
       }
     }
   ]

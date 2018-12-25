@@ -18,7 +18,6 @@ object xmppFactor extends phLogTrait {
         xmppConfig.getOrElse("xmpp_user", throw new Exception("XMPP failed to initialize !!! not found xmpp_user"))
         xmppConfig.getOrElse("xmpp_pwd", throw new Exception("XMPP failed to initialize !!! not found xmpp_pwd"))
         xmppConfig.getOrElse("xmpp_listens", throw new Exception("XMPP failed to initialize !!! not found xmpp_listens"))
-        xmppConfig.getOrElse("xmpp_report", throw new Exception("XMPP failed to initialize !!! not found xmpp_report"))
         xmppConfig.getOrElse("xmpp_pool_num", throw new Exception("XMPP failed to initialize !!! not found xmpp_pool_num"))
 
         try {
@@ -47,6 +46,7 @@ object xmppFactor extends phLogTrait {
         implicit val t: Timeout = 5 seconds
 
         try {
+            Thread.sleep(3000)
             val actorRef = as.actorSelection(s"akka://${as.name}/user/${xmppConfig("xmpp_user")}")
             val stopResult = actorRef ? "stop"
             Await.result(stopResult.mapTo[Boolean], t.duration)

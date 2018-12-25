@@ -1,35 +1,28 @@
 package com.pharbers.main.PhProcess
 
 import com.pharbers.reflect.PhReflect._
+import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
+import com.pharbers.channel.detail.channelEntity
 import com.pharbers.reflect.PhEntity.PhActionJob
 import com.pharbers.channel.driver.xmpp.xmppFactor
-import com.pharbers.main.PhConsumer.progressXmppConsumer
-import com.pharbers.spark.phSparkDriver
+import com.pharbers.main.PhConsumer.mainXmppConfBase
+import com.pharbers.reflect.PhEntity.confEntity.PhXmppConf
+import org.apache.spark.listener.entity.PhMaxJobResult
 
 case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
-    lazy val senderActor: ActorSelection = startXMPP()
+    val xmppconf: PhXmppConf = actionJob.xmppConf.getOrElse(throw new Exception("xmpp conf is none"))
 
-    /** 启动XMPP */
-    private def startXMPP(): ActorSelection = {
-        val xmppconf = actionJob.xmppConf.getOrElse(throw new Exception("xmpp conf is none"))
-
-        val lactor = xmppFactor.startLocalClient(
-            new progressXmppConsumer()
-        )(as, xmppconf.conf)
-
-        if (xmppconf.disableSend) as.actorSelection(xmppFactor.getNullActor(as))
-        else as.actorSelection(lactor)
+    val sendActor: ActorSelection = {
+        if (xmppconf.disableSend)
+            as.actorSelection(xmppFactor.getNullActor(as))
+        else
+            as.actorSelection(s"akka://${as.name}/user/${mainXmppConfBase.xmpp_user}")
     }
 
-    /** 停止XMPP */
-    def stopXMPP(): Unit = {
-        Thread.sleep(5000)
-        val xmppconf = actionJob.xmppConf.getOrElse(throw new Exception("xmpp conf is none"))
-        xmppFactor.stopLocalClient()(as, xmppconf.conf)
-    }
+    val sender: channelEntity => Unit = obj => sendActor ! (xmppconf.xmpp_report, obj)
 
-    /** 停止XMPP */
+    /** 停止 Spark */
     def stopSpark(): PhBuilder = {
         phSparkDriver(actionJob.job_id).stopCurrConn()
         this
@@ -39,7 +32,16 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
     def calcYmExec(): PhBuilder = {
         actionJob.calcYmConf match {
             case Some(calcYmCnf) =>
-                reflect(calcYmCnf)(actionJob.ymArgs(calcYmCnf))(senderActor).exec()
+                val ymlst = reflect(calcYmCnf)(actionJob.ymArgs(calcYmCnf))(sender).exec()
+                println(ymlst)
+                val result = new PhMaxJobResult
+                result.company_id = actionJob.company_id
+                result.user_id = actionJob.user_id
+                result.call = "ymCalc"
+                result.job_id = actionJob.job_id
+                result.percentage = 100
+                result.message = ymlst
+                sender(result)
                 this
             case None => this
         }
@@ -50,11 +52,20 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
         actionJob.panelConf match {
             case Some(panelActionLst) =>
                 val length = panelActionLst.length
-                var currentJobIndex = 1
-                panelActionLst.foreach { panelConf =>
-                    reflect(panelConf)(actionJob.panelArgs(currentJobIndex, length)(panelConf))(senderActor).exec()
+                var currentJobIndex = 0
+                val panelLst = panelActionLst.map { panelConf =>
                     currentJobIndex += 1
+                    reflect(panelConf)(actionJob.panelArgs(currentJobIndex, length)(panelConf))(sender).exec()
                 }
+                println(panelLst.mkString("#"))
+                val result = new PhMaxJobResult
+                result.company_id = actionJob.company_id
+                result.user_id = actionJob.user_id
+                result.call = "panel"
+                result.job_id = actionJob.job_id
+                result.percentage = 100
+                result.message = panelLst.mkString("#")
+                sender(result)
                 this
             case None => this
         }
@@ -67,7 +78,7 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
                 val length = calcActionLst.length
                 var currentJobIndex = 1
                 calcActionLst.foreach { calcConf =>
-                    reflect(calcConf)(actionJob.calcArgs(currentJobIndex, length)(calcConf))(senderActor).exec()
+                    reflect(calcConf)(actionJob.calcArgs(currentJobIndex, length)(calcConf))(sender).exec()
                     currentJobIndex += 1
                 }
                 this

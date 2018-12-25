@@ -14,5 +14,5 @@ trait xmppTrait {
     /** 接受 msg */
     val decodeHandler: String => channelEntity
     /** 处理 msg */
-    val consumeHandler: String => Unit
+    val consumeHandler: (String, String) => Unit
 }

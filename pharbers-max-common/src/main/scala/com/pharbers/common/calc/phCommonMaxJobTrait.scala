@@ -1,7 +1,7 @@
 package com.pharbers.common.calc
 
-import akka.actor.ActorSelection
 import com.pharbers.pactions.actionbase._
+import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
@@ -13,7 +13,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     override val name: String = "phMaxCalcJob"
 
     val args: Map[String, String]
-    implicit val sendActor: ActorSelection
+    implicit val send: channelEntity => Unit
 
     val panel_path: String = args("panel_path")
     val panel_name: String = args("panel_name")

@@ -11,10 +11,7 @@ import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
 class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfigType)
         extends xmppBase with Actor with ActorLogging with phLogTrait {
-    val xmpp_pool: ActorRef = context.actorOf(
-        RoundRobinPool(xmpp_pool_num).props(xmppMsgPool.props(handler)),
-        name = "xmpp-receiver"
-    )
+
     lazy val xmpp_config: ConnectionConfiguration = new ConnectionConfiguration(xmpp_host, xmpp_port)
     lazy val (conn, cm): (XMPPConnection, ChatManager) = {
         try {
@@ -28,6 +25,11 @@ class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfi
                 (null, null)
         }
     }
+
+    val xmpp_pool: ActorRef = context.actorOf(
+        RoundRobinPool(xmpp_pool_num).props(xmppMsgPool.props(handler)),
+        name = "xmpp-receiver"
+    )
 
     def startXmpp(): Unit = {
         cm.addChatListener(new ChatManagerListener {
@@ -50,21 +52,23 @@ class xmppClient(handler: xmppTrait)(implicit override val xmppConfig: XmppConfi
         })
     }
 
-    def broadcastXmppMsg(reJson: String): Unit = {
+    def broadcastXmppMsg(receiver: String, reJson: String): Unit = {
+        val xmpp_report: Array[String] = receiver.split("#").filter(_.nonEmpty)
         xmpp_report.foreach { userJID =>
             cm.createChat(userJID, null).sendMessage(reJson)
         }
     }
 
-    def stopXmpp(): Unit = {
+    def stopXmpp(): Boolean = {
         conn.disconnect()
         self ! PoisonPill
+        true
     }
 
     override def receive: Receive = {
         case "start" => startXmpp()
-        case "stop" => stopXmpp(); sender ! true
-        case msg: channelEntity => xmpp_pool ! (msg, this)
+        case "stop" => sender ! stopXmpp()
+        case (receiver: String, msg: channelEntity) => xmpp_pool ! (receiver, msg, this)
         case msg: Any => phLog("发送非法:" + msg)
     }
 }
