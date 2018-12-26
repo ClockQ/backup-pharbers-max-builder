@@ -23,13 +23,19 @@ class executeMaxAction(override val defaultArgs: pActionArgs)
         }
 
         // 执行Panel
-        val panelConf = action.panelConf.get.head
-        reflect(panelConf)(action.panelArgs(1, 1)(panelConf)).exec()
+        action.panelConf match {
+            case Some(one :: _) => reflect(one)(action.panelArgs(1, 1)(one)).exec()
+            case _ => Unit
+        }
 
         // 执行Max
-        val maxConf = action.calcConf.get.head
-        reflect(maxConf)(action.calcArgs(1, 1)(maxConf)).exec()
+        val maxResult = action.calcConf match {
+            case Some(one :: _) =>
+                reflect(one)(action.calcArgs(1, 1)(one)).exec()
+                one.max_name
+            case _ => throw new Exception("no max")
+        }
 
-        StringArgs(maxConf.max_name)
+        StringArgs(maxResult)
     }
 }

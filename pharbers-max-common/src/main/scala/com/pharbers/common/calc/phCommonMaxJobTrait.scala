@@ -20,6 +20,8 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     val max_path: String = args("max_path")
     val max_name: String = args("max_name")
     val max_search_name: String = args("max_search_name")
+    val panel_delimiter: String = args.getOrElse("panel_delimiter", 31.toChar.toString)
+    val max_delimiter: String = args.getOrElse("max_delimiter", 31.toChar.toString)
     val panel_file: String = panel_path + panel_name
     val universe_file: String = args("universe_file")
     val prod_name_lst: List[String] = args("prod_lst").split("#").toList
@@ -35,7 +37,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     // 1. load panel data
     val loadPanelData: sequenceJob = new sequenceJob {
         override val name: String = "panel_data"
-        override val actions: List[pActionTrait] = readCsvAction(panel_file, delimiter = 31.toChar.toString, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readCsvAction(panel_file, delimiter = panel_delimiter, applicationName = job_id) :: Nil
     }
 
     // 留做测试 1. load panel data of xlsx
@@ -64,6 +66,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
             "panel_name" -> StringArgs(panel_name),
             "max_path" -> StringArgs(max_path),
             "max_name" -> StringArgs(max_name),
+            "max_delimiter" -> StringArgs(max_delimiter),
             "max_search_name" -> StringArgs(max_search_name),
             "prod_name" -> ListArgs(prod_name_lst.map(StringArgs))
         )
@@ -74,7 +77,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(0, 10, job_id) ::
+                addListenerAction(1, 10, job_id) ::
                 loadPanelData ::
                 addListenerAction(11, 20, job_id) ::
                 readUniverseFile ::
@@ -82,8 +85,9 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
                 phMaxCalcAction(df) ::
                 addListenerAction(31, 40, job_id) ::
                 phMaxPersistentAction(df) ::
-                addListenerAction(41, 99, job_id) ::
+                addListenerAction(41, 90, job_id) ::
                 phMaxInfo2RedisAction(df) ::
+                addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("phMaxInfo2RedisAction", tranFun) ::
                 Nil
     }

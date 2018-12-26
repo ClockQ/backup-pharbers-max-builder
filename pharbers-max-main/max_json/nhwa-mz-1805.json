@@ -54,6 +54,7 @@
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
         "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
         "conf": {
+          "max_delimiter" : ",",
           "universe_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_universe_麻醉市场_20180705.csv"
         }
       }

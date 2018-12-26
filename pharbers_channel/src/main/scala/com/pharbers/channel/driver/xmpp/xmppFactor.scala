@@ -27,7 +27,9 @@ object xmppFactor extends phLogTrait {
             actorRef.path.toString
         } catch {
             case _: InvalidActorNameException => s"akka://${as.name}/user/${xmppConfig("xmpp_user")}"
-            case _: Exception => throw new Exception("XMPP failed to initialize")
+            case msg: Exception =>
+                msg.printStackTrace()
+                throw new Exception("XMPP failed to initialize")
         }
     }
 

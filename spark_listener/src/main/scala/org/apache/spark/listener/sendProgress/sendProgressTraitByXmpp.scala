@@ -32,7 +32,7 @@ case class sendXmppSingleProgress(company_id: String, user_id: String, call: Str
 case class sendXmppMultiProgress(company_id: String, user_id: String, call: String, job_id: String)
                                 (p_current: Double, p_total: Double)
                                 (implicit send: channelEntity => Unit) extends sendProgressTraitByXmpp with phLogTrait {
-    private var previousProgress = 0
+    private var previousProgress = -1
     val multiProgress: Map[String, Any] => Unit = { map =>
         val progress = map("progress").asInstanceOf[Int]
         val currentprogress = p_total match {

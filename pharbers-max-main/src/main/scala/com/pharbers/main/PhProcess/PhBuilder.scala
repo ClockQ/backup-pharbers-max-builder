@@ -76,11 +76,20 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
         actionJob.calcConf match {
             case Some(calcActionLst) =>
                 val length = calcActionLst.length
-                var currentJobIndex = 1
-                calcActionLst.foreach { calcConf =>
-                    reflect(calcConf)(actionJob.calcArgs(currentJobIndex, length)(calcConf))(sender).exec()
+                var currentJobIndex = 0
+                val calcLst = calcActionLst.map { calcConf =>
                     currentJobIndex += 1
+                    reflect(calcConf)(actionJob.calcArgs(currentJobIndex, length)(calcConf))(sender).exec()
                 }
+                println(calcLst.mkString("#"))
+                val result = new PhMaxJobResult
+                result.company_id = actionJob.company_id
+                result.user_id = actionJob.user_id
+                result.call = "calc"
+                result.job_id = actionJob.job_id
+                result.percentage = 100
+                result.message = calcLst.mkString("#")
+                sender(result)
                 this
             case None => this
         }

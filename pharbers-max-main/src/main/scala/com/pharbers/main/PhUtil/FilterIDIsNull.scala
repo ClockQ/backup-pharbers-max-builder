@@ -2,6 +2,11 @@ package com.pharbers.main.PhUtil
 
 import com.pharbers.reflect.PhEntity.PhActionJob
 
+/**
+  * @description: Golang 传递的空关联非None,需根据id是否为空判断
+  * @author: clock
+  * @date: 2018-12-26 11:20
+  */
 object FilterIDIsNull {
     implicit class FilterIDIsNull(action: PhActionJob) {
         def filterNullId(): PhActionJob = {

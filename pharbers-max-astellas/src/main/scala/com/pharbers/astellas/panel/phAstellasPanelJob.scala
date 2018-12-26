@@ -1,10 +1,9 @@
 package com.pharbers.astellas.panel
 
-import akka.actor.ActorSelection
-import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
+import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pactions.generalactions.memory.phMemoryArgs

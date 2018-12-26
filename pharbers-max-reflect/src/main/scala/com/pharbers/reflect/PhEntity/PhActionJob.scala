@@ -25,6 +25,11 @@ class PhActionJob() extends commonEntity with channelEntity {
         value
     }
 
+    private def ckPath(value: String): String = {
+        if(ckElem(value).endsWith("/")) value
+        else value + "/"
+    }
+
     def ymArgs(ymConf: PhCalcYmConf): Map[String, String] = {
         Map(
             "job_id" -> ckElem(job_id),
@@ -39,7 +44,7 @@ class PhActionJob() extends commonEntity with channelEntity {
             "job_id" -> ckElem(job_id),
             "user_id" -> ckElem(user_id),
             "company_id" -> ckElem(company_id),
-            "panel_path" -> ckElem(panel_path),
+            "panel_path" -> ckPath(panel_path),
             "prod_lst" -> ckElem(prod_lst),
             "ym" -> ckElem(panelConf.ym),
             "mkt" -> ckElem(panelConf.mkt),
@@ -55,8 +60,8 @@ class PhActionJob() extends commonEntity with channelEntity {
             "job_id" -> ckElem(job_id),
             "user_id" -> ckElem(user_id),
             "company_id" -> ckElem(company_id),
-            "panel_path" -> ckElem(panel_path),
-            "max_path" -> ckElem(max_path),
+            "panel_path" -> ckPath(panel_path),
+            "max_path" -> ckPath(max_path),
             "prod_lst" -> ckElem(prod_lst),
             "ym" -> ckElem(calcConf.ym),
             "mkt" -> ckElem(calcConf.mkt),

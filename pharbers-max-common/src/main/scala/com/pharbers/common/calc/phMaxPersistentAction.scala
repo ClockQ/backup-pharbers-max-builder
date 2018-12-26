@@ -15,6 +15,8 @@ class phMaxPersistentAction[T](override val defaultArgs: pActionArgs) extends pA
         val prod_name = defaultArgs.asInstanceOf[MapArgs].get("prod_name").asInstanceOf[ListArgs].get.map(_.asInstanceOf[StringArgs].get)
         val max_name = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
         val max_path = defaultArgs.asInstanceOf[MapArgs].get("max_path").asInstanceOf[StringArgs].get
+        val max_delimiter = defaultArgs.asInstanceOf[MapArgs].get
+                .getOrElse("max_delimiter", StringArgs(31.toChar.toString)).asInstanceOf[StringArgs].get
 
         val maxDF = prMap.asInstanceOf[MapArgs].get("max_calc_action").asInstanceOf[DFArgs].get
 
@@ -26,7 +28,7 @@ class phMaxPersistentAction[T](override val defaultArgs: pActionArgs) extends pA
         max_result.write
                 .format("csv")
                 .option("header", value = true)
-                .option("delimiter", 31.toChar.toString)
+                .option("delimiter", max_delimiter)
                 .option("codec", "org.apache.hadoop.io.compress.GzipCodec")
                 .save(resultLocation)
 

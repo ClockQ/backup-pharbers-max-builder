@@ -7,13 +7,14 @@ package object common {
 
     implicit class getSingleAction(action: PhActionJob) {
         def toSingleList: List[PhActionJob] = {
-            val panelConf: List[PhPanelConf] = action.panelConf.get
-            val calcConf: List[PhCalcConf] = action.calcConf.get
-            val unitTestConf: List[PhUnitTestConf] = action.unitTestConf.get
+            println(action)
+            val panelConf: List[PhPanelConf] = action.panelConf.getOrElse(Nil)
+            val calcConf: List[PhCalcConf] = action.calcConf.getOrElse(Nil)
+            val unitTestConf: List[PhUnitTestConf] = action.unitTestConf.getOrElse(Nil)
 
             unitTestConf.map { unitTest =>
-                val panel = panelConf.find(x => x.ym == unitTest.ym && x.mkt == unitTest.mkt).get
-                val calc = calcConf.find(x => x.ym == unitTest.ym && x.mkt == unitTest.mkt).get
+                val panel = panelConf.find(x => x.ym == unitTest.ym && x.mkt == unitTest.mkt)
+                val calc = calcConf.find(x => x.ym == unitTest.ym && x.mkt == unitTest.mkt)
                 val tmp = new PhActionJob()
                 tmp.job_id = action.job_id
                 tmp.user_id = action.user_id
@@ -24,8 +25,8 @@ package object common {
                 tmp.xmppConf = action.xmppConf
                 tmp.calcYmConf = action.calcYmConf
 
-                tmp.panelConf = Some(panel :: Nil)
-                tmp.calcConf = Some(calc :: Nil)
+                tmp.panelConf = panel.map(_ :: Nil)
+                tmp.calcConf = calc.map(_ :: Nil)
                 tmp.unitTestConf = Some(unitTest :: Nil)
                 tmp
             }

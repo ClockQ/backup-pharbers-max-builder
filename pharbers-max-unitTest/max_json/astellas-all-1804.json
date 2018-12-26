@@ -157,7 +157,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -172,7 +172,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -187,7 +187,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -202,7 +202,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -217,7 +217,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -232,7 +232,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -247,7 +247,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -262,7 +262,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -277,7 +277,7 @@
         "jar_path": "",
         "clazz": "",
         "conf": {
-          "offline_result_file": "/data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
+          "offline_result_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Offline_MaxResult_20180711.csv"
         }
       }
     },
@@ -293,7 +293,7 @@
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Allelock_20180709.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Allelock_20180709.csv"
         }
       }
     },
@@ -309,7 +309,7 @@
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Mycamine_20180710.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Mycamine_20180710.csv"
         }
       }
     },
@@ -319,13 +319,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "普乐可复市场",
-        "panel_name": "panel_Prograf",
-        "max_name": "max_Prograf",
-        "max_search_name": "search_Prograf",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Prograf_20180710.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Prograf_20180710.csv"
         }
       }
     },
@@ -335,13 +335,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "佩尔市场",
-        "panel_name": "panel_Perdipine",
-        "max_name": "max_Perdipine",
-        "max_search_name": "search_Perdipine",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Perdipine_20180710.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Perdipine_20180710.csv"
         }
       }
     },
@@ -351,13 +351,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "哈乐市场",
-        "panel_name": "panel_Harnal",
-        "max_name": "max_Harnal",
-        "max_search_name": "search_Harnal",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Harnal_20180709.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Harnal_20180709.csv"
         }
       }
     },
@@ -367,13 +367,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "痛风市场",
-        "panel_name": "panel_Gout",
-        "max_name": "max_Gout",
-        "max_search_name": "search_Gout",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Gout_20180709.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Gout_20180709.csv"
         }
       }
     },
@@ -383,13 +383,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "卫喜康市场",
-        "panel_name": "panel_Vesicare",
-        "max_name": "max_Vesicare",
-        "max_search_name": "search_Vesicare",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Vesicare_20180709.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Vesicare_20180709.csv"
         }
       }
     },
@@ -399,13 +399,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "Grafalon市场",
-        "panel_name": "panel_Grafalon",
-        "max_name": "max_Grafalon",
-        "max_search_name": "search_Grafalon",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_Grafalon_20180710.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_Grafalon_20180710.csv"
         }
       }
     },
@@ -415,13 +415,13 @@
       "attributes": {
         "ym": "201804",
         "mkt": "前列腺癌市场",
-        "panel_name": "panel_qlx",
-        "max_name": "max_qlx",
-        "max_search_name": "search_qlx",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.calc.phAstellasMaxJob",
         "conf": {
-          "universe_file": "/data/astellas/pha_config_repository1804/Astellas_Universe_前列腺癌_20180709.csv"
+          "universe_file": "hdfs:///data/astellas/pha_config_repository1804/Astellas_Universe_前列腺癌_20180709.csv"
         }
       }
     },
@@ -431,7 +431,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "阿洛刻市场",
-        "panel_name": "panel_Allelock",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -450,7 +450,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "米开民市场",
-        "panel_name": "panel_Mycamine",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -469,7 +469,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "Grafalon市场",
-        "panel_name": "panel_Grafalon",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -488,7 +488,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "哈乐市场",
-        "panel_name": "panel_Harnal",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -507,7 +507,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "佩尔市场",
-        "panel_name": "panel_Perdipine",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -526,7 +526,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "前列腺癌市场",
-        "panel_name": "panel_qlx",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -545,7 +545,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "卫喜康市场",
-        "panel_name": "panel_Vesicare",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -564,7 +564,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "痛风市场",
-        "panel_name": "panel_Gout",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
@@ -583,7 +583,7 @@
       "attributes": {
         "ym": "201804",
         "mkt": "普乐可复市场",
-        "panel_name": "panel_Prograf",
+        "panel_name": "",
         "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-astellas/target/pharbers-max-astellas-1.0.jar",
         "clazz": "com.pharbers.astellas.panel.phAstellasPanelJob",
         "conf": {
