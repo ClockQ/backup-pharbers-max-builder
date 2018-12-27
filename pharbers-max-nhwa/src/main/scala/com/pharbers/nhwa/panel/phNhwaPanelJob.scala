@@ -117,7 +117,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(0, 10, job_id) ::
+                addListenerAction(1, 10, job_id) ::
                 loadNotPublishedHosp ::
                 addListenerAction(11, 20, job_id) ::
                 load_hosp_ID_file ::

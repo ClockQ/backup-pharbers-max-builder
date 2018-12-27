@@ -1,22 +1,41 @@
-package com.pharbers.astellas
+package com.pharbers.servier
+
+import java.util.UUID
 
 import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
-import com.pharbers.astellas.calcym.phAstellasCalcYMJob
+import com.pharbers.servier.calc.phServierMaxJob
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.channel.consumer.commonXmppConsumer
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
-object testAstellasCalcYM extends App {
-    val job_id: String = "astl_job_id"
+object testServierCalc extends App {
+    val job_id: String = "job_id"
+    val panel_name: String = "IHD_Panel 201809.csv"
+    println(s"panel_name = $panel_name")
+    val max_name: String = UUID.randomUUID().toString
+    println(s"max_name = $max_name")
+    val max_search_name: String = UUID.randomUUID().toString
+    println(s"max_search_name = $max_search_name")
+
     val map: Map[String, String] = Map(
-        "cpa_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_CPA.csv",
-        "gycx_file" -> "hdfs:///data/astellas/pha_config_repository1804/Astellas_201804_Gycx_20180703.csv",
+        "panel_path" -> "hdfs:///data/servier/",
+        "panel_name" -> panel_name,
+        "max_path" -> "hdfs:///workData/Max/",
+        "max_name" -> max_name,
+        "max_search_name" -> max_search_name,
+        "ym" -> "201809",
+        "mkt" -> "IHD",
+        "job_id" -> job_id,
         "user_id" -> "user_id",
         "company_id" -> "company_id",
-        "job_id" -> job_id
+        "prod_lst" -> "施维雅",
+        "p_current" -> "1",
+        "p_total" -> "1",
+        "panel_delimiter" -> ",",
+        "universe_file" -> "hdfs:///data/servier/Servier_Universe_IHD_20181119.csv"
     )
 
     implicit val system: ActorSystem = ActorSystem("maxActor")
@@ -26,7 +45,6 @@ object testAstellasCalcYM extends App {
         "xmpp_user" -> "cui",
         "xmpp_pwd" -> "cui",
         "xmpp_listens" -> "lu@localhost",
-        "xmpp_report" -> "lu@localhost#admin@localhost",
         "xmpp_pool_num" -> "1"
     )
     val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
@@ -36,7 +54,7 @@ object testAstellasCalcYM extends App {
         lactor ! ("lu@localhost#alfred@localhost", obj)
     }
 
-    val result = phAstellasCalcYMJob(map)(send).perform()
+    val result = phServierMaxJob(map)(send).perform()
             .asInstanceOf[MapArgs].get("result")
             .asInstanceOf[StringArgs].get
     println(result)

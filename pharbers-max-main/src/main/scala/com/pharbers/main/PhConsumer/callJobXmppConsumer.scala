@@ -28,7 +28,6 @@ class callJobXmppConsumer()(implicit as: ActorSystem) extends xmppTrait with Cir
     override val consumeHandler: (String, String) => Unit = (_, input) => {
 //        val action = generateNameAction(decodeHandler(input).asInstanceOf[PhActionJob])
         val action = decodeHandler(input).asInstanceOf[PhActionJob].filterNullId()
-        println(action)
         println("job_id, job_id = " + action.job_id)
         val actorRef = as.actorOf(doJobActor.props)
         actorRef ! action

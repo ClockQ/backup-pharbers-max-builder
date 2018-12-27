@@ -11,7 +11,6 @@ object doJobActor {
 class doJobActor(implicit as: ActorSystem) extends Actor {
     override def receive: Receive = {
         case msg: PhActionJob =>
-            println(msg)
             val builder = PhBuilder(msg)
             try{
                 builder.calcYmExec().panelExec().calcExec().stopSpark()

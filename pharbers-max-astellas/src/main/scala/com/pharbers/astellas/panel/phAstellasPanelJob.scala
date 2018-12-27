@@ -104,7 +104,7 @@ case class phAstellasPanelJob(args: Map[String, String])(implicit send: channelE
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(0, 10, job_id) ::
+                addListenerAction(1, 10, job_id) ::
                 load_product_match_file ::
                 addListenerAction(11, 20, job_id) ::
                 load_markets_match_file ::
@@ -116,12 +116,13 @@ case class phAstellasPanelJob(args: Map[String, String])(implicit send: channelE
                 load_cpa ::
                 addListenerAction(51, 60, job_id) ::
                 load_gycx ::
-                addListenerAction(61, 80, job_id) ::
+                addListenerAction(61, 70, job_id) ::
                 phAstellasPanelConcretJob(df) ::
-                addListenerAction(81, 90, job_id) ::
+                addListenerAction(71, 80, job_id) ::
                 phSavePanelJob(df) ::
-                addListenerAction(91, 99, job_id) ::
+                addListenerAction(81, 90, job_id) ::
                 phPanelInfo2Redis(df) ::
+                addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("phPanelInfo2Redis", tranFun) ::
                 Nil
     }

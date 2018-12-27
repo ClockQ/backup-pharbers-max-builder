@@ -1,20 +1,21 @@
-package com.pharbers.nhwa.calcym
+package com.pharbers.pfizer.calcym
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import com.pharbers.common.action.{phResult2StringJob, readCpa}
 import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
+import com.pharbers.common.action.{phResult2StringJob, readCpa, readGycx}
 
-case class phNhwaCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
-    override val name: String = "phNhwaCalcYMJob"
+case class phPfizerCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
+    override val name: String = "phAstellasCalcYMJob"
 
     val cpa_file: String = args("cpa_file")
+    val gycx_file: String = args("gycx_file")
+    val job_id: String = args("job_id")
     val user_id: String = args("user_id")
     val company_id: String = args("company_id")
-    val job_id: String = args("job_id")
 
     val df = MapArgs(
         Map(
@@ -29,8 +30,10 @@ case class phNhwaCalcYMJob(args: Map[String, String])(implicit send: channelEnti
         setLogLevelAction("ERROR", job_id) ::
                 addListenerAction(1, 10, job_id) ::
                 readCpa(cpa_file, job_id) ::
+                addListenerAction(11, 30, job_id) ::
+                readGycx(gycx_file, job_id) ::
                 addListenerAction(31, 90, job_id) ::
-                phNhwaCountYm(df) ::
+                phPfizerCountYm(df) ::
                 addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("calcYm", tranFun) ::
                 Nil

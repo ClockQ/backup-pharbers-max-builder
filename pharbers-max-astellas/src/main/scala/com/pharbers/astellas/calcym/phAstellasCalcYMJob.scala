@@ -1,9 +1,8 @@
 package com.pharbers.astellas.calcym
 
-import akka.actor.ActorSelection
-import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
+import com.pharbers.channel.detail.channelEntity
 import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
 import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
@@ -29,12 +28,13 @@ case class phAstellasCalcYMJob(args: Map[String, String])(implicit send: channel
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(0, 10, job_id) ::
+                addListenerAction(1, 10, job_id) ::
                 readCpa(cpa_file, job_id) ::
                 addListenerAction(11, 20, job_id) ::
                 readGycx(gycx_file, job_id) ::
-                addListenerAction(20, 99, job_id) ::
+                addListenerAction(21, 90, job_id) ::
                 phAstellasCountYm(df) ::
+                addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("calcYm", tranFun) ::
                 Nil
     }

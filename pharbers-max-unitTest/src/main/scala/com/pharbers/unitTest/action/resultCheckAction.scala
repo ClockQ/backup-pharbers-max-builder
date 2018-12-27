@@ -56,6 +56,7 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
                 .withColumnRenamed("f_units(offline)", "offlineUnits")
                 .withColumnRenamed("f_sales(offline)", "offlineSales")
 
+
 //        //保存max结果
 //        maxDF.coalesce(1).write
 //                .format("csv")

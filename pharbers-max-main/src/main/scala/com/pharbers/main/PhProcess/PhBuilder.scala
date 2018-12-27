@@ -24,6 +24,7 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
 
     /** 停止 Spark */
     def stopSpark(): PhBuilder = {
+        println("执行完成")
         phSparkDriver(actionJob.job_id).stopCurrConn()
         this
     }
