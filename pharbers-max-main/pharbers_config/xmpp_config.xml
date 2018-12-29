@@ -2,9 +2,9 @@
     <xmpp-module>
         <xmpp_host value="192.168.100.172" />
         <xmpp_port value="5222" />
-        <xmpp_user value="cui" />
-        <xmpp_pwd value="cui" />
-        <xmpp_listens value="jeorch@localhost#lu@localhost" />
+        <xmpp_user value="qitestdriver" />
+        <xmpp_pwd value="123123" />
+        <xmpp_listens value="qitestuser@localhost#jeorch@localhost#lu@localhost" />
         <xmpp_pool_num value="10" />
     </xmpp-module>
 </pharbers-modules>

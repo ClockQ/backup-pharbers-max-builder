@@ -57,9 +57,9 @@
         <testSourceDirectory>src/test/scala</testSourceDirectory>
         <resources>
             <resource>
-                <directory>src/main/</directory>
+                <directory>src/main/resource/</directory>
                 <includes>
-                    <include>resource/*.xml</include>
+                    <include>*.xml</include>
                 </includes>
             </resource>
         </resources>

@@ -9,7 +9,8 @@ import com.pharbers.reflect.util.generateNameAction._
 object testAction extends App {
     implicit val as: ActorSystem = ActorSystem("maxActor")
 
-    val actionLst = generateNameAction("max_json/nhwa-mz-1804.json", "max_json/tmp-nhwa-mz-1804.json").toSingleList
+    val actionLst = generateNameAction("max_json/tmp.json").toSingleList
+//    val actionLst = generateNameAction("max_json/nhwa-mz-1804.json", "max_json/tmp-nhwa-mz-1804.json").toSingleList
 //    val actionLst = generateNameAction("max_json/astellas-all-1804.json", "max_json/tmp-astellas-all-1804.json").toSingleList
 //    val actionLst = generateNameAction("max_json/tq-rp-1806.json", "max_json/tmp-tq-rp-1806.json").toSingleList
 //    val actionLst = generateNameAction("max_json/tq-sa-1806.json", "max_json/tmp-tq-sa-1806.json").toSingleList
