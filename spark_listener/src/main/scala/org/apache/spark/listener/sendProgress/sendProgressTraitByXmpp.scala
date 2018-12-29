@@ -46,7 +46,7 @@ case class sendXmppMultiProgress(company_id: String, user_id: String, call: Stri
             result.user_id = user_id
             result.call = call
             result.job_id = job_id
-            result.percentage = progress
+            result.percentage = currentprogress
 
             sendProcess(result)(send)
             phLog(s"xmpp msg => $company_id $user_id current $call progress = " + currentprogress)

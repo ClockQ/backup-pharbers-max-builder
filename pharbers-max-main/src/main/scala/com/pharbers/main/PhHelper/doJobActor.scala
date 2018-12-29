@@ -1,8 +1,9 @@
 package com.pharbers.main.PhHelper
 
+import com.pharbers.ErrorCode._
 import akka.actor.{Actor, ActorSystem, Props}
 import com.pharbers.main.PhProcess.PhBuilder
-import com.pharbers.reflect.PhEntity.PhActionJob
+import com.pharbers.reflect.PhEntity.{PhActionError, PhActionJob}
 
 object doJobActor {
     def props(implicit as: ActorSystem) = Props(new doJobActor)
@@ -15,7 +16,15 @@ class doJobActor(implicit as: ActorSystem) extends Actor {
             try{
                 builder.calcYmExec().panelExec().calcExec().stopSpark()
             }catch{
-                case _: Exception => builder.stopSpark()
+                case ex: Exception =>
+                    ex.printStackTrace()
+                    builder.sender(PhActionError(
+                        status = "500",
+                        code = getErrorCodeByName(ex.getMessage).toString,
+                        title = ex.getMessage,
+                        detail = getErrorMessageByName(ex.getMessage)
+                    ))
+                    builder.stopSpark()
             }
         case _ => ???
     }

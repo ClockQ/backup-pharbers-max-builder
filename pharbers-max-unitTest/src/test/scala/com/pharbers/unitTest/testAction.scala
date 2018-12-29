@@ -9,14 +9,14 @@ import com.pharbers.reflect.util.generateNameAction._
 object testAction extends App {
     implicit val as: ActorSystem = ActorSystem("maxActor")
 
-//    val actionLst = generateNameAction("max_json/nhwa-mz-1804.json", "max_json/tmp-nhwa-mz-1804.json").toSingleList
+    val actionLst = generateNameAction("max_json/nhwa-mz-1804.json", "max_json/tmp-nhwa-mz-1804.json").toSingleList
 //    val actionLst = generateNameAction("max_json/astellas-all-1804.json", "max_json/tmp-astellas-all-1804.json").toSingleList
 //    val actionLst = generateNameAction("max_json/tq-rp-1806.json", "max_json/tmp-tq-rp-1806.json").toSingleList
 //    val actionLst = generateNameAction("max_json/tq-sa-1806.json", "max_json/tmp-tq-sa-1806.json").toSingleList
 //    val actionLst = generateNameAction("max_json/bayer-all-1811.json", "max_json/tmp-bayer-all-1811.json").toSingleList
 //    val actionLst = generateNameAction("max_json/xlt-all-1811.json", "max_json/tmp-xlt-all-1811.json").toSingleList
 //    val actionLst = generateNameAction("max_json/servier-all-1806.json", "max_json/tmp-servier-all-1806.json").toSingleList
-    val actionLst = generateNameAction("max_json/pfizer-all-1804.json", "max_json/tmp-pfizer-all-1806.json").toSingleList
+//    val actionLst = generateNameAction("max_json/pfizer-all-1804.json", "max_json/tmp-pfizer-all-1806.json").toSingleList
 
     println("市场共 :" + actionLst.length)
     actionLst.foreach { action =>
