@@ -95,4 +95,28 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
             case None => this
         }
     }
+
+    /** Max Result Export */
+    def exportExec(): PhBuilder = {
+        actionJob.resultExportConf match {
+            case Some(exportActionLst) =>
+                val length = exportActionLst.length
+                var currentJobIndex = 0
+                val exportLst = exportActionLst.map { exportConf =>
+                    currentJobIndex += 1
+                    reflect(exportConf)(actionJob.exportArgs(currentJobIndex, length)(exportConf))(sender).exec()
+                }
+                println(exportLst.mkString("#"))
+                val result = new PhMaxJobResult
+                result.company_id = actionJob.company_id
+                result.user_id = actionJob.user_id
+                result.call = "export"
+                result.job_id = actionJob.job_id
+                result.percentage = 100
+                result.message = exportLst.mkString("#")
+                sender(result)
+                this
+            case None => this
+        }
+    }
 }

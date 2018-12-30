@@ -1,10 +1,10 @@
 <pharbers-modules>
     <xmpp-module>
-        <xmpp_host value="192.168.100.172" />
+        <xmpp_host value="192.168.100.176" />
         <xmpp_port value="5222" />
         <xmpp_user value="qitestdriver" />
         <xmpp_pwd value="123123" />
-        <xmpp_listens value="qitestuser@localhost#jeorch@localhost#lu@localhost" />
+        <xmpp_listens value="qitestuser@max.logic#jeorch@max.logic#lu@max.logic" />
         <xmpp_pool_num value="10" />
     </xmpp-module>
 </pharbers-modules>

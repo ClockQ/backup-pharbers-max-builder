@@ -14,7 +14,7 @@ class doJobActor(implicit as: ActorSystem) extends Actor {
         case msg: PhActionJob =>
             val builder = PhBuilder(msg)
             try{
-                builder.calcYmExec().panelExec().calcExec().stopSpark()
+                builder.calcYmExec().panelExec().calcExec().exportExec().stopSpark()
             }catch{
                 case ex: Exception =>
                     ex.printStackTrace()

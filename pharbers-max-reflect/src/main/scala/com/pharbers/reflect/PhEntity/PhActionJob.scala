@@ -9,6 +9,7 @@ import com.pharbers.reflect.PhEntity.confEntity._
 @One2OneConn[PhCalcYmConf]("calcYmConf")
 @One2ManyConn[PhPanelConf]("panelConf")
 @One2ManyConn[PhCalcConf]("calcConf")
+@One2ManyConn[PhResultExportConf]("resultExportConf")
 @One2ManyConn[PhUnitTestConf]("unitTestConf")
 @ToStringMacro
 class PhActionJob() extends commonEntity with channelEntity {
@@ -16,17 +17,18 @@ class PhActionJob() extends commonEntity with channelEntity {
     var user_id: String = ""
     var company_id: String = ""
 
-    var panel_path: String = ""
-    var max_path: String = ""
+    var panel_path: String = "hdfs:///workData/Panel/"
+    var max_path: String = "hdfs:///workData/Max/"
+    var export_path: String = "hdfs:///workData/Export/"
     var prod_lst: String = ""
 
     private def ckElem(value: String): String = {
-        if(value.isEmpty) throw new Exception("element is none")
+        if (value.isEmpty) throw new Exception("element is none")
         value
     }
 
     private def ckPath(value: String): String = {
-        if(ckElem(value).endsWith("/")) value
+        if (ckElem(value).endsWith("/")) value
         else value + "/"
     }
 
@@ -72,4 +74,22 @@ class PhActionJob() extends commonEntity with channelEntity {
             "p_total" -> ckElem(p_total.toString)
         ) ++ calcConf.conf
     }
+
+    def exportArgs(p_current: Int, p_total: Int)
+                  (exportConf: PhResultExportConf): Map[String, String] = {
+        Map(
+            "ym" -> exportConf.ym,
+            "mkt" -> exportConf.mkt,
+            "job_id" -> ckElem(job_id),
+            "user_id" -> ckElem(user_id),
+            "company_id" -> ckElem(company_id),
+            "p_current" -> ckElem(p_current.toString),
+            "p_total" -> ckElem(p_total.toString),
+            "max_path" -> ckPath(max_path),
+            "max_name" -> ckElem(exportConf.max_name),
+            "export_path" -> ckPath(export_path),
+            "export_name" -> ckElem(exportConf.export_name)
+        ) ++ exportConf.conf
+    }
 }
+
