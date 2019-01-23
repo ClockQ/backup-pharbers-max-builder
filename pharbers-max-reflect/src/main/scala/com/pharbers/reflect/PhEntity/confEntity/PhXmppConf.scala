@@ -7,5 +7,5 @@ import com.pharbers.reflect.PhEntity.confTrait.PhConfTrait
 @ToStringMacro
 class PhXmppConf extends commonEntity with PhConfTrait {
     var disableSend: Boolean = false
-    val xmpp_report: String = ""
+    var xmpp_report: String = ""
 }

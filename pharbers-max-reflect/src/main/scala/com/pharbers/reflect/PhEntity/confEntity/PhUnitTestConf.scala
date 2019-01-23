@@ -12,8 +12,8 @@ class PhUnitTestConf extends commonEntity with PhActionTrait {
     var test_path: String = ""
     var test_name: String = ""
 
-    val jar_path: String = ""
-    val clazz: String = ""
+    var jar_path: String = ""
+    var clazz: String = ""
 
-    val conf: Map[String, String] = Map()
+    var conf: Map[String, String] = Map()
 }

@@ -20,11 +20,11 @@ object testResultExport extends App {
         "p_current" -> "1",
         "p_total" -> "1",
         "max_path" -> "hdfs:///workData/Max/",
-        "max_name" -> "001e74f9-5c13-469e-9af8-9007cf7fbc676e09e7db-ea8a-4976-b6e4-5c810e61f6a1",
+        "max_name" -> "b17c7043-531d-4e4b-853b-e435b84977f3",
         "max_delimiter" -> 31.toChar.toString,
         "export_path" -> "hdfs:///workData/Export/",
-        "export_name" -> "001e74f9-5c13-469e-9af8-9007cf7fbc676e09e7db-ea8a-4976-b6e4-5c810e61f6a1",
-        "export_delimiter" -> 31.toChar.toString
+        "export_name" -> "qilu_1_export",
+        "export_delimiter" -> ","
     )
 
     val send: channelEntity => Unit = { _ => Unit }

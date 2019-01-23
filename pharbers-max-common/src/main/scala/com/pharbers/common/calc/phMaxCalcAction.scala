@@ -26,7 +26,7 @@ class phMaxCalcAction(override val defaultArgs: pActionArgs) extends pActionTrai
                     .selectExpr("YM", "min1", "HOSP_ID", "Sales", "Units", "MARKET")
         }
 
-        
+
         val universeDF = {
             pr.asInstanceOf[MapArgs].get("universe_data").asInstanceOf[DFArgs].get
                     .withColumnRenamed("PHA_HOSP_ID", "PHA_ID")
@@ -38,7 +38,8 @@ class phMaxCalcAction(override val defaultArgs: pActionArgs) extends pActionTrai
                     .withColumnRenamed("PREFECTURE", "Prefecture")
                     .selectExpr("PHA_ID", "Factor", "IS_PANEL_HOSP", "NEED_MAX_HOSP", "SEGMENT", "Province", "Prefecture", "westMedicineIncome")
         }
-        
+
+
         val panelSummed = {
             panelDF.groupBy("YM", "min1", "HOSP_ID")
                     .agg(Map("Units" -> "sum", "Sales" -> "sum"))

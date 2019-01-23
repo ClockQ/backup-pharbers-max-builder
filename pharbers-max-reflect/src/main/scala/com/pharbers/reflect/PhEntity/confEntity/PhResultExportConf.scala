@@ -12,8 +12,8 @@ class PhResultExportConf extends commonEntity with PhActionTrait {
     var max_name: String = ""
     var export_name: String = ""
 
-    val jar_path: String = ""
-    val clazz: String = ""
+    var jar_path: String = ""
+    var clazz: String = ""
 
-    val conf: Map[String, String] = Map()
+    var conf: Map[String, String] = Map()
 }

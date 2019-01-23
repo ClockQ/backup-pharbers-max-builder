@@ -65,7 +65,6 @@ class phMaxCalcActionForDVP(override val defaultArgs: pActionArgs) extends pActi
                 .withColumn("Factor", lit("none")) // 保证和其他max结果列名一致
                 .selectExpr("Date", "Province", "City", "Panel_ID", "Product", "Factor", "f_sales", "f_units", "MARKET", "coef", "Sales", "Units") //较其他max结果多出的列放在最后
         }
-        max_result.show(false)
 
         DFArgs(max_result)
     }

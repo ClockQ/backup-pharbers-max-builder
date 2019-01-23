@@ -22,6 +22,7 @@ class writeCheckResultAction(override val defaultArgs: pActionArgs) extends pAct
 
         totalResult.coalesce(1).write
                 .format("csv")
+                .option("encoding", "UTF-8")
                 .option("header", value = true)
                 .option("delimiter", "#")
                 .save(test_path + test_name)
