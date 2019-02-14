@@ -6,7 +6,7 @@ import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
 import com.pharbers.pactions.jobs.{sequenceJob, sequenceJobWithMap}
-import com.pharbers.pactions.generalactions.{readCsvAction, setLogLevelAction}
+import com.pharbers.pactions.generalactions.{readCsvAction, readParquetAction, setLogLevelAction}
 
 trait phCommonMaxJobTrait extends sequenceJobWithMap {
 
@@ -35,9 +35,9 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     val p_total: Double = args("p_total").toDouble
 
     // 1. load panel data
-    val loadPanelData: sequenceJob = new sequenceJob {
+    lazy val loadPanelData: sequenceJob = new sequenceJob {
         override val name: String = "panel_data"
-        override val actions: List[pActionTrait] = readCsvAction(panel_file, delimiter = panel_delimiter, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readParquetAction(panel_file, applicationName = job_id) :: Nil
     }
 
     // 留做测试 1. load panel data of xlsx
@@ -51,7 +51,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     //    }
 
     // 2. read universe file
-    val readUniverseFile: sequenceJob = new sequenceJob {
+    lazy val readUniverseFile: sequenceJob = new sequenceJob {
         override val name = "universe_data"
         override val actions: List[pActionTrait] = readCsvAction(universe_file, applicationName = job_id) :: Nil
     }

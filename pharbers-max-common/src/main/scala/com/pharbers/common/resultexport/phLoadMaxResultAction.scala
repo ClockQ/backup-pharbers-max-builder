@@ -1,7 +1,7 @@
 package com.pharbers.common.resultexport
 
-import com.pharbers.pactions.generalactions.readCsvAction
-import com.pharbers.pactions.actionbase.{pActionArgs, pActionTrait, MapArgs, StringArgs, NULLArgs}
+import com.pharbers.pactions.generalactions.readParquetAction
+import com.pharbers.pactions.actionbase.{MapArgs, NULLArgs, StringArgs, pActionArgs, pActionTrait}
 
 object phLoadMaxResultAction {
     def apply(args: pActionArgs = NULLArgs): pActionTrait = new phLoadMaxResultAction(args)
@@ -15,11 +15,9 @@ class phLoadMaxResultAction(override val defaultArgs: pActionArgs) extends pActi
         val job_id = defaultArgs.asInstanceOf[MapArgs].get("job_id").asInstanceOf[StringArgs].get
         val max_path = defaultArgs.asInstanceOf[MapArgs].get("max_path").asInstanceOf[StringArgs].get
         val max_name = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
-        val max_delimiter = defaultArgs.asInstanceOf[MapArgs].get("max_delimiter").asInstanceOf[StringArgs].get
 
-        readCsvAction(
+        readParquetAction(
             arg_path = max_path + max_name,
-            delimiter = max_delimiter,
             applicationName = job_id
         ).perform(NULLArgs)
     }
