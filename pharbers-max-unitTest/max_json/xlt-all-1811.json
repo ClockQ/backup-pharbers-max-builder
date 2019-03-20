@@ -1,0 +1,66 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "job_id",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/xlt/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "信立泰"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "XLT"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "XLT"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "XLT",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "XLT",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/xlt/XLT_201806_Offline_MaxResult_20181115.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "XLT",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "XLT",
+        "panel_name": "XLT_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/xlt/XLT_Universe_XLT_20181115.csv"
+        }
+      }
+    }
+  ]
+}

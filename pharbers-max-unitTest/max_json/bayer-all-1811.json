@@ -1,0 +1,404 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/bayer/test20181106/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "拜耳"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "RCC"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "AHP"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "AT"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "HCC"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "IVAB"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "OAD"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "OSAB"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "PAI"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "RCC"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "STH"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "WH"
+          }
+        ]
+      },
+      "xmppConf": {
+        "data": {
+          "type": "PhXmppConf",
+          "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "WH",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "WH",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "WH",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "WH",
+        "panel_name": "WH_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_WH_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "STH",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "STH",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "STH",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "STH",
+        "panel_name": "STH_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_STH_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "RCC",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "RCC",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "RCC",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "RCC",
+        "panel_name": "RCC_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_RCC_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "PAI",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "PAI",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "PAI",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "PAI",
+        "panel_name": "PAI_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_PAI_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "OSAB",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "OSAB",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "OSAB",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "OSAB",
+        "panel_name": "OSAB_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_OSAB_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "OAD",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "OAD",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "OAD",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "OAD",
+        "panel_name": "OAD_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_OAD_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "IVAB",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "IVAB",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "IVAB",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "IVAB",
+        "panel_name": "IVAB_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_IVAB_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "HCC",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "HCC",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "HCC",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "HCC",
+        "panel_name": "HCC_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_HCC_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "AT",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "AT",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "AT",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "AT",
+        "panel_name": "AT_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_AT_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "AHP",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "AHP",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/bayer/test20181106/Bayer_201806_Offline_MaxResult_20181109.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "AHP",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "AHP",
+        "panel_name": "AHP_Panel+201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/bayer/test20181106/Bayer_Universe_AHP_20181106.csv"
+        }
+      }
+    },
+    {
+      "type": "PhXmppConf",
+      "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
+      "attributes": {
+        "disableSend": true,
+        "xmpp_report" : ""
+      }
+    }
+  ]
+}

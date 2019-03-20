@@ -4,4 +4,3 @@
 *.cache
 *.class
 target/
-max_json/
