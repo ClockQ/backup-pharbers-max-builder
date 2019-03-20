@@ -1,0 +1,80 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/TQ/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "TQ"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "rp"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "rp"
+          }
+        ]
+      },
+      "xmppConf": {
+        "data": {
+          "type": "PhXmppConf",
+          "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "rp",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "rp",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/TQ/TQ_201806_Offline_MaxResult_20181126.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "rp",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "rp",
+        "panel_name": "RP_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJobByCsv",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/TQ/TQ_Universe_RP_20181126.csv"
+        }
+      }
+    },
+    {
+      "type": "PhXmppConf",
+      "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
+      "attributes": {
+        "disableSend": true,
+        "xmpp_report" : ""
+      }
+    }
+  ]
+}
