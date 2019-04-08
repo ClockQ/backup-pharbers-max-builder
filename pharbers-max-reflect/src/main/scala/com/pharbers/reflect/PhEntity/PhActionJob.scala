@@ -11,6 +11,7 @@ import com.pharbers.reflect.PhEntity.confEntity._
 @One2ManyConn[PhCalcConf]("calcConf")
 @One2ManyConn[PhResultExportConf]("resultExportConf")
 @One2ManyConn[PhUnitTestConf]("unitTestConf")
+@One2ManyConn[PhDataConversionConf]("dataConversionConf")
 @ToStringMacro
 class PhActionJob() extends commonEntity with channelEntity {
     var job_id: String = ""
