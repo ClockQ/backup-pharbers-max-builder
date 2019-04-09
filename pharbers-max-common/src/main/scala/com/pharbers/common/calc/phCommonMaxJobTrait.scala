@@ -2,11 +2,11 @@ package com.pharbers.common.calc
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
-import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
 import com.pharbers.pactions.jobs.{sequenceJob, sequenceJobWithMap}
 import com.pharbers.pactions.generalactions.{readCsvAction, readParquetAction, setLogLevelAction}
+import org.apache.spark.listener.addListenerAction
 
 trait phCommonMaxJobTrait extends sequenceJobWithMap {
 

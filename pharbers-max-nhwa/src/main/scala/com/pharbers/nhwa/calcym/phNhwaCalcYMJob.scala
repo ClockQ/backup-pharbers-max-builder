@@ -3,10 +3,10 @@ package com.pharbers.nhwa.calcym
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
 import com.pharbers.common.action.{phResult2StringJob, readCpa}
-import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppSingleProgress
+import org.apache.spark.listener.addListenerAction
 
 case class phNhwaCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phNhwaCalcYMJob"

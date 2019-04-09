@@ -1,4 +1,4 @@
-package org.apache.spark.listener.listenTrait
+package com.pharbers.spark.listener.listenTrait
 
 trait PhListenHelperTrait {
     def jobStart(taskSum: Int): Unit

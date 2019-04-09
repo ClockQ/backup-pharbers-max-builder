@@ -2,11 +2,11 @@ package com.pharbers.common.resultexport
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
 import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pactions.generalactions.setLogLevelAction
-import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
+import org.apache.spark.listener.addListenerAction
 
 object phResultExportJob {
     def apply(args: Map[String, String])

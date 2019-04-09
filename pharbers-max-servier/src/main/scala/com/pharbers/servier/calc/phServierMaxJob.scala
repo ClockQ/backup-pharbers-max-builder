@@ -4,9 +4,9 @@ import com.pharbers.common.calc._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.jobs.sequenceJob
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pactions.generalactions.{readCsvAction, setLogLevelAction}
+import org.apache.spark.listener.addListenerAction
 
 case class phServierMaxJob(args: Map[String, String])
                           (override implicit val send: channelEntity => Unit) extends phCommonMaxJobTrait {

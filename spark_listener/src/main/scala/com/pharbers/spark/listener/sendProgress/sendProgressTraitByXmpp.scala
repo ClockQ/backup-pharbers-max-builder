@@ -1,15 +1,12 @@
-package org.apache.spark.listener.sendProgress
+package com.pharbers.spark.listener.sendProgress
 
-import akka.util.Timeout
 import scala.language.postfixOps
-import scala.concurrent.duration._
 import com.pharbers.util.log.phLogTrait
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.entity.PhMaxJobResult
+import com.pharbers.spark.listener.entity.PhMaxJobResult
 
 sealed trait sendProgressTraitByXmpp extends sendProgressTrait {
     def sendProcess(obj: channelEntity)(implicit send: channelEntity => Unit): Unit = {
-        implicit val resolveTimeout: Timeout = Timeout(5 seconds)
         send(obj)
     }
 }

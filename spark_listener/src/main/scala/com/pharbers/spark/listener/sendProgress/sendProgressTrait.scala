@@ -1,4 +1,4 @@
-package org.apache.spark.listener.sendProgress
+package com.pharbers.spark.listener.sendProgress
 
 import com.pharbers.channel.detail.channelEntity
 

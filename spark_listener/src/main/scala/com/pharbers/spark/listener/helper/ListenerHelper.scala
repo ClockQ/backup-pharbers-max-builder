@@ -1,10 +1,15 @@
-package org.apache.spark.listener.helper
+package com.pharbers.spark.listener.helper
 
 import com.pharbers.util.log.phLogTrait
 import com.pharbers.pactions.actionbase.NULLArgs
 import org.apache.spark.listener.removeListenerAction
-import org.apache.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHelperTrait}
+import com.pharbers.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHelperTrait}
 
+/**
+  * @description:
+  * @author: clock
+  * @date: 2019-04-09 10:33
+  */
 case class ListenerHelper(start_progress: Int, end_progress: Int)
                          (implicit send: Map[String, Any] => Unit)
         extends PhListenHelperTrait with phLogTrait {

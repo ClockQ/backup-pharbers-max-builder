@@ -1,7 +1,5 @@
 package org.apache.spark.listener
 
-import com.pharbers.spark.phSparkDriver
-import org.apache.spark.listener.helper.ListenerHelper
 import com.pharbers.pactions.actionbase.{NULLArgs, pActionArgs, pActionTrait}
 
 object addListenerAction {

@@ -3,10 +3,10 @@ package com.pharbers.pfizer.calc
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pfizer.calc.actions.phMaxCalcActionForCNS_R
 import com.pharbers.common.calc.{phCommonMaxJobTrait, phMaxInfo2RedisAction, phMaxPersistentAction}
+import org.apache.spark.listener.addListenerAction
 
 /**
   * Created by jeorch on 18-5-3.

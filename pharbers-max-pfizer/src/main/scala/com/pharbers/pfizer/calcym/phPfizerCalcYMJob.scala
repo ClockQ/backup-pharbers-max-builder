@@ -3,10 +3,10 @@ package com.pharbers.pfizer.calcym
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppSingleProgress
 import com.pharbers.common.action.{phResult2StringJob, readCpa, readGycx}
+import org.apache.spark.listener.addListenerAction
 
 case class phPfizerCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phAstellasCalcYMJob"

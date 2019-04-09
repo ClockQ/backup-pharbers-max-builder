@@ -1,4 +1,4 @@
-package org.apache.spark.listener.entity
+package com.pharbers.spark.listener.entity
 
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.macros.api.commonEntity

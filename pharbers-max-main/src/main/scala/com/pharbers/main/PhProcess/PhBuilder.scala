@@ -8,7 +8,7 @@ import com.pharbers.reflect.PhEntity.PhActionJob
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.main.PhConsumer.mainXmppConfBase
 import com.pharbers.reflect.PhEntity.confEntity.PhXmppConf
-import org.apache.spark.listener.entity.PhMaxJobResult
+import com.pharbers.spark.listener.entity.PhMaxJobResult
 
 case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
     val xmppconf: PhXmppConf = actionJob.xmppConf.getOrElse(throw new Exception("xmpp conf is none"))

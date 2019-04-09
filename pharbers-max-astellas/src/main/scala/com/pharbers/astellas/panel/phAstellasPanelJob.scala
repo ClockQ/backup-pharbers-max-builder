@@ -4,11 +4,11 @@ import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pactions.generalactions.memory.phMemoryArgs
 import com.pharbers.common.panel.{phPanelInfo2Redis, phSavePanelJob}
-import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
+import org.apache.spark.listener.addListenerAction
 
 case class phAstellasPanelJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phAstellasPanelJob"
