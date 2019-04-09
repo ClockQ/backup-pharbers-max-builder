@@ -92,5 +92,11 @@ class PhActionJob() extends commonEntity with channelEntity {
             "export_name" -> ckElem(exportConf.export_name)
         ) ++ exportConf.conf
     }
+
+    def conversionArgs(conversionConf: PhDataConversionConf): Map[String, String] = {
+        Map(
+            "company_id" -> ckElem(company_id)
+        ) ++ conversionConf.conf
+    }
 }
 

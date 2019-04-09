@@ -29,8 +29,7 @@ object testConversion extends App {
         cpaConf.jar_path = "/Users/clock/workSpace/Pharbers/PhDataRepository/target/pharbers-data-repository-1.0-SNAPSHOT.jar"
         cpaConf.clazz = "com.pharbers.data.job.CPA2ERDJob"
         cpaConf.conf = Map(
-            "company_id" -> company_id
-            , "cpa_file" -> "/test/CPA&GYCX/Nhwa_201804_CPA_20181227.csv"
+            "cpa_file" -> "/test/CPA&GYCX/Nhwa_201804_CPA_20181227.csv"
             , "pha_file" -> HOSP_PHA_LOCATION
             , "hosp_base_file" -> HOSP_BASE_LOCATION
             , "prod_base_file" -> PROD_BASE_LOCATION
@@ -48,8 +47,7 @@ object testConversion extends App {
         gycConf.jar_path = "/Users/clock/workSpace/Pharbers/PhDataRepository/target/pharbers-data-repository-1.0-SNAPSHOT.jar"
         gycConf.clazz = "com.pharbers.data.job.GYC2ERDJob"
         gycConf.conf = Map(
-            "company_id" -> company_id
-            , "gyc_file" -> "/test/CPA&GYCX/Astellas_201804_Gycx_20180703.csv"
+            "gyc_file" -> "/test/CPA&GYCX/Astellas_201804_Gycx_20180703.csv"
             , "pha_file" -> HOSP_PHA_LOCATION
             , "hosp_base_file" -> HOSP_BASE_LOCATION
             , "prod_base_file" -> PROD_BASE_LOCATION
