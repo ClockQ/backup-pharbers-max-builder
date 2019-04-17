@@ -70,7 +70,10 @@ class phPfizerPanelCommonAction(override val defaultArgs: pActionArgs) extends p
 
         //待匹配min1_标准的min1表
         val splitMktResultDF = args.asInstanceOf[MapArgs].get("SplitMarketAction").asInstanceOf[DFArgs].get
-        val not_arrival_hosp_file = args.asInstanceOf[MapArgs].get("not_arrival_hosp_file").asInstanceOf[DFArgs].get //1-xx月未到医院名单
+        //1-xx月未到医院名单
+        val not_arrival_hosp_file = args.asInstanceOf[MapArgs].get("not_arrival_hosp_file").asInstanceOf[DFArgs].get
+            .filter(col("Date") === ym)
+            .select("HOSP_ID", "MONTH")
         val full_hosp_file: DataFrame = {
             args.asInstanceOf[MapArgs].get("full_hosp_file").asInstanceOf[DFArgs].get //补充医院
                     .withColumn("MONTH", when(col("MONTH").>=(10), col("MONTH"))
