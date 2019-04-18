@@ -1,1 +1,95 @@
-{"data":{"type":"PhActionJob","id":"tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8","attributes":{"job_id":"bc90a005-806f-4179-a7e6-361869ad104a","user_id":"user_id","company_id":"company_id","panel_path":"hdfs:///workData/Panel/","max_path":"hdfs:///workData/Max/","export_path":"hdfs:///workData/Export/","prod_lst":"辉瑞"},"relationships":{"unitTestConf":{"data":[{"type":"PhUnitTestConf","id":"ZYVOX"}]},"calcConf":{"data":[{"type":"PhCalcConf","id":"ZYVOX"}]},"panelConf":{"data":[{"type":"PhPanelConf","id":"ZYVOX"}]}}},"included":[{"type":"PhUnitTestConf","id":"ZYVOX","attributes":{"ym":"201804","mkt":"ZYVOX","test_path":"hdfs:///workData/UnitTest/","test_name":"9bbce593-ddf4-46a9-a404-d83d3863e5b7","jar_path":"","clazz":"","conf":{"offline_result_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_Offline_MaxResult.csv"}}},{"type":"PhCalcConf","id":"ZYVOX","attributes":{"ym":"201804","mkt":"ZYVOX","panel_name":"665fa6ec-31bb-4b31-8428-37805464c177","max_name":"7b2827f8-51d6-4251-9ce5-7f78d6a233c7","max_search_name":"bcfe2ece-dfcd-46b2-b1b7-21b8f6a48dd7","jar_path":"/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar","clazz":"com.pharbers.pfizer.calc.phPfizerMaxJob","conf":{"universe_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ZYVOX.csv"}}},{"type":"PhPanelConf","id":"ZYVOX","attributes":{"ym":"201804","mkt":"ZYVOX","panel_name":"665fa6ec-31bb-4b31-8428-37805464c177","jar_path":"/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar","clazz":"com.pharbers.pfizer.panel.phPfizerPanelJob","conf":{"pfc_match_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv","gycx_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_Gycx.csv","not_arrival_hosp_file":"hdfs:///data/pfizer/pha_config_repository1804/missingHospital.csv","product_match_file":"hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190122.csv","markets_match_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv","hosp_ID_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ZYVOX.csv","fill_hos_data_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt","cpa_file":"hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_CPA.csv"}}}]}
+{
+  "data": {
+    "type": "PhActionJob",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "bc90a005-806f-4179-a7e6-361869ad104a",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///workData/Panel/",
+      "max_path": "hdfs:///workData/Max/",
+      "export_path": "hdfs:///workData/Export/",
+      "prod_lst": "辉瑞"
+    },
+    "relationships": {
+      "unitTestConf": {
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "ZYVOX"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "ZYVOX"
+          }
+        ]
+      },
+      "panelConf": {
+        "data": [
+          {
+            "type": "PhPanelConf",
+            "id": "ZYVOX"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "ZYVOX",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ZYVOX",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "9bbce593-ddf4-46a9-a404-d83d3863e5b7",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ZYVOX",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ZYVOX",
+        "panel_name": "665fa6ec-31bb-4b31-8428-37805464c177",
+        "max_name": "7b2827f8-51d6-4251-9ce5-7f78d6a233c7",
+        "max_search_name": "bcfe2ece-dfcd-46b2-b1b7-21b8f6a48dd7",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ZYVOX.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ZYVOX",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ZYVOX",
+        "panel_name": "665fa6ec-31bb-4b31-8428-37805464c177",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "gycx_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_Gycx.csv",
+          "not_arrival_hosp_file": "hdfs:///data/pfizer/pha_config_repository1804/missingHospital.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190122.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ZYVOX.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "cpa_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_CPA.csv"
+        }
+      }
+    }
+  ]
+}
