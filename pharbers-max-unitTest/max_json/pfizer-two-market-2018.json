@@ -1,0 +1,1566 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_32f99b2f-de1b-4ce0-9142-0545fa16787c",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///workData/Panel/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "辉瑞"
+    },
+    "relationships": {
+      "unitTestConf": {
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201801"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201802"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201803"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201804"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201805"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201806"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201807"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201808"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201809"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201810"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201811"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "ELIQUIS_201812"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201801"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201802"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201803"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201804"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201805"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201806"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201807"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201808"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201809"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201810"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201811"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "Specialty_other_201812"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201801"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201802"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201803"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201804"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201805"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201806"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201807"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201808"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201809"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201810"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201811"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "ELIQUIS_201812"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201801"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201802"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201803"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201804"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201805"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201806"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201807"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201808"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201809"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201810"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201811"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "Specialty_other_201812"
+          }
+        ]
+      },
+      "panelConf": {
+        "data": [
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201801"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201802"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201803"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201804"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201805"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201806"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201807"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201808"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201809"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201810"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201811"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "ELIQUIS_201812"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201801"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201802"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201803"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201804"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201805"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201806"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201807"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201808"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201809"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201810"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201811"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "Specialty_other_201812"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "ELIQUIS_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "ELIQUIS",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "ELIQUIS_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_ELIQUIS.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "ELIQUIS_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "ELIQUIS",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_ELIQUIS.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201801",
+      "attributes": {
+        "ym": "201801",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201802",
+      "attributes": {
+        "ym": "201802",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201803",
+      "attributes": {
+        "ym": "201803",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201804",
+      "attributes": {
+        "ym": "201804",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201805",
+      "attributes": {
+        "ym": "201805",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201806",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201807",
+      "attributes": {
+        "ym": "201807",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201808",
+      "attributes": {
+        "ym": "201808",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201809",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201810",
+      "attributes": {
+        "ym": "201810",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201811",
+      "attributes": {
+        "ym": "201811",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "Specialty_other_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "Specialty_other",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Offline_MaxResult_20190408.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Specialty_other_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.calc.phPfizerMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_Specialty_other.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "Specialty_other_201812",
+      "attributes": {
+        "ym": "201812",
+        "mkt": "Specialty_other",
+        "panel_name": "",
+        "jar_path": "/Users/cui/github/pharbers-max-builder/pharbers-max-pfizer/target/pharbers-max-pfizer-1.0.jar",
+        "clazz": "com.pharbers.pfizer.panel.phPfizerPanelJob",
+        "conf": {
+          "cpa_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_20190408.csv",
+          "gycx_file": "hdfs:///test/pfizer_2018/Pfizer_2018_Gycx_20190408.csv",
+          "hosp_ID_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_Specialty_other.csv",
+          "product_match_file": "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
+          "markets_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_MarketMatchTable.csv",
+          "fill_hos_data_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
+          "pfc_match_file": "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_PackidMatch.csv",
+          "not_arrival_hosp_file": "hdfs:///test/pfizer_2018/Pfizer_2018_CPA_未到医院名单20190408.csv"
+        }
+      }
+    }
+  ]
+}
