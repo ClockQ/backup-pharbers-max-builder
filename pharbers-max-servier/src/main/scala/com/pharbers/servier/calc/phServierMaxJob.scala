@@ -4,7 +4,7 @@ import com.pharbers.common.calc._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.jobs.sequenceJob
 import com.pharbers.channel.detail.channelEntity
-import com.pharbers.common.action.phResult2StringJob
+import com.pharbers.common.action.phResult2StringAction
 import com.pharbers.pactions.generalactions.{readCsvAction, setLogLevelAction}
 import org.apache.spark.listener.addListenerAction
 
@@ -30,7 +30,7 @@ case class phServierMaxJob(args: Map[String, String])
                 addListenerAction(41, 90, job_id) ::
                 phMaxInfo2RedisAction(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phMaxInfo2RedisAction", tranFun) ::
+                phResult2StringAction("phMaxInfo2RedisAction", tranFun) ::
                 Nil
     }
 }

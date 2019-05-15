@@ -4,7 +4,7 @@ import com.pharbers.pactions.actionbase._
 
 import scala.reflect.ClassTag
 
-object phResult2StringJob {
+object phResult2StringAction {
 
     val str2StrTranFun = SingleArgFuncArgs{ arg: pActionArgs =>
         arg.asInstanceOf[StringArgs]
@@ -15,11 +15,11 @@ object phResult2StringJob {
     }
 
     def apply[T: ClassTag](prName: String, args: pActionArgs): pActionTrait = {
-        new phResult2StringJob[T](prName, args)
+        new phResult2StringAction[T](prName, args)
     }
 }
 
-class phResult2StringJob[T: ClassTag](prName: String, override val defaultArgs: pActionArgs) extends pActionTrait {
+class phResult2StringAction[T: ClassTag](prName: String, override val defaultArgs: pActionArgs) extends pActionTrait {
 
     override val name: String = "result"
 

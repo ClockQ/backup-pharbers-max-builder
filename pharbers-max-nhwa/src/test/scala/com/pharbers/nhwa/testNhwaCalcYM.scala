@@ -32,7 +32,7 @@ object testNhwaCalcYM extends App {
 //    val lactor: ActorSelection = system.actorSelection(xmppFactor.getNullActor)
 
     val send: channelEntity => Unit = {
-        obj => lactor ! ("lu@localhost#alfred@localhost", obj)
+        obj => Unit //lactor ! ("lu@localhost#alfred@localhost", obj)
     }
 
     val result = phNhwaCalcYMJob(map)(send).perform()
@@ -40,6 +40,6 @@ object testNhwaCalcYM extends App {
             .asInstanceOf[StringArgs].get
     println(result)
 
-    phSparkDriver(job_id).stopCurrConn
+//    phSparkDriver(job_id).stopCurrConn
 
 }

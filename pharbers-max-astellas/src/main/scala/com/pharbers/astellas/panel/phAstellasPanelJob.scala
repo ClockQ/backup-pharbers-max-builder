@@ -4,7 +4,7 @@ import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import com.pharbers.common.action.phResult2StringJob
+import com.pharbers.common.action.phResult2StringAction
 import com.pharbers.pactions.generalactions.memory.phMemoryArgs
 import com.pharbers.common.panel.{phPanelInfo2Redis, phSavePanelJob}
 import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
@@ -98,7 +98,7 @@ case class phAstellasPanelJob(args: Map[String, String])(implicit send: channelE
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val companyArgs: phMemoryArgs = phMemoryArgs(company_id)
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "panel", job_id)(p_current, p_total).multiProgress
 
@@ -123,7 +123,7 @@ case class phAstellasPanelJob(args: Map[String, String])(implicit send: channelE
                 addListenerAction(81, 90, job_id) ::
                 phPanelInfo2Redis(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phPanelInfo2Redis", tranFun) ::
+                phResult2StringAction("phPanelInfo2Redis", tranFun) ::
                 Nil
     }
 }

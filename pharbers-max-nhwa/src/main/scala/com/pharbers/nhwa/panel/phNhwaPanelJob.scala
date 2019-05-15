@@ -4,10 +4,9 @@ import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.jobs._
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
-import com.pharbers.common.action.phResult2StringJob
-import com.pharbers.pactions.generalactions.memory.phMemoryArgs
+import com.pharbers.common.action.phResult2StringAction
 import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
-import com.pharbers.common.panel.{phPanelInfo2Redis, phSavePanelJob}
+import com.pharbers.spark.phSparkDriver
 import org.apache.spark.listener.addListenerAction
 
 /**
@@ -42,12 +41,14 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
     val p_current: Double = args("p_current").toDouble
     val p_total: Double = args("p_total").toDouble
 
+    implicit val sp = phSparkDriver(job_id)
+
     /**
       * 1. read 未出版医院文件
       */
     val loadNotPublishedHosp: sequenceJob = new sequenceJob {
         override val name = "not_published_hosp_file"
-        override val actions: List[pActionTrait] = readCsvAction(not_published_hosp_file, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readCsvAction(not_published_hosp_file) :: Nil
     }
 
     /**
@@ -55,7 +56,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val load_hosp_ID_file: sequenceJob = new sequenceJob {
         override val name: String = "hosp_ID_file"
-        override val actions: List[pActionTrait] = readCsvAction(hosp_ID_file, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readCsvAction(hosp_ID_file) :: Nil
     }
 
     /**
@@ -63,7 +64,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val loadProductMatchFile: sequenceJob = new sequenceJob {
         override val name = "product_match_file"
-        val actions: List[pActionTrait] = readCsvAction(product_match_file, applicationName = job_id) :: Nil
+        val actions: List[pActionTrait] = readCsvAction(product_match_file) :: Nil
     }
 
     /**
@@ -71,7 +72,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val loadFullHospFile: sequenceJob = new sequenceJob {
         override val name = "full_hosp_file"
-        val actions: List[pActionTrait] = readCsvAction(fill_hos_data_file, applicationName = job_id) :: Nil
+        val actions: List[pActionTrait] = readCsvAction(fill_hos_data_file) :: Nil
     }
 
     /**
@@ -79,7 +80,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val loadMarketMatchFile: sequenceJob = new sequenceJob {
         override val name = "markets_match_file"
-        val actions: List[pActionTrait] = readCsvAction(markets_match_file, applicationName = job_id) :: Nil
+        val actions: List[pActionTrait] = readCsvAction(markets_match_file) :: Nil
     }
 
     /**
@@ -87,7 +88,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val readCpa: sequenceJob = new sequenceJob {
         override val name = "cpa"
-        override val actions: List[pActionTrait] = readCsvAction(cpa_file, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readCsvAction(cpa_file) :: Nil
     }
 
     /**
@@ -95,7 +96,7 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
       */
     val readNotArrivalHosp: sequenceJob = new sequenceJob {
         override val name = "not_arrival_hosp_file"
-        override val actions: List[pActionTrait] = readCsvAction(not_arrival_hosp_file, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = readCsvAction(not_arrival_hosp_file) :: Nil
     }
 
     val df = MapArgs(
@@ -111,17 +112,20 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
-    implicit val companyArgs: phMemoryArgs = phMemoryArgs(company_id)
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "panel", job_id)(p_current, p_total).multiProgress
+    implicit val ss: MapArgs => Unit = { m =>
+        val progress = m.getAs[StringArgs]("progress")
+        println("progress = " + progress)
+    }
 
     override val actions: List[pActionTrait] = {
-        setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(1, 10, job_id) ::
+        setLogLevelAction("ERROR") ::
+                sendProgressAction(MapArgs(Map("progress" -> StringArgs("1")))) ::
                 loadNotPublishedHosp ::
-                addListenerAction(11, 20, job_id) ::
+                sendProgressAction(MapArgs(Map("progress" -> StringArgs("11")))) ::
                 load_hosp_ID_file ::
-                addListenerAction(21, 30, job_id) ::
+                sendProgressAction(MapArgs(Map("progress" -> StringArgs("21")))) ::
                 loadProductMatchFile ::
                 addListenerAction(31, 40, job_id) ::
                 loadFullHospFile ::
@@ -133,11 +137,10 @@ case class phNhwaPanelJob(args: Map[String, String])(implicit send: channelEntit
                 addListenerAction(61, 80, job_id) ::
                 phNhwaPanelConcretJob(df) ::
                 addListenerAction(81, 90, job_id) ::
-                phSavePanelJob(df) ::
+//                phSavePanelJob(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phPanelInfo2Redis(df) ::
-                phResult2StringJob("phPanelInfo2Redis", tranFun) ::
+//                phPanelInfo2Redis(df) ::
+//                phResult2StringJob("phPanelInfo2Redis", tranFun) ::
                 Nil
     }
-
 }

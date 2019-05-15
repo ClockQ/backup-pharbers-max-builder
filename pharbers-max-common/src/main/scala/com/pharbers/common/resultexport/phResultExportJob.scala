@@ -3,7 +3,7 @@ package com.pharbers.common.resultexport
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import com.pharbers.common.action.phResult2StringJob
+import com.pharbers.common.action.phResult2StringAction
 import com.pharbers.pactions.generalactions.setLogLevelAction
 import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
 import org.apache.spark.listener.addListenerAction
@@ -48,7 +48,7 @@ class phResultExportJob(args: Map[String, String])
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "resultExport", job_id)(p_current, p_total).multiProgress
 
     override val actions: List[pActionTrait] = {
@@ -58,7 +58,7 @@ class phResultExportJob(args: Map[String, String])
                 addListenerAction(41, 90, job_id) ::
                 phExportMaxResultAction(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phExportMaxResultAction", tranFun) ::
+                phResult2StringAction("phExportMaxResultAction", tranFun) ::
                 Nil
     }
 }

@@ -2,7 +2,7 @@ package com.pharbers.common.calc
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
-import com.pharbers.common.action.phResult2StringJob
+import com.pharbers.common.action.phResult2StringAction
 import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
 import com.pharbers.pactions.jobs.{sequenceJob, sequenceJobWithMap}
 import com.pharbers.pactions.generalactions.{readCsvAction, readParquetAction, setLogLevelAction}
@@ -72,7 +72,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "calc", job_id)(p_current, p_total).multiProgress
 
     override val actions: List[pActionTrait] = {
@@ -88,7 +88,7 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
                 addListenerAction(41, 90, job_id) ::
                 phMaxInfo2RedisAction(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phMaxInfo2RedisAction", tranFun) ::
+                phResult2StringAction("phMaxInfo2RedisAction", tranFun) ::
                 Nil
     }
 
