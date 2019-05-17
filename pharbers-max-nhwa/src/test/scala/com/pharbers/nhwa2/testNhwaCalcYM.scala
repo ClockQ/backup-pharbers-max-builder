@@ -1,8 +1,8 @@
-package com.pharbers.nhwa
+package com.pharbers.nhwa2
 
 import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
-import com.pharbers.nhwa.calcym.phNhwaCalcYMJob
+import com.pharbers.nhwa2.calcym.phNhwaCalcYMJob
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.channel.consumer.commonXmppConsumer
 import com.pharbers.channel.detail.channelEntity

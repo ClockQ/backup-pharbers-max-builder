@@ -9,7 +9,7 @@ case class phCommonMaxJobByCsv(args: Map[String, String])
                               (override implicit val send: channelEntity => Unit) extends phCommonMaxJobTrait {
     override lazy val loadPanelData: sequenceJob = new sequenceJob {
         override val name: String = "panel_data"
-        override val actions: List[pActionTrait] =
-            readCsvAction(panel_file, delimiter = panel_delimiter, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = ???
+//            readCsvAction(panel_file, delimiter = panel_delimiter, applicationName = job_id) :: Nil
     }
 }

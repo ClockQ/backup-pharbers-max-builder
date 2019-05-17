@@ -16,9 +16,10 @@ class phLoadMaxResultAction(override val defaultArgs: pActionArgs) extends pActi
         val max_path = defaultArgs.asInstanceOf[MapArgs].get("max_path").asInstanceOf[StringArgs].get
         val max_name = defaultArgs.asInstanceOf[MapArgs].get("max_name").asInstanceOf[StringArgs].get
 
-        readParquetAction(
-            arg_path = max_path + max_name,
-            applicationName = job_id
-        ).perform(NULLArgs)
+        ???
+//        readParquetAction(
+//            arg_path = max_path + max_name,
+//            applicationName = job_id
+//        ).perform(NULLArgs)
     }
 }

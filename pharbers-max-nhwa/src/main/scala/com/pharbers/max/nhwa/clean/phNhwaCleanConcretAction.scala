@@ -1,27 +1,20 @@
-package com.pharbers.nhwa.clean
+package com.pharbers.max.nhwa.clean
 
 import com.pharbers.spark.phSparkDriver
+import com.pharbers.pactions.actionbase._
 import com.pharbers.data.conversion.CPAConversion
-import com.pharbers.pactions.actionbase.{MapArgs, pActionArgs, pActionTrait}
 
-/**
-  * @description:
-  * @author: clock
-  * @date: 2019-05-06 11:12
-  */
 object phNhwaCleanConcretAction {
-    def apply(args: MapArgs): pActionTrait = new phNhwaCleanConcretAction(args)
+    def apply(args: MapArgs)(implicit sparkDriver: phSparkDriver): pActionTrait = new phNhwaCleanConcretAction(args)
 }
 
-case class phNhwaCleanConcretAction(override val defaultArgs: pActionArgs) extends pActionTrait {
-    override val name: String = "phCleanConcretAction"
+case class phNhwaCleanConcretAction(override val defaultArgs: pActionArgs)(implicit sparkDriver: phSparkDriver) extends pActionTrait {
+    override val name: String = "phNhwaCleanConcretAction"
 
     import com.pharbers.data.util._
     import org.apache.spark.sql.functions._
-    import com.pharbers.pactions.actionbase._
 
     override def perform(args: pActionArgs): pActionArgs = {
-        val job_id = defaultArgs.getAs[StringArgs]("job_id")
         val company_id = defaultArgs.getAs[StringArgs]("company_id")
 
         val cpaData = args.getAs[DFArgs]("cpa_data")
@@ -30,9 +23,7 @@ case class phNhwaCleanConcretAction(override val defaultArgs: pActionArgs) exten
                 .addColumn("PACK_NUMBER").addColumn("PACK_COUNT")
                 .withColumn("PACK_NUMBER", when(col("PACK_NUMBER").isNotNull, col("PACK_NUMBER")).otherwise(col("PACK_COUNT")))
         val phaData = args.getAs[DFArgs]("pha_data")
-        val phaMatchData = args.getAs[DFArgs]("product_match_data")
-
-        val sparkDriver: phSparkDriver = phSparkDriver(job_id)
+        val productMatchData = args.getAs[DFArgs]("product_match_data")
 
         val cpaCvs = CPAConversion()(sparkDriver)
         val cpaERD = cpaCvs.toERD(MapArgs(Map(
@@ -42,7 +33,7 @@ case class phNhwaCleanConcretAction(override val defaultArgs: pActionArgs) exten
             , "hospDF" -> DFArgs(hospData)
             , "prodDF" -> DFArgs(prodData)
             , "phaDF" -> DFArgs(phaData)
-            , "prodMatchDF" -> DFArgs(phaMatchData)
+            , "prodMatchDF" -> DFArgs(productMatchData)
             , "matchHospFunc" -> SingleArgFuncArgs(cpaCvs.matchHospFunc)
             , "matchProdFunc" -> SingleArgFuncArgs(cpaCvs.matchProdFunc)
         ))).getAs[DFArgs]("cpaERD")

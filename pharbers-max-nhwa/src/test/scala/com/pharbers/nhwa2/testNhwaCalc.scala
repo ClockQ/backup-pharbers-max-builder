@@ -1,18 +1,24 @@
-package com.pharbers.nhwa
+package com.pharbers.nhwa2
 
 import java.util.UUID
 
 import com.pharbers.spark.phSparkDriver
-import com.pharbers.nhwa.calc.phNhwaMaxJob
+import com.pharbers.nhwa2.calc.phNhwaMaxJob
 import akka.actor.{ActorSelection, ActorSystem}
 import com.pharbers.channel.consumer.commonXmppConsumer
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.channel.driver.xmpp.xmppFactor
-import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
+import com.pharbers.pactions.actionbase.{DFArgs, MapArgs, StringArgs}
 import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 import org.apache.spark.sql.types.{DoubleType, IntegerType}
 
 object testNhwaCalc extends App {
+    implicit val sd: phSparkDriver = phSparkDriver("abc")
+
+    import sd.ss.implicits._
+    import com.pharbers.data.util._
+    import org.apache.spark.sql.functions._
+
 //    val job_id: String = "job_id"
 //    val panel_name: String = "b436b2f3-d0ef-4a16-bdfc-b175745ef292"
 //    println(s"panel_name = $panel_name")
@@ -35,39 +41,25 @@ object testNhwaCalc extends App {
 //        "prod_lst" -> "恩华",
 //        "p_current" -> "1",
 //        "p_total" -> "1",
-//        "universe_file" -> "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_universe_麻醉市场_20180705.csv"
+//        "universe_file" -> "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
 //    )
 //
-//    implicit val system: ActorSystem = ActorSystem("maxActor")
-//    implicit val xmppconfig: XmppConfigType = Map(
-//        "xmpp_host" -> "192.168.100.172",
-//        "xmpp_port" -> "5222",
-//        "xmpp_user" -> "driver",
-//        "xmpp_pwd" -> "driver",
-//        "xmpp_listens" -> "lu@localhost",
-//        "xmpp_pool_num" -> "1"
-//    )
-//    val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
-//    val lactor: ActorSelection = system.actorSelection(acter_location)
-////    val lactor: ActorSelection = system.actorSelection(xmppFactor.getNullActor)
-//    val send: channelEntity => Unit = {
-//        obj => lactor ! ("lu@localhost#alfred@localhost", obj)
-//    }
-//
-//    val result = phNhwaMaxJob(map)(send).perform()
-//            .asInstanceOf[MapArgs].get("result")
-//            .asInstanceOf[StringArgs].get
-//    println(result)
-//
-////    phSparkDriver(job_id).stopCurrConn
+//    val result = phNhwaMaxJob(map).perform()
+//            .asInstanceOf[MapArgs].get("max_calc_action")
+//            .asInstanceOf[DFArgs].get
+//    result.show(false)
+//    result.save2Parquet("/test/qi/qi/max_true")
 
-    implicit val sd: phSparkDriver = phSparkDriver("abc")
+//    phSparkDriver(job_id).stopCurrConn
 
-    import sd.ss.implicits._
-    import com.pharbers.data.util._
-    import org.apache.spark.sql.functions._
+    val ym = "201809"
+    val job_id: String = "job_id"
+    val company_id: String = "5ca069bceeefcc012918ec72"
+    val user_id: String = "user_id"
+    val clean_id: String = "6e57dff1-2cf0-439f-a8f7-4625439d8a8e"
 
-    val panelDF = Parquet2DF("/test/qi/qi/panel5").drop("_id")
+    val panelERD = Parquet2DF("/workData/Panel/" + clean_id)
+
     val universeDF = Parquet2DF("/repository/universe_hosp" + "/" + "5ca069bceeefcc012918ec72" + "/" + "mz").drop("_id")
 //            .withColumnRenamed("PHA_HOSP_ID", "PHA_ID")
             .withColumnRenamed("IF_PANEL_ALL", "IS_PANEL_HOSP")
@@ -78,7 +70,7 @@ object testNhwaCalc extends App {
 //            .withColumnRenamed("PREFECTURE", "Prefecture")
 //            .selectExpr("PHA_ID", "Factor", "IS_PANEL_HOSP", "NEED_MAX_HOSP", "SEGMENT", "Province", "Prefecture", "westMedicineIncome")
 
-    val panelSummed = panelDF.groupBy("YM", "HOSPITAL_ID", "PRODUCT_ID")
+    val panelSummed = panelERD.groupBy("YM", "HOSPITAL_ID", "PRODUCT_ID")
             .agg(Map("UNITS" -> "sum", "SALES" -> "sum"))
             .withColumnRenamed("YM", "P_YM")
             .withColumnRenamed("HOSPITAL_ID", "P_HOSPITAL_ID")
@@ -86,7 +78,7 @@ object testNhwaCalc extends App {
             .withColumnRenamed("sum(UNITS)", "sumUnits")
             .withColumnRenamed("sum(SALES)", "sumSales")
 
-    val joinDataWithEmptyValue = panelDF.select("YM", "PRODUCT_ID").distinct() crossJoin universeDF
+    val joinDataWithEmptyValue = panelERD.select("YM", "PRODUCT_ID").distinct() crossJoin universeDF
 
     val joinData = {
         joinDataWithEmptyValue
@@ -149,8 +141,8 @@ object testNhwaCalc extends App {
     }
 
     val backfillDF = {
-        panelDF.join(universeDF, panelDF("HOSPITAL_ID") === universeDF("HOSPITAL_ID"))
-                .drop(panelDF("HOSPITAL_ID"))
+        panelERD.join(universeDF, panelERD("HOSPITAL_ID") === universeDF("HOSPITAL_ID"))
+                .drop(panelERD("HOSPITAL_ID"))
                 .withColumn("Date", 'YM.cast(IntegerType))
 //                .withColumnRenamed("Prefecture", "City")
 //                .withColumnRenamed("PHA_ID", "Panel_ID")
@@ -162,13 +154,29 @@ object testNhwaCalc extends App {
     }
 
     val maxDF = backfillDF.unionByName(enlargedDF)
-    maxDF.show(false)
-    println(maxDF.count())
-    maxDF.save2Parquet("/test/qi/qi/max5")
+
+//    maxDF.show(false)
+//    println(maxDF.count())
+//    maxDF.save2Parquet("/test/qi/qi/max5")
+
+
+    lazy val maxTrue = Parquet2DF("/test/qi/qi/max_true")
+    lazy val maxTrue2 = CSV2DF("hdfs:///data/nhwa/pha_config_repository1809/Nhwa_201809_Offline_MaxResult_20181126.csv")
+    lazy val maxTrue3 = CSV2DF("hdfs:////test/qi/qi/max_result.csv")
+
+    println(maxTrue.count(), maxTrue2.count(), maxTrue3.count(), maxDF.count())
+
+    println(maxTrue.agg(sum("f_units")).first.get(0))
+    println(maxTrue.agg(sum("f_sales")).first.get(0))
+
+    maxTrue2.show(2, false)
+////    println(maxTrue2.agg(sum("f_units")).first.get(0))
+////    println(maxTrue2.agg(sum("f_sales")).first.get(0))
+//
+    println(maxTrue3.agg(sum("f_units")).first.get(0))
+    println(maxTrue3.agg(sum("f_sales")).first.get(0))
+
+    println(maxDF.agg(sum("f_units")).first.get(0))
+    println(maxDF.agg(sum("f_sales")).first.get(0))
+
 }
-//+------+------------------------+----+----+------+-------+-----------+-------------+-------------+-------+------------------------------+--------+----------+--------------+------------------+------------------------+----+-------------+------------+--------+--------+--------------------+--------------------+-------------------+--------------------+----+------+
-//|YM    |PRODUCT_ID              |公司  |YEAR|MARKET|SEGMENT|Factor     |IS_PANEL_HOSP|NEED_MAX_HOSP|HOSP_ID|PHA_HOSP_NAME                 |PROVINCE|PREFECTURE|CITY_TIER_2010|westMedicineIncome|HOSPITAL_ID             |P_YM|P_HOSPITAL_ID|P_PRODUCT_ID|sumSales|sumUnits|avg_Sales           |avg_Units           |f_sales            |f_units             |flag|Date  |
-//+------+------------------------+----+----+------+-------+-----------+-------------+-------------+-------+------------------------------+--------+----------+--------------+------------------+------------------------+----+-------------+------------+--------+--------+--------------------+--------------------+-------------------+--------------------+----+------+
-//+------------------------+------+------------------------+------------------------+-------+--------+----+----+------+-------+------------------+-------------+-------------+-------+-------------+--------+----------+--------------+------------------+------------------------+------+
-//|COMPANY_ID              |YM    |HOSPITAL_ID             |PRODUCT_ID              |f_units|f_sales |公司  |YEAR|MARKET|SEGMENT|Factor            |IS_PANEL_HOSP|NEED_MAX_HOSP|HOSP_ID|PHA_HOSP_NAME|PROVINCE|PREFECTURE|CITY_TIER_2010|westMedicineIncome|HOSPITAL_ID             |Date  |
-//+------------------------+------+------------------------+------------------------+-------+--------+----+----+------+-------+------------------+-------------+-------------+-------+-------------+--------+----------+--------------+------------------+------------------------+------+

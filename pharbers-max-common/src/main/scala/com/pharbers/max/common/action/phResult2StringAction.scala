@@ -1,8 +1,7 @@
-package com.pharbers.common.action
-
-import com.pharbers.pactions.actionbase._
+package com.pharbers.max.common.action
 
 import scala.reflect.ClassTag
+import com.pharbers.pactions.actionbase._
 
 object phResult2StringAction {
 

@@ -1,10 +1,10 @@
-package com.pharbers.nhwa.calcym
+package com.pharbers.nhwa2.calcym
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import com.pharbers.common.action.phResult2StringAction
+import com.pharbers.max.common.action.phResult2StringAction
 import com.pharbers.spark.listener.sendProgress.sendXmppSingleProgress
 import com.pharbers.spark.phSparkDriver
 import org.apache.spark.listener.addListenerAction

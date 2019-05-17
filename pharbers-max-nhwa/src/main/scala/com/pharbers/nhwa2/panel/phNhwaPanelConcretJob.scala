@@ -1,4 +1,4 @@
-package com.pharbers.nhwa.panel
+package com.pharbers.nhwa2.panel
 
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions._
@@ -66,20 +66,26 @@ class phNhwaPanelConcretJob(override val defaultArgs: pActionArgs) extends pActi
             val filter_month = ym.takeRight(2).toInt.toString
             val filter_month_full_hosp = ym.takeRight(2).toString
             val primal_cpa = cpa.filter(s"YM like '$ym'")
+
             val not_arrival_hosp = not_arrival_hosp_file
                     .withColumnRenamed("MONTH", "month")
                     .filter(s"month like '%$filter_month%'")
                     .withColumnRenamed("HOSP_ID", "ID")
                     .select("ID")
+
             val not_published_hosp = not_published_hosp_file
                     .withColumnRenamed("HOSP_ID", "ID")
+
             val miss_hosp = not_arrival_hosp.union(not_published_hosp).distinct()
                     .withColumn("ID", 'ID.cast(IntegerType))
+
             val reduced_cpa = primal_cpa.join(miss_hosp, primal_cpa("HOSP_ID") === miss_hosp("ID"), "left").filter("ID is null").drop("ID")
+
             val full_hosp_id = full_hosp_file.filter(s"MONTH == $filter_month_full_hosp")
                     .withColumn("HOSP_ID", 'HOSP_ID.cast(IntegerType))
+
             val full_hosp = miss_hosp.join(full_hosp_id, full_hosp_id("HOSP_ID") === miss_hosp("ID")).drop("ID").select(reduced_cpa.columns.head, reduced_cpa.columns.tail: _*)
-            
+
             import sparkDriver.ss.implicits._
             reduced_cpa.union(full_hosp).withColumn("HOSP_ID", 'HOSP_ID.cast(LongType))
         }
@@ -130,7 +136,6 @@ class phNhwaPanelConcretJob(override val defaultArgs: pActionArgs) extends pActi
                     .selectExpr("ID", "Hosp_name", "Date",
                         "Prod_Name", "Prod_Name as Prod_CNAME", "HOSP_ID", "Prod_Name as Strength",
                         "DOI", "DOIE", "Units", "Sales")
-            
             temp.groupBy("ID", "Hosp_name", "Date", "Prod_Name", "Prod_CNAME", "HOSP_ID", "Strength", "DOI", "DOIE")
                     .agg(Map("Units" -> "sum", "Sales" -> "sum"))
                     .withColumnRenamed("sum(Units)", "Units")
