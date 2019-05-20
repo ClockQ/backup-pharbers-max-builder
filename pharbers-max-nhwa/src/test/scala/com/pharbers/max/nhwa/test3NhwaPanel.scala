@@ -34,7 +34,7 @@ object test3NhwaPanel extends App {
     )
 
     import com.pharbers.max.common.action.sendProgress
-    implicit val sd: phSparkDriver = phSparkDriver("test-nhwa-clean")
+    implicit val sd: phSparkDriver = phSparkDriver("test-nhwa-panel")
     val result = phNhwaPanelJob(map).perform()
             .asInstanceOf[MapArgs].get("phNhwaPanelConcretAction")
             .asInstanceOf[DFArgs].get
