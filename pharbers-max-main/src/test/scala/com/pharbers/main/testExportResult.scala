@@ -57,12 +57,4 @@ object testExportResult extends App {
 
     implicit val system: ActorSystem = ActorSystem("maxActor")
     PhBuilder(generateAction).exportExec().stopSpark()
-
-
-
-
-
-
-
-
 }

@@ -1,8 +1,8 @@
 package org.apache.spark.listener
 
-import com.pharbers.spark.phSparkDriver
-import org.apache.spark.listener.listenTrait.MaxSparkListenerTrait
 import com.pharbers.pactions.actionbase.{NULLArgs, pActionArgs, pActionTrait}
+import com.pharbers.spark.listener.listenTrait.MaxSparkListenerTrait
+import com.pharbers.spark.phSparkDriver
 
 object removeListenerAction {
     def apply(app_name: String, listener: MaxSparkListenerTrait): pActionTrait =

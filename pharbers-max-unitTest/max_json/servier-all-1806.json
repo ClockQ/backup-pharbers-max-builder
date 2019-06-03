@@ -1,0 +1,226 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/servier/201806_all_correct/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "施维雅"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "Dyslipidemia"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "RAASI PLAIN"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "RAASI FDC"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "OAD"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "IHD"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "Dyslipidemia"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "RAASI PLAIN"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "RAASI FDC"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "OAD"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "IHD"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "Dyslipidemia",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "Dyslipidemia",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/servier/201806_all_correct/Servier_201806_Offline_MaxResult_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Dyslipidemia",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "Dyslipidemia",
+        "panel_name": "Dyslipidemia_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-servier/target/pharbers-max-servier-1.0.jar",
+        "clazz": "com.pharbers.servier.calc.phServierMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/servier/201806_all_correct/Servier_Universe_Dyslipidemia_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "RAASI PLAIN",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "RAASI PLAIN",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/servier/201806_all_correct/Servier_201806_Offline_MaxResult_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "RAASI PLAIN",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "RAASI PLAIN",
+        "panel_name": "RAASI PLAIN_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-servier/target/pharbers-max-servier-1.0.jar",
+        "clazz": "com.pharbers.servier.calc.phServierMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/servier/201806_all_correct/Servier_Universe_RAASI PLAIN_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "RAASI FDC",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "RAASI FDC",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/servier/201806_all_correct/Servier_201806_Offline_MaxResult_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "RAASI FDC",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "RAASI FDC",
+        "panel_name": "RAASI FDC_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-servier/target/pharbers-max-servier-1.0.jar",
+        "clazz": "com.pharbers.servier.calc.phServierMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/servier/201806_all_correct/Servier_Universe_RAASI FDC_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "OAD",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "OAD",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/servier/201806_all_correct/Servier_201806_Offline_MaxResult_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "OAD",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "OAD",
+        "panel_name": "OAD_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-servier/target/pharbers-max-servier-1.0.jar",
+        "clazz": "com.pharbers.servier.calc.phServierMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/servier/201806_all_correct/Servier_Universe_OAD_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "IHD",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "IHD",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/servier/201806_all_correct/Servier_201806_Offline_MaxResult_20181119.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "IHD",
+      "attributes": {
+        "ym": "201806",
+        "mkt": "IHD",
+        "panel_name": "IHD_Panel 201806.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "/Users/clock/workSpace/Pharbers/pharbers-max-builder/pharbers-max-servier/target/pharbers-max-servier-1.0.jar",
+        "clazz": "com.pharbers.servier.calc.phServierMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/servier/201806_all_correct/Servier_Universe_IHD_20181119.csv"
+        }
+      }
+    }
+  ]
+}

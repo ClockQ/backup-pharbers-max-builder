@@ -6,7 +6,6 @@ import com.pharbers.spark.phSparkDriver
 import akka.actor.{ActorSelection, ActorSystem}
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.astellas.panel.phAstellasPanelJob
-import com.pharbers.astellas.testAstellasCalcYM.{map, system}
 import com.pharbers.channel.consumer.commonXmppConsumer
 import com.pharbers.channel.detail.channelEntity
 import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}

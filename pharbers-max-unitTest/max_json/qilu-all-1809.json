@@ -1,0 +1,626 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "qilu",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/qilu/pha_config_repository1809/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "齐鲁"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "6"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "7"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "8"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "9"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "10"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "11"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "12"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "13"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "14"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "15"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "16"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "6"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "7"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "8"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "9"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "10"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "11"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "12"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "13"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "14"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "15"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "16"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "16",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "16",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "16",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "16",
+        "panel_name": "16_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_16_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "15",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "15",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "15",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "15",
+        "panel_name": "15_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_15_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "14",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "14",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "14",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "14",
+        "panel_name": "14_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_14_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "13",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "13",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "13",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "13",
+        "panel_name": "13_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_13_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "12",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "12",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "12",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "12",
+        "panel_name": "12_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_12_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "11",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "11",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "11",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "11",
+        "panel_name": "11_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_11_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "10",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "10",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "10",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "10",
+        "panel_name": "10_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_10_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "9",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "9",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "9",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "9",
+        "panel_name": "9_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_9_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "8",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "8",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "8",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "8",
+        "panel_name": "8_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_8_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "7",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "7",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "7",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "7",
+        "panel_name": "7_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_7_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "6",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "6",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "6",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "6",
+        "panel_name": "6_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_6_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "5",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "5",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "5",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "5",
+        "panel_name": "5_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_5_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "4",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "4",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "4",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "4",
+        "panel_name": "4_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_4_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "3",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "3",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "3",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "3",
+        "panel_name": "3_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_3_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "2",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "2",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "2",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "2",
+        "panel_name": "2_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_2_20190104.csv"
+        }
+      }
+    },
+    {
+      "type": "PhUnitTestConf",
+      "id": "1",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "1",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "1",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "1",
+        "panel_name": "1_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/qilu/pha_config_repository1809/Qilu_Universe_1_20190104.csv"
+        }
+      }
+    }
+  ]
+}

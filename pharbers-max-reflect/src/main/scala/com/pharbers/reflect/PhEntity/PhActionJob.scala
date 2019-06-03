@@ -11,6 +11,7 @@ import com.pharbers.reflect.PhEntity.confEntity._
 @One2ManyConn[PhCalcConf]("calcConf")
 @One2ManyConn[PhResultExportConf]("resultExportConf")
 @One2ManyConn[PhUnitTestConf]("unitTestConf")
+@One2ManyConn[PhDataConversionConf]("dataConversionConf")
 @ToStringMacro
 class PhActionJob() extends commonEntity with channelEntity {
     var job_id: String = ""
@@ -90,6 +91,12 @@ class PhActionJob() extends commonEntity with channelEntity {
             "export_path" -> ckPath(export_path),
             "export_name" -> ckElem(exportConf.export_name)
         ) ++ exportConf.conf
+    }
+
+    def conversionArgs(conversionConf: PhDataConversionConf): Map[String, String] = {
+        Map(
+            "company_id" -> ckElem(company_id)
+        ) ++ conversionConf.conf
     }
 }
 

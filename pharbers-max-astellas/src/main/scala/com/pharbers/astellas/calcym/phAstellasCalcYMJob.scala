@@ -3,10 +3,10 @@ package com.pharbers.astellas.calcym
 import com.pharbers.pactions.actionbase._
 import com.pharbers.pactions.generalactions._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import org.apache.spark.listener.sendProgress.sendXmppSingleProgress
-import com.pharbers.common.action.{phResult2StringJob, readCpa, readGycx}
+import com.pharbers.spark.listener.sendProgress.sendXmppSingleProgress
+import com.pharbers.common.action.phResult2StringAction
+import org.apache.spark.listener.addListenerAction
 
 case class phAstellasCalcYMJob(args: Map[String, String])(implicit send: channelEntity => Unit) extends sequenceJobWithMap {
     override val name: String = "phAstellasCalcYMJob"
@@ -23,7 +23,7 @@ case class phAstellasCalcYMJob(args: Map[String, String])(implicit send: channel
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.lst2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.lst2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppSingleProgress(company_id, user_id, "ymCalc", job_id).singleProgress
 
     override val actions: List[pActionTrait] = {
@@ -35,7 +35,7 @@ case class phAstellasCalcYMJob(args: Map[String, String])(implicit send: channel
                 addListenerAction(21, 90, job_id) ::
                 phAstellasCountYm(df) ::
                 addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("calcYm", tranFun) ::
+                phResult2StringAction("calcYm", tranFun) ::
                 Nil
     }
 }

@@ -8,7 +8,7 @@ import com.pharbers.reflect.PhEntity.PhActionJob
 import com.pharbers.channel.driver.xmpp.xmppFactor
 import com.pharbers.main.PhConsumer.mainXmppConfBase
 import com.pharbers.reflect.PhEntity.confEntity.PhXmppConf
-import org.apache.spark.listener.entity.PhMaxJobResult
+import com.pharbers.spark.listener.entity.PhMaxJobResult
 
 case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
     val xmppconf: PhXmppConf = actionJob.xmppConf.getOrElse(throw new Exception("xmpp conf is none"))
@@ -114,6 +114,27 @@ case class PhBuilder(actionJob: PhActionJob)(implicit as: ActorSystem) {
                 result.job_id = actionJob.job_id
                 result.percentage = 100
                 result.message = exportLst.mkString("#")
+                sender(result)
+                this
+            case None => this
+        }
+    }
+
+    /** 数据转换 */
+    def conversionExec(): PhBuilder = {
+        actionJob.dataConversionConf match {
+            case Some(conversionActionLst) =>
+                val conversionResult = conversionActionLst.map { conversionConf =>
+                    reflect(conversionConf)(actionJob.conversionArgs(conversionConf))(sender).exec()
+                }.distinct.mkString("#")
+                println(conversionResult)
+                val result = new PhMaxJobResult
+                result.company_id = actionJob.company_id
+                result.user_id = actionJob.user_id
+                result.call = "conversion"
+                result.job_id = actionJob.job_id
+                result.percentage = 100
+                result.message = conversionResult
                 sender(result)
                 this
             case None => this

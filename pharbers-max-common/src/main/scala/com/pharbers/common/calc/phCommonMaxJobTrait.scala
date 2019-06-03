@@ -2,11 +2,11 @@ package com.pharbers.common.calc
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
-import com.pharbers.common.action.phResult2StringJob
-import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
+import com.pharbers.max.common.action.phResult2StringAction
+import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
 import com.pharbers.pactions.jobs.{sequenceJob, sequenceJobWithMap}
-import com.pharbers.pactions.generalactions.{readCsvAction, setLogLevelAction}
+import com.pharbers.pactions.generalactions.{readCsvAction, readParquetAction, setLogLevelAction}
+import org.apache.spark.listener.addListenerAction
 
 trait phCommonMaxJobTrait extends sequenceJobWithMap {
 
@@ -35,9 +35,9 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     val p_total: Double = args("p_total").toDouble
 
     // 1. load panel data
-    val loadPanelData: sequenceJob = new sequenceJob {
+    lazy val loadPanelData: sequenceJob = new sequenceJob {
         override val name: String = "panel_data"
-        override val actions: List[pActionTrait] = readCsvAction(panel_file, delimiter = panel_delimiter, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = ??? //readParquetAction(panel_file, applicationName = job_id) :: Nil
     }
 
     // 留做测试 1. load panel data of xlsx
@@ -51,9 +51,9 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
     //    }
 
     // 2. read universe file
-    val readUniverseFile: sequenceJob = new sequenceJob {
+    lazy val readUniverseFile: sequenceJob = new sequenceJob {
         override val name = "universe_data"
-        override val actions: List[pActionTrait] = readCsvAction(universe_file, applicationName = job_id) :: Nil
+        override val actions: List[pActionTrait] = ??? //readCsvAction(universe_file, applicationName = job_id) :: Nil
     }
 
     val df = MapArgs(
@@ -72,24 +72,25 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "calc", job_id)(p_current, p_total).multiProgress
 
-    override val actions: List[pActionTrait] = {
-        setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(1, 10, job_id) ::
-                loadPanelData ::
-                addListenerAction(11, 20, job_id) ::
-                readUniverseFile ::
-                addListenerAction(21, 30, job_id) ::
-                phMaxCalcAction(df) ::
-                addListenerAction(31, 40, job_id) ::
-                phMaxPersistentAction(df) ::
-                addListenerAction(41, 90, job_id) ::
-                phMaxInfo2RedisAction(df) ::
-                addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phMaxInfo2RedisAction", tranFun) ::
-                Nil
-    }
+    override val actions: List[pActionTrait] = ???
+//    {
+//        setLogLevelAction("ERROR", job_id) ::
+//                addListenerAction(1, 10, job_id) ::
+//                loadPanelData ::
+//                addListenerAction(11, 20, job_id) ::
+//                readUniverseFile ::
+//                addListenerAction(21, 30, job_id) ::
+//                phMaxCalcAction(df) ::
+//                addListenerAction(31, 40, job_id) ::
+//                phMaxPersistentAction(df) ::
+//                addListenerAction(41, 90, job_id) ::
+//                phMaxInfo2RedisAction(df) ::
+//                addListenerAction(91, 99, job_id) ::
+//                phResult2StringAction("phMaxInfo2RedisAction", tranFun) ::
+//                Nil
+//    }
 
 }

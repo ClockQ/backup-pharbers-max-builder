@@ -34,5 +34,5 @@ object testResultExport extends App {
             .asInstanceOf[StringArgs].get
     println(result)
 
-    phSparkDriver(job_id).stopCurrConn
+    phSparkDriver(job_id).stopSpark()
 }

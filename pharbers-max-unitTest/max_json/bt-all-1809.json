@@ -1,0 +1,66 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "bt",
+    "attributes": {
+      "job_id": "",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///data/BMS/pha_config_repository1809/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "倍特"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "Beite"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "Beite"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "Beite",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "Beite",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/BMS/pha_config_repository1809/Beite_201809_Offline_MaxResult_20190107.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "Beite",
+      "attributes": {
+        "ym": "201809",
+        "mkt": "Beite",
+        "panel_name": "Beite_Panel 201809.csv",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "",
+        "clazz": "com.pharbers.common.calc.phCommonMaxJob",
+        "conf": {
+          "panel_delimiter" : ",",
+          "universe_file": "hdfs:///data/BMS/pha_config_repository1809/Beite_Universe_Beite_20190107.csv"
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 package org.apache.spark.listener
 
-import org.apache.spark.scheduler._
-import org.apache.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHelperTrait}
+import com.pharbers.spark.listener.listenTrait.{MaxSparkListenerTrait, PhListenHelperTrait}
+import org.apache.spark.scheduler.{SparkListenerJobEnd, SparkListenerJobStart, SparkListenerTaskEnd}
 
 /**
   * Created by clock on 18-5-2.

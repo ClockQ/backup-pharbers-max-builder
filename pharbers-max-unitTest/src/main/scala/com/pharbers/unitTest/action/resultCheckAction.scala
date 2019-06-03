@@ -5,7 +5,7 @@ import com.pharbers.spark.phSparkDriver
 import org.apache.spark.sql.DataFrame
 import com.pharbers.pactions.actionbase._
 import org.apache.spark.sql.functions.{expr, lit, udf}
-import com.pharbers.pactions.generalactions.readCsvAction
+import com.pharbers.pactions.generalactions.readParquetAction
 import org.apache.spark.sql.expressions.UserDefinedFunction
 
 object resultCheckAction {
@@ -23,11 +23,11 @@ class resultCheckAction(override val defaultArgs: pActionArgs) extends pActionTr
         import sparkDriver.ss.implicits._
 
         val maxResult = prMap.asInstanceOf[MapArgs].get("executeMaxAction").asInstanceOf[StringArgs].get
-        val maxDF = readCsvAction(action.max_path + maxResult, delimiter = delimiter, applicationName = action.job_id)
+        val maxDF = readParquetAction(action.max_path + maxResult, applicationName = action.job_id)
                 .perform(NULLArgs).asInstanceOf[DFArgs].get
 
-        val date: String = maxDF.select("Date").distinct().collect().head.getString(0)
-        val mkt: String = maxDF.select("MARKET").distinct().collect().head.getString(0)
+        val date: String = maxDF.select("Date").distinct().collect().head.get(0).toString
+        val mkt: String = maxDF.select("MARKET").distinct().collect().head.get(0).toString
 
         val market = mkt match {
             case "阿洛刻市场" => "Allelock"

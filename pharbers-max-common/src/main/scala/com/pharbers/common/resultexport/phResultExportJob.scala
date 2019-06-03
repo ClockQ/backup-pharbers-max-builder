@@ -2,11 +2,11 @@ package com.pharbers.common.resultexport
 
 import com.pharbers.pactions.actionbase._
 import com.pharbers.channel.detail.channelEntity
-import org.apache.spark.listener.addListenerAction
+import com.pharbers.max.common.action.phResult2StringAction
 import com.pharbers.pactions.jobs.sequenceJobWithMap
-import com.pharbers.common.action.phResult2StringJob
 import com.pharbers.pactions.generalactions.setLogLevelAction
-import org.apache.spark.listener.sendProgress.sendXmppMultiProgress
+import com.pharbers.spark.listener.sendProgress.sendXmppMultiProgress
+import org.apache.spark.listener.addListenerAction
 
 object phResultExportJob {
     def apply(args: Map[String, String])
@@ -48,18 +48,19 @@ class phResultExportJob(args: Map[String, String])
         )
     )
 
-    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringJob.str2StrTranFun
+    val tranFun: SingleArgFuncArgs[pActionArgs, StringArgs] = phResult2StringAction.str2StrTranFun
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "resultExport", job_id)(p_current, p_total).multiProgress
 
-    override val actions: List[pActionTrait] = {
-        setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(1, 30, job_id) ::
-                phLoadMaxResultAction(df) ::
-                addListenerAction(41, 90, job_id) ::
-                phExportMaxResultAction(df) ::
-                addListenerAction(91, 99, job_id) ::
-                phResult2StringJob("phExportMaxResultAction", tranFun) ::
-                Nil
-    }
+    override val actions: List[pActionTrait] = ???
+//    {
+//        setLogLevelAction("ERROR", job_id) ::
+//                addListenerAction(1, 30, job_id) ::
+//                phLoadMaxResultAction(df) ::
+//                addListenerAction(41, 90, job_id) ::
+//                phExportMaxResultAction(df) ::
+//                addListenerAction(91, 99, job_id) ::
+//                phResult2StringAction("phExportMaxResultAction", tranFun) ::
+//                Nil
+//    }
 }
 
