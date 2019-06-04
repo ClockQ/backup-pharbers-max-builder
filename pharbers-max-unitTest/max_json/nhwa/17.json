@@ -1,0 +1,817 @@
+{
+  "data": {
+    "type": "PhAction",
+    "id": "tmp_dadfcc7a-7b01-4fcd-b1df-626f9d2e14e8",
+    "attributes": {
+      "job_id": "job_id",
+      "user_id": "user_id",
+      "company_id": "company_id",
+      "panel_path": "hdfs:///workData/Panel/",
+      "max_path": "hdfs:///workData/Max/",
+      "prod_lst": "恩华"
+    },
+    "relationships": {
+      "unitTestConf":{
+        "data": [
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz01"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz02"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz03"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz04"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz05"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz06"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz07"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz08"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz09"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz10"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz11"
+          },
+          {
+            "type": "PhUnitTestConf",
+            "id": "mz12"
+          }
+        ]
+      },
+      "calcConf": {
+        "data": [
+          {
+            "type": "PhCalcConf",
+            "id": "mz01"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz02"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz03"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz04"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz05"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz06"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz07"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz08"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz09"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz10"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz11"
+          },
+          {
+            "type": "PhCalcConf",
+            "id": "mz12"
+          }
+        ]
+      },
+      "panelConf": {
+        "data": [
+          {
+            "type": "PhPanelConf",
+            "id": "mz01"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz02"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz03"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz04"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz05"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz06"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz07"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz08"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz09"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz10"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz11"
+          },
+          {
+            "type": "PhPanelConf",
+            "id": "mz12"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz01",
+      "attributes": {
+        "ym": "201701",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz01",
+      "attributes": {
+        "ym": "201701",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz01",
+      "attributes": {
+        "ym": "201701",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz02",
+      "attributes": {
+        "ym": "201702",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz02",
+      "attributes": {
+        "ym": "201702",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz02",
+      "attributes": {
+        "ym": "201702",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz03",
+      "attributes": {
+        "ym": "201703",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz03",
+      "attributes": {
+        "ym": "201703",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz03",
+      "attributes": {
+        "ym": "201703",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz04",
+      "attributes": {
+        "ym": "201704",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz04",
+      "attributes": {
+        "ym": "201704",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz04",
+      "attributes": {
+        "ym": "201704",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz05",
+      "attributes": {
+        "ym": "201705",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz05",
+      "attributes": {
+        "ym": "201705",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz05",
+      "attributes": {
+        "ym": "201705",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz06",
+      "attributes": {
+        "ym": "201706",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz06",
+      "attributes": {
+        "ym": "201706",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz06",
+      "attributes": {
+        "ym": "201706",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz07",
+      "attributes": {
+        "ym": "201707",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz07",
+      "attributes": {
+        "ym": "201707",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz07",
+      "attributes": {
+        "ym": "201707",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz08",
+      "attributes": {
+        "ym": "201708",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz08",
+      "attributes": {
+        "ym": "201708",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz08",
+      "attributes": {
+        "ym": "201708",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz09",
+      "attributes": {
+        "ym": "201709",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz09",
+      "attributes": {
+        "ym": "201709",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz09",
+      "attributes": {
+        "ym": "201709",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz10",
+      "attributes": {
+        "ym": "201710",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz10",
+      "attributes": {
+        "ym": "201710",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz10",
+      "attributes": {
+        "ym": "201710",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz11",
+      "attributes": {
+        "ym": "201711",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz11",
+      "attributes": {
+        "ym": "201711",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz11",
+      "attributes": {
+        "ym": "201711",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhUnitTestConf",
+      "id": "mz12",
+      "attributes": {
+        "ym": "201712",
+        "mkt": "麻醉市场",
+        "test_path": "hdfs:///workData/UnitTest/",
+        "test_name": "",
+        "jar_path": "",
+        "clazz": "",
+        "conf": {
+          "offline_result_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_Offline_MaxResult.csv"
+        }
+      }
+    },
+    {
+      "type": "PhCalcConf",
+      "id": "mz12",
+      "attributes": {
+        "ym": "201712",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "max_name": "",
+        "max_search_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calc.phNhwaMaxJob",
+        "conf": {
+          "universe_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_universe_麻醉市场_20180705.csv"
+        }
+      }
+    },
+    {
+      "type": "PhPanelConf",
+      "id": "mz12",
+      "attributes": {
+        "ym": "201712",
+        "mkt": "麻醉市场",
+        "panel_name": "",
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.panel.phNhwaPanelJob",
+        "conf": {
+          "not_arrival_hosp_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_2017_not_arrival_hosp.csv",
+          "product_match_file": "hdfs:///data/nhwa/pha_config_repository1904/Nhwa_ProductMatchTable_20190419.csv",
+          "markets_match_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_MarketMatchTable_20180629.csv",
+          "hosp_ID_file": "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_2018_If_panel_all_麻醉市场_20180629.csv",
+          "fill_hos_data_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_FullHosp_20180629.csv",
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv",
+          "not_published_hosp_file": "hdfs:///data/nhwa/pha_config_repository1809/Nhwa_2018_NotPublishedHosp_20180629.csv"
+        }
+      }
+    },
+
+    {
+      "type": "PhCalcYmConf",
+      "id": "tmp_a8344a6b-fd4a-4296-8f44-442b1e28e8ca",
+      "attributes": {
+        "jar_path": "D:/code/pharbers/pharbers-max-builder/pharbers-max-nhwa/target/pharbers-max-nhwa-1.0.jar",
+        "clazz": "com.pharbers.nhwa.calcym.phNhwaCalcYMJob",
+        "conf": {
+          "cpa_file": "hdfs:///data/nhwa/Nhwa_2017_CPA.csv"
+        }
+      }
+    },
+    {
+      "type": "PhXmppConf",
+      "id": "tmp_762817de-e36f-4cda-84de-4d8006c614b9",
+      "attributes": {
+        "disableSend": true,
+        "xmpp_report" : ""
+      }
+    }
+  ]
+}

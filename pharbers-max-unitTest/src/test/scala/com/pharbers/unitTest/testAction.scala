@@ -22,7 +22,7 @@ object testAction extends App {
 //    val actionLst = generateNameAction("max_json/bt-all-1809.json", "max_json/tmp-bt-all-1809.json").toSingleList
 //    val actionLst = generateNameAction("max_json/BMS-all-1809.json", "max_json/tmp-BMS-all-1809.json").toSingleList
 
-    val actionLst = generateNameAction("max_json/pfizer/1810.json", "max_json/pfizer/tmp_1810.json").toSingleList
+    val actionLst = generateNameAction("max_json/nhwa-mz-1804.json").toSingleList
 //    val actionLst = generateNameAction("max_json/pfizer/1802.json", "max_json/pfizer/tmp_1802.json").toSingleList
 
     println("市场共 :" + actionLst.length)

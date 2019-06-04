@@ -95,7 +95,7 @@ class phNhwaPanelConcretJob(override val defaultArgs: pActionArgs) extends pActi
                     .withColumnRenamed("STANDARD_CORP_NAME", "s_CORP_NAME")
                     .withColumn("min2",
                         when(col("MIN_PRODUCT_UNIT_STANDARD") =!= "", col("MIN_PRODUCT_UNIT_STANDARD"))
-                                .otherwise(col("s_PRODUCT_NAME") + col("s_APP2_COD") + col("s_PACK_DES") + col("PACK_NUMBER") + col("PACK_NUMBER"))
+                                .otherwise(col("s_PRODUCT_NAME") + col("s_APP2_COD") + col("s_PACK_DES") + col("PACK_NUMBER") + col("s_CORP_NAME"))
                     )
                     .selectExpr("concat(PRODUCT_NAME,APP2_COD,PACK_DES,PACK_NUMBER,CORP_NAME) as min1", "min2", "NAME")
                     .withColumnRenamed("min2", "min1_标准")

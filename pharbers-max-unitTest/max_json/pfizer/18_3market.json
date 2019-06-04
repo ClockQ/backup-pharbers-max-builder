@@ -374,21 +374,6 @@
       },
       "panelConf": {
         "data": [
-
-          {
-            "type": "PhPanelConf",
-            "id": "AI_S"
-          },
-          {
-            "type": "PhPanelConf",
-            "id": "AI_R_other"
-          },
-          {
-            "type": "PhPanelConf",
-            "id": "AI_R_zith"
-          },
-
-
           {
             "type": "PhPanelConf",
             "id": "AI_S01"
