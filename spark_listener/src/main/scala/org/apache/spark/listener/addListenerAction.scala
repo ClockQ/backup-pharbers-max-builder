@@ -15,7 +15,7 @@ class addListenerAction(start_progress: Int, end_progress: Int)
 
     override def perform(args: pActionArgs = NULLArgs): pActionArgs = {
         send(Map("progress" -> start_progress))
-        phSparkDriver(app_name).sc.addSparkListener(MaxSparkListener(ListenerHelper(start_progress, end_progress)(xp), app_name))
+//        phSparkDriver(app_name).sc.addSparkListener(MaxSparkListener(ListenerHelper(start_progress, end_progress)(xp), app_name))
         args
     }
 }

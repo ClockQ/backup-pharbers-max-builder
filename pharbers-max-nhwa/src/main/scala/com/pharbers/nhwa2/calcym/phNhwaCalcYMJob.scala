@@ -30,11 +30,11 @@ case class phNhwaCalcYMJob(args: Map[String, String])(implicit send: channelEnti
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR") ::
-                addListenerAction(1, 10, job_id) ::
+//                addListenerAction(1, 10, job_id) ::
 //                readCpa(cpa_file, job_id) ::
-                addListenerAction(31, 90, job_id) ::
+//                addListenerAction(31, 90, job_id) ::
                 phNhwaCountYm(df) ::
-                addListenerAction(91, 99, job_id) ::
+//                addListenerAction(91, 99, job_id) ::
                 phResult2StringAction("calcYm", tranFun) ::
                 Nil
     }
