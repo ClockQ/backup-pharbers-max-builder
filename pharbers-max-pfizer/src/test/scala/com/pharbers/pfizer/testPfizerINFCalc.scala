@@ -10,7 +10,7 @@ import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
 object testPfizerINFCalc extends App {
     val job_id: String = "pfizer_inf_job_id"
-    val panel_name: String = "7abee83a-74eb-411e-8c19-eb94d054eb6e"
+    val panel_name: String = "inf_0617"
     println(s"panel_name = $panel_name")
     val max_name: String = UUID.randomUUID().toString
     println(s"max_name = $max_name")
