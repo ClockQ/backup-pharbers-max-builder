@@ -1,17 +1,16 @@
 package com.pharbers.pfizer
 
 import java.util.UUID
-
 import akka.actor.ActorSystem
-import com.pharbers.channel.detail.channelEntity
-import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
-import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
-import com.pharbers.pfizer.calc.phPfizerForCNS_RMaxJob
 import com.pharbers.spark.phSparkDriver
+import com.pharbers.pfizer.calc.phPfizerMaxJob
+import com.pharbers.channel.detail.channelEntity
+import com.pharbers.pactions.actionbase.{MapArgs, StringArgs}
+import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 
-object testPfizerCNS_RCalc extends App {
-    val job_id: String = "pfizer_CNS_R_job_id"
-    val panel_name: String = "0db067e5-c3f2-4112-93be-f447f2fede74"
+object testPfizerAI_DCalc extends App {
+    val job_id: String = "pfizer_inf_job_id"
+    val panel_name: String = "c86c6799-12cb-4f06-af75-d9e4276a668b"
     println(s"panel_name = $panel_name")
     val max_name: String = UUID.randomUUID().toString
     println(s"max_name = $max_name")
@@ -25,14 +24,14 @@ object testPfizerCNS_RCalc extends App {
         "max_name" -> max_name,
         "max_search_name" -> max_search_name,
         "ym" -> "201804",
-        "mkt" -> "CNS_R",
+        "mkt" -> "AI_D",
         "job_id" -> job_id,
         "user_id" -> "user_id",
         "company_id" -> "company_id",
         "prod_lst" -> "辉瑞",
         "p_current" -> "1",
         "p_total" -> "1",
-        "universe_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_CNS_R.csv"
+        "universe_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_Universe_AI_D.csv"
     )
 
     implicit val system: ActorSystem = ActorSystem("maxActor")
@@ -44,14 +43,14 @@ object testPfizerCNS_RCalc extends App {
         "xmpp_listens" -> "lu@localhost",
         "xmpp_pool_num" -> "1"
     )
-//    val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
-//    val lactor: ActorSelection = system.actorSelection(acter_location)
-//    val lactor: ActorSelection = system.actorSelection(xmppFactor.getNullActor)
+    //    val acter_location: String = xmppFactor.startLocalClient(new commonXmppConsumer)
+    //    val lactor: ActorSelection = system.actorSelection(acter_location)
+    //    val lactor: ActorSelection = system.actorSelection(xmppFactor.getNullActor)
     val send: channelEntity => Unit = { obj =>
         ("lu@localhost#alfred@localhost", obj)
     }
 
-    val result = phPfizerForCNS_RMaxJob(map)(send).perform()
+    val result = phPfizerMaxJob(map)(send).perform()
             .asInstanceOf[MapArgs].get("result")
             .asInstanceOf[StringArgs].get
     println(result)

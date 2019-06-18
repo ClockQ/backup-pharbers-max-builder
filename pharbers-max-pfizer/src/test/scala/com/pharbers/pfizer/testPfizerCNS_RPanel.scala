@@ -18,7 +18,7 @@ import com.pharbers.spark.phSparkDriver
   * @since 2019/06/18 14:44
   * @note 一些值得注意的地方
   */
-object testPfizerAI_DPanel extends App {
+object testPfizerCNS_RPanel extends App {
     val job_id: String = "pfizer_inf_job_id"
 
     val panel_name: String = UUID.randomUUID().toString
@@ -28,7 +28,7 @@ object testPfizerAI_DPanel extends App {
         "panel_path" -> "hdfs:///workData/Panel/",
         "panel_name" -> panel_name,
         "ym" -> "201804",
-        "mkt" -> "AI_D",
+        "mkt" -> "CNS_R",
         "user_id" -> "user_id",
         "company_id" -> "company_id",
         "p_current" -> "1",
@@ -37,7 +37,7 @@ object testPfizerAI_DPanel extends App {
         "prod_lst" -> "辉瑞",
         "cpa_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_CPA.csv",
         "gycx_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_201804_Gycx.csv",
-        "hosp_ID_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_AI_D.csv",
+        "hosp_ID_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_If_panel_all_CNS_R.csv",
         "product_match_file" -> "hdfs:///data/pfizer/pha_config_repository1901/Pfizer_ProductMatchTable_20190403.csv",
         "markets_match_file" -> "/data/pfizer/pha_config_repository1901/Pfizer_MarketMatchTable_20190422.csv",
         "fill_hos_data_file" -> "hdfs:///data/pfizer/pha_config_repository1804/Pfizer_2018_FullHosp.txt",
