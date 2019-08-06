@@ -15,7 +15,8 @@ class phPanelInfo2Redis(override val defaultArgs: pActionArgs) extends pActionTr
     override val name: String = "phPanelInfo2Redis"
 
     override def perform(pr: pActionArgs): pActionArgs = {
-//        val rd = new PhRedisDriver()
+        phInfoLog(s"准备 -- [panel]聚合数据到Redis中")
+        val rd = new PhRedisDriver()
 //
         val company_id = defaultArgs.asInstanceOf[MapArgs].get("company_id").asInstanceOf[StringArgs].get
         val user_id = defaultArgs.asInstanceOf[MapArgs].get("user_id").asInstanceOf[StringArgs].get

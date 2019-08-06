@@ -77,17 +77,17 @@ trait phCommonMaxJobTrait extends sequenceJobWithMap {
 
     override val actions: List[pActionTrait] = {
         setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(1, 10, job_id) ::
+//                addListenerAction(1, 10, job_id) ::
                 loadPanelData ::
-                addListenerAction(11, 20, job_id) ::
+//                addListenerAction(11, 20, job_id) ::
                 readUniverseFile ::
-                addListenerAction(21, 30, job_id) ::
+//                addListenerAction(21, 30, job_id) ::
                 phMaxCalcAction(df) ::
-                addListenerAction(31, 40, job_id) ::
+//                addListenerAction(31, 40, job_id) ::
                 phMaxPersistentAction(df) ::
-                addListenerAction(41, 90, job_id) ::
+//                addListenerAction(41, 90, job_id) ::
                 phMaxInfo2RedisAction(df) ::
-                addListenerAction(91, 99, job_id) ::
+//                addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("phMaxInfo2RedisAction", tranFun) ::
                 Nil
     }

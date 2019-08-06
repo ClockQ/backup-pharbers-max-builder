@@ -21,9 +21,9 @@ class resultCheckJob(override val defaultArgs: pActionArgs)
 
     override val actions: List[pActionTrait] = {
                 executeMaxAction(df) ::
-                loadOfflineResult(df) ::
-                resultCheckAction(df) ::
-                writeCheckResultAction(df) ::
+//                loadOfflineResult(df) ::
+//                resultCheckAction(df) ::
+//                writeCheckResultAction(df) ::
                 Nil
     }
 }

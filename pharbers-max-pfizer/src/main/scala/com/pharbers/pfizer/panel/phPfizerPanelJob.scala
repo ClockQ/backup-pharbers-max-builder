@@ -134,32 +134,32 @@ case class phPfizerPanelJob(args: Map[String, String])
     implicit val xp: Map[String, Any] => Unit = sendXmppMultiProgress(company_id, user_id, "panel", job_id)(p_current, p_total).multiProgress
 
     override val actions: List[pActionTrait] = {
-        setLogLevelAction("ERROR", job_id) ::
-                addListenerAction(1, 5, job_id) ::
+        setLogLevelAction("INFO", job_id) ::
+//                addListenerAction(1, 5, job_id) ::
                 load_hosp_ID_file ::
-                addListenerAction(6, 10, job_id) ::
+//                addListenerAction(6, 10, job_id) ::
                 load_product_match_file ::
-                addListenerAction(11, 15, job_id) ::
+//                addListenerAction(11, 15, job_id) ::
                 load_markets_match_file ::
-                addListenerAction(16, 20, job_id) ::
+//                addListenerAction(16, 20, job_id) ::
                 load_full_hosp_file ::
-                addListenerAction(21, 25, job_id) ::
+//                addListenerAction(21, 25, job_id) ::
                 load_pfc_match_file ::
-                addListenerAction(26, 35, job_id) ::
+//                addListenerAction(26, 35, job_id) ::
                 readCpa ::
-                addListenerAction(36, 45, job_id) ::
+//                addListenerAction(36, 45, job_id) ::
                 readNotArrivalHosp ::
-                addListenerAction(46, 55, job_id) ::
+//                addListenerAction(46, 55, job_id) ::
                 readGyc ::
-                addListenerAction(56, 60, job_id) ::
+//                addListenerAction(56, 60, job_id) ::
                 splitMktJobsMap.getOrElse(mkt, throw new Exception(s"undefined market=$mkt")) ::
-                addListenerAction(61, 70, job_id) ::
+//                addListenerAction(61, 70, job_id) ::
                 phPfizerPanelCommonAction(df) ::
-                addListenerAction(71, 80, job_id) ::
+//                addListenerAction(71, 80, job_id) ::
                 phSavePanelJob(df) ::
-                addListenerAction(81, 90, job_id) ::
+//                addListenerAction(81, 90, job_id) ::
                 phPanelInfo2Redis(df) ::
-                addListenerAction(91, 99, job_id) ::
+//                addListenerAction(91, 99, job_id) ::
                 phResult2StringJob("phPanelInfo2Redis", tranFun) ::
                 Nil
     }
