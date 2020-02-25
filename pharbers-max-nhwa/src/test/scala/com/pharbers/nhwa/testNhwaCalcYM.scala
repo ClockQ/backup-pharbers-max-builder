@@ -12,7 +12,8 @@ import com.pharbers.channel.driver.xmpp.xmppImpl.xmppBase.XmppConfigType
 object testNhwaCalcYM extends App {
     val job_id: String = "job_id2"
     val map: Map[String, String] = Map(
-        "cpa_file" -> "hdfs:///data/nhwa/pha_config_repository1804/Nhwa_201804_CPA_.csv",
+        "cpa_file" -> "hdfs:///tmp/Nhwa_201804_CPA_.csv",
+//        "cpa_file" -> "hdfs:///history/data/nhwa/pha_config_repository1804/Nhwa_201804_CPA_.csv",
         "user_id" -> "user_id",
         "company_id" -> "company_id",
         "job_id" -> job_id
